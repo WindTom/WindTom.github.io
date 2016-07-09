@@ -1,49 +1,78 @@
+# Jekyll-Bootstrap
 
-# Vitae
+The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
 
-[![Build Status](https://secure.travis-ci.org/biomadeira/vitae.png?branch=gh-pages)](http://travis-ci.org/biomadeira/vitae)
+## Usage
 
-Personal homepage (curriculum vitae or resume) based on [João's](https://github.com/joaomoreno/resume).
-Vitae is built with [skeleton](http://getskeleton.com/), powered by [Jekyll](http://jekyllrb.com/) and freely
-hosted in [Github pages](https://pages.github.com/).
+For all usage and documentation please see: <http://jekyllbootstrap.com>
 
+## Version
 
-## View the live demo
+0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
 
-[Vitae Live Demo](https://biomadeira.github.io/vitae)
+**NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
+However, the actual API has not changed at all.
+You might want to run 0.3.0 in a branch to make sure you are ok with the theme design changes.
 
+## Milestones
 
-## Screenshots
+[0.4.0](https://github.com/plusjade/jekyll-bootstrap/milestones/v%200.4.0) - next release [ETA 03/29/2015]
 
-![resume page](https://raw.githubusercontent.com/biomadeira/vitae/gh-pages/assets/images/vitae_screen.png)
+### GOALS
 
-
-## How to use it
-
-Simply clone/fork this repository, and then run `jekyll serve` inside the directory.
-Edit the site attributes in *_config.yml* and edit the various entries in *_includes/*.
-
-## Issues and contributing 
-
-I have tested this install with Ruby v2.2.2p95 (Mac OS RVM) and Jekyll v3.0.0. If you run into any problems please log them on the [issue tracker](https://github.com/biomadeira/vitae/issues).
-
-Feel free pull-request your patches and fixes.
+* No open PRs against master branch.
+* Squash some bugs.
+* Add some new features (low-hanging fruit).
+* Establish social media presence.
 
 
-## Thanks 
+### Bugs
 
-A lot of the work had been already done by the Joao. Many thanks to him :smile:
+|Bug |Description
+|------|---------------
+|[#86](https://github.com/plusjade/jekyll-bootstrap/issues/86)  |&#x2611; Facebook Comments
+|[#113](https://github.com/plusjade/jekyll-bootstrap/issues/113)|&#x2611; ASSET_PATH w/ page & post
+|[#144](https://github.com/plusjade/jekyll-bootstrap/issues/144)|&#x2610; BASE_PATH w/ FQDN
+|[#227](https://github.com/plusjade/jekyll-bootstrap/issues/227)|&#x2611; Redundant JB/setup
 
-Profile picture from [pexels](https://www.pexels.com/photo/portrait-black-african-ethnicity-person-9494/).
+### Features
+
+|Bug |Description
+|------|---------------
+|[#98](https://github.com/plusjade/jekyll-bootstrap/issues/98)  |&#x2611; GIST Integration
+|[#244](https://github.com/plusjade/jekyll-bootstrap/issues/244)|&#x2611; JB/file_exists Helper
+|[#42](https://github.com/plusjade/jekyll-bootstrap/issues/42)  |&#x2611; Sort collections of Pages / Posts
+|[#84](https://github.com/plusjade/jekyll-bootstrap/issues/84)  |&#x2610; Detecting production mode
+
+### TODOS
+
+Review existing pull requests against plusjake/jekyll-bootstrap:master. Merge or close each.
+
+* Create twitter account. Add link / icon on jekyllbootstrap.com.
+* Create blog posts under plusjade/gh-pages, expose on jekyllbootstrap.com, feed to twitter account.
+* Announce state of project, announce roadmap(s), announce new versions as they’re released.
+
+## Contributing
 
 
-## Copyright & License
+To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
+This is very important as it allows me to accept your pull request without having to publish a public version release.
 
-Copyright (C) 2015 - Released under the MIT License.
+Small, atomic Features, bugs, etc.
+Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.
+Please rebase as often as possible when working.
+Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+For Big Features or major API extensions/edits:
+This is the one case where I'll accept pull-requests based off the master branch.
+This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
+Translation : it might take a bit longer so please be patient! (but sincerely thank you).
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+**Jekyll-Bootstrap Documentation Website.**
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The documentation website at <http://jekyllbootstrap.com> is maintained at https://github.com/plusjade/jekyllbootstrap.com
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
