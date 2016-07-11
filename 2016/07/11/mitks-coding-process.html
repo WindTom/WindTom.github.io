@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Archive</title>
-    
+    <title>MITK编程流程</title>
+    <meta name="description" content="">
     <meta name="author" content="WindTom">
 
     <!-- Enable responsive viewport -->
@@ -70,7 +70,7 @@
     
       
       	
-      	<li class="active"><a href="/archive" class="active">Archive</a></li>
+      	<li><a href="/archive">Archive</a></li>
       	
       
     
@@ -128,66 +128,84 @@
         
 
 <div class="page-header">
-  <h1>Archive </h1>
+  <h1>MITK编程流程 </h1>
 </div>
 
-<div class="row">
+<div class="row post-full">
   <div class="col-xs-12">
-    
-
-
-
-
-
-
-  
-    
-    
-    
-    
-  
-    
-      <h2>2016</h2>
-      <h3>July</h3>
-      <ul>
-    
-  
-    <li><span>July 11, 2016</span> &raquo; <a href="/2016/07/11/mitks-coding-process">MITK编程流程</a></li>
-  
-    
-          
-        
+    <div class="date">
+      <span>11 July 2016</span>
+    </div>
+    <div class="content">
       
+<p>MITK官方网站：www.mitk.org</p>
+
+<p>使用MITK编程的一般流程为：</p>
+
+<ol>
+  <li>
+    <p>创建自定义插件<br />
+使用PlugInGenerator创建一个自定义插件，注意插件的命名要符合MITKTemplate的命名方式，插件可以存放在任何位置，下一步会拷贝至template文件夹下。</p>
+  </li>
+  <li>
+    <p>拷贝自定义插件<br />
+将生成的插件(Plugin)放进MITKTemplate文件夹中的Plugins文件夹下，并修改该文件夹下的Plugins.cmake，将自定义插件添加进去。</p>
+  </li>
+  <li>
+    <p>使用CMake编译MITKTemplate
+注意将两个superbuild选项设为OFF，同时将编译好的ITK、VTK、DCMTK等路径填好。</p>
+  </li>
+  <li>
+    <p>打开编译好的Template，使用StartVS_debug.bat，或者StartVS_release打开相应版本的工程。</p>
+  </li>
+  <li>
+    <p>将AwsomeAPP设为启动项。</p>
+  </li>
+  <li>
+    <p>运行测试工程。</p>
+  </li>
+  <li>
+    <p>打开插件的.h和.cpp文件，编写自己的程序。</p>
+  </li>
+</ol>
+
+    </div>
+
+    
+
     
   
+    <hr>
+    <ul class="pagination">
     
+      <li class="prev"><a href="/2016/07/11/mitk" title="如何使用MITK定义的插件">&laquo; Previous</a></li>
     
+      <li><a href="/archive.html">Archive</a></li>
     
+      <li class="next disabled"><a>Next &rarr;</a>
     
-  
+    </ul>
+    <hr>
     
-  
-    <li><span>July 11, 2016</span> &raquo; <a href="/2016/07/11/mitk">如何使用MITK定义的插件</a></li>
-  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
     
-          
-        
-      
+    var disqus_developer = 1;
+    var disqus_shortname = 'windtom'; // required: replace example with your forum shortname
     
-  
-    
-    
-    
-    
-  
-    
-  
-    <li><span>July 10, 2016</span> &raquo; <a href="/2016/07/10/jxhs-blog">博客开通说明</a></li>
-  
-    
-      </ul>
-    
-  
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 
 
   </div>
