@@ -1,77 +1,28 @@
+---
+layout: null
+title : Atom Feed
+---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>WindTom&#39;s Blog</title>
- <link href="http://windtom.github.io/atom.xml" rel="self"/>
- <link href="http://windtom.github.io"/>
- <updated>2016-07-11T14:50:17+08:00</updated>
- <id>http://windtom.github.io</id>
+ <title>{{ site.title | xml_escape }}</title>
+ <link href="{{ site.production_url }}{{ site.JB.atom_path }}" rel="self"/>
+ <link href="{{ site.production_url }}"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>{{ site.production_url }}</id>
  <author>
-   <name>WindTom</name>
-   <email>wobujianni@hotmail.com</email>
+   <name>{{ site.author.name | xml_escape }}</name>
+   <email>{{ site.author.email }}</email>
  </author>
 
- 
+ {% for post in site.posts limit:20 %}
  <entry>
-   <title>MITK编程流程</title>
-   <link href="http://windtom.github.io/2016/07/11/mitks-coding-process"/>
-   <updated>2016-07-11T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/07/11/mitks-coding-process</id>
-   <content type="html">
-&lt;p&gt;MITK官方网站：www.mitk.org&lt;/p&gt;
-
-&lt;p&gt;使用MITK编程的一般流程为：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;创建自定义插件&lt;br /&gt;
-使用PlugInGenerator创建一个自定义插件，注意插件的命名要符合MITKTemplate的命名方式，插件可以存放在任何位置，下一步会拷贝至template文件夹下。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;拷贝自定义插件&lt;br /&gt;
-将生成的插件(Plugin)放进MITKTemplate文件夹中的Plugins文件夹下，并修改该文件夹下的Plugins.cmake，将自定义插件添加进去。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用CMake编译MITKTemplate
-注意将两个superbuild选项设为OFF，同时将编译好的ITK、VTK、DCMTK等路径填好。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开编译好的Template，使用StartVS_debug.bat，或者StartVS_release打开相应版本的工程。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将AwsomeAPP设为启动项。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;运行测试工程。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开插件的.h和.cpp文件，编写自己的程序。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</content>
+   <title>{{ post.title | xml_escape }}</title>
+   <link href="{{ site.production_url }}{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>{{ site.production_url }}{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
- 
- <entry>
-   <title>如何使用MITK定义的插件</title>
-   <link href="http://windtom.github.io/2016/07/11/mitk"/>
-   <updated>2016-07-11T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/07/11/mitk</id>
-   <content type="html">
-&lt;p&gt;使用MITK编辑界面的时候，QT Designer中只显示 QT 自带的组件，但如果你想用MITK中的QT组件，比如QmitkDataStorageComboBox ，应该怎么做呢？&lt;/p&gt;
-
-&lt;p&gt;方法是在QT Designer中创建一个普通的combo box，然后右键点击，选择“提升为”，在弹出对话框中，“提升的类名称：”QmitkDataStorageComboBox，头文件QmitkDataStorageComboBox.h，然后点击添加就可以了。非常方便！&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>博客开通说明</title>
-   <link href="http://windtom.github.io/2016/07/10/jxhs-blog"/>
-   <updated>2016-07-10T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/07/10/jxhs-blog</id>
-   <content type="html">
-&lt;p&gt;本博客刚刚开通，模板也是最简单的。&lt;/p&gt;
-</content>
- </entry>
- 
+ {% endfor %}
  
 </feed>
