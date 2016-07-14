@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>标准Lena测试图像下载</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">WindTom's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+
+<div class="page-header">
+  <h1>标准Lena测试图像下载 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>11 June 2016</span>
+    </div>
+    <div class="content">
+      
+<p>在做图像处理的时候常常用到Lena图像，但网上提供的测试图标准不一。这是Rice University提供的标准测试图，省去大家四处寻找之苦。另外，仔细阅读这个链接，你还会发现其他有用信息^.^</p>
+
+<h2 id="httpwwwecericeeduwakinimages">原文链接： http://www.ece.rice.edu/~wakin/images/</h2>
+<p># Wet Paint #
+This test image was taken by our group in Duncan Hall at Rice University. The Matlab file for the 1024x1024 image is <a href="http://www.ece.rice.edu/~wakin/images/paint.mat">here</a>.
+# Lena/Lenna #</p>
+
+<p>There seem to be many versions of the Lena (aka “Lenna”) test image available. This problem was noted by Shapiro in his 1993 zerotree paper, and it remains surprisingly true today. This web page is an attempt to clear up some of the confusion (and hopefully not add to it).</p>
+
+<p>The files on this page are given in lossless compression formats. These can be imported into Matlab or opened using photo-editing software. The imread command in Matlab is often useful for importing files such as tiff or bmp. (You may need to convert the data to type double after loading it). For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lena512 = imread('lena512.bmp');
+
+lena512 = double(lena512);
+</code></pre>
+</div>
+
+<p>To write an image to a file, use imwrite:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>imwrite(uint8(lena512),'lena512.bmp','bmp');
+</code></pre>
+</div>
+
+<h1 id="x512-color-24-bit">512x512 Color (24-bit)</h1>
+<p>This seems to be a pretty widely accepted standard, which originated from a scan of the published photograph (see The Lenna Story). This version is also provided at the USC-SIPI Image Database.</p>
+
+<p>TIFF: lena512color.tiff (787kB)</p>
+
+<h1 id="x512-grayscale-8-bit">512x512 Grayscale (8-bit)</h1>
+
+<p>There doesn’t seem to be as much agreement on this version of the image. At some point, the original color image needed to be converted to grayscale. As Shapiro noted, options included taking only the green component of the RGB representation, or using a luminance-only version. You could also average the RGB components, etc.</p>
+
+<p>I’m not sure how the following version was generated, but it is provided by the Image Communications Lab at UCLA (they apparently obtained it from RPI).</p>
+
+<p>Each of the following files should contain the same information. If there is truly a standard version of the 512x512 Grayscale Lena, this seems to be it.</p>
+
+<p>BMP: lena512.bmp (263kB)</p>
+
+<p>PGM: lena512.pgm (262kB)</p>
+
+<p>MATLAB: lena512.mat (262kB)</p>
+
+<h1 id="comparing-different-versions">Comparing Different Versions</h1>
+
+<p>To illustrate the importance of using a standard version, let’s look at a few different ones that are floating around. We’ll compress each of them using a JPEG2000 coder (obtained from The JasPer Project).</p>
+
+<p>You can see the Matlab versions of the images here. If you click on the following links, you can see standard jpg files. (These are just for viewing and comparision purposes - use the matlab files for experiments!)</p>
+
+<p>Image 1 is the standard which is discussed in the above section. Image 2 is another version which I’ve seen, and it looks and behaves very similar to the standard. Image 3 is obtained by taking the green component from the 24-bit original (described above). It appears darker than the others, and it is harder to compress. Image 4 is yet another version that seems to be floating around. Visually it is very different from the others… …</p>
+
+<p><img src="http://i.imgur.com/Wx8GoSJ.jpg" alt="" /></p>
+
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#Lena-ref">Lena <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/lessons/2016/06/10/jxhs-blog" title="Jxhs Blog">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/2016/07/11/mitk" title="如何使用MITK定义的插件">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'windtom'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//windtom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2016 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+	<script id="dsq-count-scr" src="//windtom.disqus.com/count.js" async></script>
+  </body>
+</html>
+

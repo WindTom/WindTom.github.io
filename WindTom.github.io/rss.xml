@@ -1,216 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
- 
- <title>WindTom&#39;s Blog</title>
- <link href="http://windtom.github.io/atom.xml" rel="self"/>
- <link href="http://windtom.github.io"/>
- <updated>2016-07-14T16:07:31+08:00</updated>
- <id>http://windtom.github.io</id>
- <author>
-   <name></name>
-   <email></email>
- </author>
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+        <title>Jekyll Bootstrap</title>
+        <description>Jekyll Bootstrap - Name Lastname</description>
+        <link>http://username.github.io</link>
+        <atom:link href="http://username.github.io/rss.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Sun, 10 Jul 2016 23:28:30 +0800</lastBuildDate>
+        <pubDate>Sun, 10 Jul 2016 23:28:30 +0800</pubDate>
+        <ttl>60</ttl>
 
- 
- <entry>
-   <title>超声、超声心动图和多普勒基础入门（一）</title>
-   <link href="http://windtom.github.io/2016/07/11/ultrasound-introduction"/>
-   <updated>2016-07-11T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/07/11/ultrasound-introduction</id>
-   <content type="html">
-&lt;hr /&gt;
 
-&lt;p&gt;英文链接: 
-（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound） 
-本文的目的是尽量以图片介绍超声心动图和多普勒基础知识。&lt;/p&gt;
+        <item>
+                <title>jxh&#39;s blog</title>
+                <description>
+</description>
+                <link>http://username.github.io/2016/07/10/jxhs-blog</link>
+                <guid>http://username.github.io/2016/07/10/jxhs-blog</guid>
+                <pubDate>Sun, 10 Jul 2016 00:00:00 +0800</pubDate>
+        </item>
 
-&lt;p&gt;题外话：看老外的科普性的文章，最大的感受就是直观，很容易让人明白，而国人总喜欢取术语，而且取名又让人很难理解其中的含义。百度上搜一个问题，不同的博客给的都是同一个答案。如果我们都能少一些拷贝粘贴，多写一些理解性的话，那别人学起来就容易多了。&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;超声&lt;/h3&gt;
-&lt;p&gt;简单来说，超声就是声波，和人的声音一样，只是你听不见而已。声音是纵波，沿声音传播方向前后振荡。 
-人能听见的声音大概在15000到20000赫兹，而临床上超声的频率在1000到12000赫兹。我们能墙角拐弯处能听见声音，是因为声音在这些弯角处发生衍射；高频（短波长）声音则会像电磁波一样沿直线传播，遇到物体时反射回来的波束能量也更为集中，就像光束的反射一样。因为波长短，高频声波更易在较小的物体上发生发射，且在气态媒介中不易传播。 
-高中物理课本告诉我们波长和频率f成反比，它们与速度v的关系是:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;gongshi.gif&quot; alt=&quot;image title&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;声波在不同媒介中的速度不同。&lt;/p&gt;
-
-&lt;p&gt;脉冲电压加在晶片上，晶体产生振动，从而产生超声波，我们叫这种晶体为压电晶体。同一个晶体可以作为反射超声波的接收者。&lt;/p&gt;
-
-&lt;p&gt;什么是超声数据？ 
-超声数据按照复杂度可作如下分类：&lt;/p&gt;
-
-&lt;div&gt;
-     &lt;table&gt;
-        &lt;tr&gt;
-		&lt;div align=&quot;center&quot;&gt;
-            &lt;th&gt;&lt;img src=&quot;RF.gif&quot; /&gt;&lt;/th&gt;
-            &lt;th&gt;
-			    &lt;img src=&quot;RF-ampl.gif&quot; /&gt;&lt;img src=&quot;ampl.gif&quot; /&gt;
-			&lt;/th&gt;    
-            &lt;th&gt;              
-                &lt;img src=&quot;freq.gif&quot; /&gt;
-            &lt;/th&gt;    
-        &lt;/div&gt;			
-        &lt;/tr&gt;
-		&lt;tr&gt;
-		    &lt;th&gt;
-			    Basically, a reflected ultrasound pulse is a waveform. However, storing the full waveform, called RF data, is demanding in terms of storage, as each point on the curve would have to be represented in some way or other. However, if the full RF data are stored, the amplitude and frequency data could both be calculated in post processing.
-			&lt;/th&gt;
-			&lt;th&gt;
-			    The pulse has a certain amplitude. Just storing the amplitude is much les demanding (corresponding more or less to one number per pulse). This is the only data that are used in grey scale imaging, where the amplitude is displayed as brightness of the point correspåonding to the scatterer as in B-mode and M-mode.
-			&lt;/th&gt;
-			&lt;th&gt;
-			    However, the reflected ultrasound pulse has a frequency (or a spectrum of frequencies), and this can be represented as a numerical value per image pixel as well, as described in Doppler imaging. Still, the amount of data is far less than the RF data.
-			&lt;/th&gt;
-		&lt;/tr&gt;
-     &lt;/table&gt;
-     
-  &lt;/div&gt;
-
-&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    /*
-    var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page&#39;s canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable
-    };
-    */
-    (function() {  // DON&#39;T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement(&#39;script&#39;);
-        
-        s.src = &#39;//windtom.disqus.com/embed.js&#39;;
-        
-        s.setAttribute(&#39;data-timestamp&#39;, +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-&lt;/script&gt;
-
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>MITK编程流程</title>
-   <link href="http://windtom.github.io/2016/07/11/mitks-coding-process"/>
-   <updated>2016-07-11T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/07/11/mitks-coding-process</id>
-   <content type="html">
-&lt;p&gt;MITK官方网站：www.mitk.org&lt;/p&gt;
-
-&lt;p&gt;使用MITK编程的一般流程为：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;创建自定义插件&lt;br /&gt;
-使用PlugInGenerator创建一个自定义插件，注意插件的命名要符合MITKTemplate的命名方式，插件可以存放在任何位置，下一步会拷贝至template文件夹下。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;拷贝自定义插件&lt;br /&gt;
-将生成的插件(Plugin)放进MITKTemplate文件夹中的Plugins文件夹下，并修改该文件夹下的Plugins.cmake，将自定义插件添加进去。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用CMake编译MITKTemplate
-注意将两个superbuild选项设为OFF，同时将编译好的ITK、VTK、DCMTK等路径填好。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开编译好的Template，使用StartVS_debug.bat，或者StartVS_release打开相应版本的工程。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将AwsomeAPP设为启动项。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;运行测试工程。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开插件的.h和.cpp文件，编写自己的程序。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>如何使用MITK定义的插件</title>
-   <link href="http://windtom.github.io/2016/07/11/mitk"/>
-   <updated>2016-07-11T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/07/11/mitk</id>
-   <content type="html">
-&lt;p&gt;使用MITK编辑界面的时候，QT Designer中只显示 QT 自带的组件，但如果你想用MITK中的QT组件，比如QmitkDataStorageComboBox ，应该怎么做呢？&lt;/p&gt;
-
-&lt;p&gt;方法是在QT Designer中创建一个普通的combo box，然后右键点击，选择“提升为”，在弹出对话框中，“提升的类名称：”QmitkDataStorageComboBox，头文件QmitkDataStorageComboBox.h，然后点击添加就可以了。非常方便！&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>标准Lena测试图像下载</title>
-   <link href="http://windtom.github.io/2016/06/11/download-lena-image"/>
-   <updated>2016-06-11T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/2016/06/11/download-lena-image</id>
-   <content type="html">
-&lt;p&gt;在做图像处理的时候常常用到Lena图像，但网上提供的测试图标准不一。这是Rice University提供的标准测试图，省去大家四处寻找之苦。另外，仔细阅读这个链接，你还会发现其他有用信息^.^&lt;/p&gt;
-
-&lt;h2 id=&quot;httpwwwecericeeduwakinimages&quot;&gt;原文链接： http://www.ece.rice.edu/~wakin/images/&lt;/h2&gt;
-&lt;p&gt;# Wet Paint #
-This test image was taken by our group in Duncan Hall at Rice University. The Matlab file for the 1024x1024 image is &lt;a href=&quot;http://www.ece.rice.edu/~wakin/images/paint.mat&quot;&gt;here&lt;/a&gt;.
-# Lena/Lenna #&lt;/p&gt;
-
-&lt;p&gt;There seem to be many versions of the Lena (aka “Lenna”) test image available. This problem was noted by Shapiro in his 1993 zerotree paper, and it remains surprisingly true today. This web page is an attempt to clear up some of the confusion (and hopefully not add to it).&lt;/p&gt;
-
-&lt;p&gt;The files on this page are given in lossless compression formats. These can be imported into Matlab or opened using photo-editing software. The imread command in Matlab is often useful for importing files such as tiff or bmp. (You may need to convert the data to type double after loading it). For example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lena512 = imread(&#39;lena512.bmp&#39;);
-
-lena512 = double(lena512);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;To write an image to a file, use imwrite:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;imwrite(uint8(lena512),&#39;lena512.bmp&#39;,&#39;bmp&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;x512-color-24-bit&quot;&gt;512x512 Color (24-bit)&lt;/h1&gt;
-&lt;p&gt;This seems to be a pretty widely accepted standard, which originated from a scan of the published photograph (see The Lenna Story). This version is also provided at the USC-SIPI Image Database.&lt;/p&gt;
-
-&lt;p&gt;TIFF: lena512color.tiff (787kB)&lt;/p&gt;
-
-&lt;h1 id=&quot;x512-grayscale-8-bit&quot;&gt;512x512 Grayscale (8-bit)&lt;/h1&gt;
-
-&lt;p&gt;There doesn’t seem to be as much agreement on this version of the image. At some point, the original color image needed to be converted to grayscale. As Shapiro noted, options included taking only the green component of the RGB representation, or using a luminance-only version. You could also average the RGB components, etc.&lt;/p&gt;
-
-&lt;p&gt;I’m not sure how the following version was generated, but it is provided by the Image Communications Lab at UCLA (they apparently obtained it from RPI).&lt;/p&gt;
-
-&lt;p&gt;Each of the following files should contain the same information. If there is truly a standard version of the 512x512 Grayscale Lena, this seems to be it.&lt;/p&gt;
-
-&lt;p&gt;BMP: lena512.bmp (263kB)&lt;/p&gt;
-
-&lt;p&gt;PGM: lena512.pgm (262kB)&lt;/p&gt;
-
-&lt;p&gt;MATLAB: lena512.mat (262kB)&lt;/p&gt;
-
-&lt;h1 id=&quot;comparing-different-versions&quot;&gt;Comparing Different Versions&lt;/h1&gt;
-
-&lt;p&gt;To illustrate the importance of using a standard version, let’s look at a few different ones that are floating around. We’ll compress each of them using a JPEG2000 coder (obtained from The JasPer Project).&lt;/p&gt;
-
-&lt;p&gt;You can see the Matlab versions of the images here. If you click on the following links, you can see standard jpg files. (These are just for viewing and comparision purposes - use the matlab files for experiments!)&lt;/p&gt;
-
-&lt;p&gt;Image 1 is the standard which is discussed in the above section. Image 2 is another version which I’ve seen, and it looks and behaves very similar to the standard. Image 3 is obtained by taking the green component from the 24-bit original (described above). It appears darker than the others, and it is harder to compress. Image 4 is yet another version that seems to be floating around. Visually it is very different from the others… …&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Wx8GoSJ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Jxhs Blog</title>
-   <link href="http://windtom.github.io/lessons/2016/06/10/jxhs-blog"/>
-   <updated>2016-06-10T00:00:00+08:00</updated>
-   <id>http://windtom.github.io/lessons/2016/06/10/jxhs-blog</id>
-   <content type="html">
+        <item>
+                <title>Jekyll Introduction</title>
+                <description>
 &lt;p&gt;This Jekyll introduction will outline specifically  what Jekyll is and why you would want to use it.
 Directly following the intro we’ll learn exactly &lt;em&gt;how&lt;/em&gt; Jekyll does what it does.&lt;/p&gt;
 
@@ -228,11 +39,11 @@ dynamic components such as templates, partials, liquid code, markdown, etc. Jeky
 &lt;h3 id=&quot;what-does-jekyll-do&quot;&gt;What does Jekyll Do?&lt;/h3&gt;
 
 &lt;p&gt;Jekyll is a ruby gem you install on your local system.
-Once there you can call &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory
+Once there you can call &lt;code&gt;jekyll --server&lt;/code&gt; on a directory and provided that directory
 is setup in a way jekyll expects, it will do magic stuff like parse markdown/textile files,
 compute categories, tags, permalinks, and construct your pages from layout templates and partials.&lt;/p&gt;
 
-&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder.
+&lt;p&gt;Once parsed, Jekyll stores the result in a self-contained static &lt;code&gt;_site&lt;/code&gt; folder.
 The intention here is that you can serve all contents in this folder statically from a plain static web-server.&lt;/p&gt;
 
 &lt;p&gt;You can think of Jekyll as a normalish dynamic blog but rather than parsing content, templates, and tags
@@ -287,7 +98,7 @@ Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
 
 &lt;p&gt;Jekyll expects your website directory to be laid out like so:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+&lt;pre&gt;&lt;code&gt;.
 |-- _config.yml
 |-- _includes
 |-- _layouts
@@ -303,7 +114,6 @@ Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
         |-- style.css
     |-- javascripts
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -322,7 +132,7 @@ Jekyll-bootstrap conveniently provides the base directory format.&lt;/p&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;_posts&lt;/strong&gt;
   This folder contains your dynamic content/posts.
-  the naming format is required to be &lt;code class=&quot;highlighter-rouge&quot;&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;
+  the naming format is required to be &lt;code&gt;@YEAR-MONTH-DATE-title.MARKUP@&lt;/code&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;_site&lt;/strong&gt;
@@ -356,10 +166,10 @@ Both posts and pages can have meta-data assigned on a per-page basis such as tit
 &lt;h3 id=&quot;working-with-posts&quot;&gt;Working With Posts&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Creating a Post&lt;/strong&gt;
-Posts are created by properly formatting a file and placing it the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
+Posts are created by properly formatting a file and placing it the &lt;code&gt;_posts&lt;/code&gt; folder.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;
-A post must have a valid filename in the form &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory.
+A post must have a valid filename in the form &lt;code&gt;YEAR-MONTH-DATE-title.MARKUP&lt;/code&gt; and be placed in the &lt;code&gt;_posts&lt;/code&gt; directory.
 If the data format is invalid Jekyll will not recognize the file as a post. The date and title are automatically parsed from the filename of the post file.
 Additionally, each file must have &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt; prepended to its content.
 YAML Front-Matter is a valid YAML syntax specifying meta-data for the given file.&lt;/p&gt;
@@ -382,12 +192,11 @@ Note categories in Jekyll work in a specific way.
 If you define more than one category you are defining a category hierarchy “set”.
 Example:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+&lt;pre&gt;&lt;code&gt;---
 title :  Hello World
 categories : [lessons, beginner]
 ---
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;This defines the category hierarchy “lessons/beginner”. Note this is &lt;em&gt;one category&lt;/em&gt; node in Jekyll.
 You won’t find “lessons” and “beginner” as two separate categories unless you define them elsewhere as singular categories.&lt;/p&gt;
@@ -399,7 +208,7 @@ Pages are created by properly formatting a file and placing it anywhere in the r
 
 &lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;
 In order to register as a Jekyll page the file must contain &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter&quot;&gt;YAML Front-Matter&lt;/a&gt;.
-Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code class=&quot;highlighter-rouge&quot;&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
+Registering a page means 1) that Jekyll will process the page and 2) that the page object will be available in the &lt;code&gt;site.pages&lt;/code&gt; array for inclusion into your templates.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Categories and Tags&lt;/strong&gt;
 Pages do not compute categories nor tags so defining them will have no effect.&lt;/p&gt;
@@ -408,14 +217,13 @@ Pages do not compute categories nor tags so defining them will have no effect.&l
 If pages are defined in sub-directories, the path to the page will be reflected in the url.
 Example:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+&lt;pre&gt;&lt;code&gt;.
 |-- people
     |-- bob
         |-- essay.html
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;This page will be available at &lt;code class=&quot;highlighter-rouge&quot;&gt;http://yourdomain.com/people/bob/essay.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This page will be available at &lt;code&gt;http://yourdomain.com/people/bob/essay.html&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Recommended Pages&lt;/strong&gt;&lt;/p&gt;
 
@@ -433,20 +241,20 @@ A nice about page is easy to do and gives the human perspective to your website.
 &lt;h2 id=&quot;templates-in-jekyll&quot;&gt;Templates in Jekyll&lt;/h2&gt;
 
 &lt;p&gt;Templates are used to contain a page’s or post’s content.
-All templates have access to a global site object variable: &lt;code class=&quot;highlighter-rouge&quot;&gt;site&lt;/code&gt; as well as a page object variable: &lt;code class=&quot;highlighter-rouge&quot;&gt;page&lt;/code&gt;.
+All templates have access to a global site object variable: &lt;code&gt;site&lt;/code&gt; as well as a page object variable: &lt;code&gt;page&lt;/code&gt;.
 The site variable holds all accessible content and metadata relative to the site.
 The page variable holds accessible data for the given page or post being rendered at that point.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Create a Template&lt;/strong&gt;
-Templates are created by properly formatting a file and placing it in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
+Templates are created by properly formatting a file and placing it in the &lt;code&gt;_layouts&lt;/code&gt; directory.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Formatting&lt;/strong&gt;
 Templates should be coded in HTML and contain YAML Front Matter.
 All templates can contain Liquid code to work with your site’s data.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Rending Page/Post Content in a Template&lt;/strong&gt;
-There is a special variable in all templates named : &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt;.
-The &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined.
+There is a special variable in all templates named : &lt;code&gt;content&lt;/code&gt;.
+The &lt;code&gt;content&lt;/code&gt; variable holds the page/post content including any sub-template content previously defined.
 Render the content variable wherever you want your main content to be injected into your template:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;...
@@ -465,7 +273,7 @@ define another “root” layout/template within their YAML Front Matter.
 This essentially means a template will render inside of another template.&lt;/p&gt;
 
 &lt;h3 id=&quot;includes&quot;&gt;Includes&lt;/h3&gt;
-&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; folder.
+&lt;p&gt;In Jekyll you can define include files by placing them in the &lt;code&gt;_includes&lt;/code&gt; folder.
 Includes are NOT templates, rather they are just code snippets that get included into templates.
 In this way, you can treat the code inside includes as if it was native to the parent template.&lt;/p&gt;
 
@@ -533,7 +341,7 @@ This is done with the liquid templating language.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Post and Page files.&lt;/strong&gt;
 All content in Jekyll is either a post or a page so valid posts and pages are parsed with markdown or textile.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Template files.&lt;/strong&gt;
-  These files go in &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax.
+  These files go in &lt;code&gt;_layouts&lt;/code&gt; folder and contain your blogs &lt;strong&gt;templates&lt;/strong&gt;. They should be made in HTML with the help of Liquid syntax.
   Since include files are simply injected into templates they are essentially parsed as if they were native to the template.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -549,7 +357,7 @@ This is the only way Jekyll knows you want the file processed.&lt;/p&gt;
 
 &lt;p&gt;YAML Front Matter must be prepended to the top of template/post/page files:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+&lt;pre&gt;&lt;code&gt;---
 layout: post
 category : pages
 tags : [how-to, jekyll]
@@ -557,7 +365,6 @@ tags : [how-to, jekyll]
 
 ... contents ...
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block.
 The data inside the block must be valid YAML.&lt;/p&gt;
@@ -567,8 +374,8 @@ The data inside the block must be valid YAML.&lt;/p&gt;
 
 &lt;h4 id=&quot;defining-layouts-for-posts-and-templates-parsing&quot;&gt;Defining Layouts for Posts and Templates Parsing.&lt;/h4&gt;
 
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into.
-If a template file specifies its own layout, it is effectively being used as a &lt;code class=&quot;highlighter-rouge&quot;&gt;sub-template.&lt;/code&gt;
+&lt;p&gt;The &lt;code&gt;layout&lt;/code&gt; parameter in the YAML Front Matter defines the template file for which the given post or template should be injected into.
+If a template file specifies its own layout, it is effectively being used as a &lt;code&gt;sub-template.&lt;/code&gt;
 That is to say loading a post file into a template file that refers to another template file with work in the way you’d expect; as a nested sub-template.&lt;/p&gt;
 
 &lt;h2 id=&quot;how-jekyll-generates-the-final-static-files&quot;&gt;How Jekyll Generates the Final Static Files.&lt;/h2&gt;
@@ -584,7 +391,7 @@ The following is an outline of how that’s done:&lt;/p&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Jekyll computes data.&lt;/strong&gt;
   Jekyll takes these objects, computes metadata (permalinks, tags, categories, titles, dates) from them and constructs one
-  big &lt;code class=&quot;highlighter-rouge&quot;&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata.
+  big &lt;code&gt;site&lt;/code&gt; object that holds all the posts, pages, layouts, and respective metadata.
   At this stage your site is one big computed ruby object.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -603,7 +410,7 @@ The following is an outline of how that’s done:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Notes.&lt;/strong&gt;
 Because Jekyll computes the entire site in one fell swoop, each template is given access to
-a global &lt;code class=&quot;highlighter-rouge&quot;&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you’ll iterate through and format
+a global &lt;code&gt;site&lt;/code&gt; hash that contains useful data. It is this data that you’ll iterate through and format
 using the Liquid tags and filters in order to render it onto a given page.&lt;/p&gt;
 
 &lt;p&gt;Remember, in Jekyll you are an end-user. Your API has only two components:&lt;/p&gt;
@@ -629,8 +436,12 @@ As noted, our main programming constraint is the fact that our API is limited to
 
 &lt;p&gt;Please take a look at &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
 or jump right into &lt;a href=&quot;&quot;&gt;Usage&lt;/a&gt; if you’d like.&lt;/p&gt;
-</content>
- </entry>
- 
- 
-</feed>
+</description>
+                <link>http://username.github.io/lessons/2011/12/29/jekyll-introduction</link>
+                <guid>http://username.github.io/lessons/2011/12/29/jekyll-introduction</guid>
+                <pubDate>Thu, 29 Dec 2011 00:00:00 +0800</pubDate>
+        </item>
+
+
+</channel>
+</rss>
