@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Welcom!
+title: welcom!
 tagline: 技术、生活
 ---
 {% include JB/setup %}

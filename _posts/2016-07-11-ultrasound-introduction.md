@@ -21,7 +21,7 @@ tags: []
 人能听见的声音大概在15000到20000赫兹，而临床上超声的频率在1000到12000赫兹。我们能墙角拐弯处能听见声音，是因为声音在这些弯角处发生衍射；高频（短波长）声音则会像电磁波一样沿直线传播，遇到物体时反射回来的波束能量也更为集中，就像光束的反射一样。因为波长短，高频声波更易在较小的物体上发生发射，且在气态媒介中不易传播。 
 高中物理课本告诉我们波长和频率f成反比，它们与速度v的关系是:
 
-<center>![](http://i.imgur.com/wWPJ1xC.gif)</center>
+![image title](gongshi.gif)
 
 声波在不同媒介中的速度不同。
 
@@ -30,11 +30,36 @@ tags: []
 什么是超声数据？ 
 超声数据按照复杂度可作如下分类：
 
-<section>
-       <div>
-             <img src="E:/Images/RF.GID" >
-       </div>
-</section>
+  <div>
+     <table>
+        <tr>
+		<div align="center">
+            <th><img src="RF.gif"></th>
+            <th>
+			    <img src="RF-ampl.gif"><img src="ampl.gif">
+			</th>    
+            <th>              
+                <img src="freq.gif">
+            </th>    
+        </div>			
+        </tr>
+		<tr>
+		    <th>
+			    Basically, a reflected ultrasound pulse is a waveform. However, storing the full waveform, called RF data, is demanding in terms of storage, as each point on the curve would have to be represented in some way or other. However, if the full RF data are stored, the amplitude and frequency data could both be calculated in post processing.
+			</th>
+			<th>
+			    The pulse has a certain amplitude. Just storing the amplitude is much les demanding (corresponding more or less to one number per pulse). This is the only data that are used in grey scale imaging, where the amplitude is displayed as brightness of the point correspåonding to the scatterer as in B-mode and M-mode.
+			</th>
+			<th>
+			    However, the reflected ultrasound pulse has a frequency (or a spectrum of frequencies), and this can be represented as a numerical value per image pixel as well, as described in Doppler imaging. Still, the amount of data is far less than the RF data.
+			</th>
+		</tr>
+     </table>
+     
+  </div>
+
+
+
 
 
 
