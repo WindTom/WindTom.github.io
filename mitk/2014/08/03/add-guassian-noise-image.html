@@ -2,7 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>WindTom</title>
+	<title>MITK中如何给图像添加高斯噪声</title>
+	
+	<meta name="description" content="">
 	
 	<meta name="author" content="WindTom">
 
@@ -133,282 +135,130 @@
    <!--右边栏-->
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <!-- <h1>WindTom </h1> -->
-  <h1><p>文章</p></h1>
+  <h1>MITK中如何给图像添加高斯噪声 </h1>
 </div>
+	
+<article>
 
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   August 
+	   3rd,
+	     
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p>最近由于需要，要将读入的RGB图像转化成灰度图像，然后对图像加噪声，以验证去噪算法的效率。ITK在最新的4.6.0中就集成了Image Noise一个模块，里面有给图像加高斯噪声、斑点噪声、椒盐噪声和计算PSNR（峰值信噪比）的算法，但MITK使用的是ITK4.5.0的库，我们无法直接调用这些加噪Filter。</p>
 
+<p>要想使用这些Filter方法也很简单。</p>
 
-<article class="home">
+<p>1.下载ITK4.6.0，ITK4.6.0\Modules\Filtering\ImageNoise\include文件里就是所需要的所有头文件（图一），或者直接网上找所需要的头文件。</p>
+<div align="center">
+    <img src="https://github.com/WindTom/imagestom/blob/master/guassian1.png?raw=true" />
 
-  <span class="post-date">
-    
-    July
-    11th,
-    
-    2016
-  </span>
-
-  <h3>
-    <a href="/ultrasound/2016/07/11/ultrasound-introduction.html" ><span data-hover==超声、超声心动图和多普勒基础入门（一）>超声、超声心动图和多普勒基础入门（一）</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
+    <p>图一：ImageNoise文件夹内的加噪Filter </p>
   </div>
 
+<p>比如我新建了一个AddNoise插件：</p>
+
+<p>2.在插件内新建一个同名的头文件，如itkAdditiveGaussianNoiseImageFilter.h，并将内容复制进去。然后再把itkAdditiveGaussianNoiseImageFilter.hxx复制到新建的itkAdditiveGaussianNoiseImageFilter.h文件夹下(我的为Plugins\my.awesomeproject.AddNoise)。</p>
+
+<p>我们注意到itkAdditiveGaussianNoiseImageFilter.h还引用了itkNoiseBaseImageFilter.h，这个头文件ITK4.5.0里也没有，可以用同样的方法加进来。</p>
+
+<p>3.这些都做完后，我们发现itkAdditiveGaussianNoiseImageFilter.h头文件里的代码出错了：
+PCH warning: header stop cannot be in a macro or #if block. An intellisense PCH file was not generated
+方法是在头文件最上面加入一行代码：#pragma once
+这样就可以了，插件完美运行，附截图一张：</p>
+
+<div align="center">
+      <img src="https://github.com/WindTom/imagestom/blob/master/guassian2.png?raw=true" />
+   </div>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#MITK-ref">
+					MITK <span>(8)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#高斯噪声，图像，MITK-ref">
+					高斯噪声，图像，MITK <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=MITK中如何给图像添加高斯噪声"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="http://www.gravatar.com/avatar/" class="img-rounded author-image" />
+        <h4 class="section-title author-name">WindTom</h4>
+        <p class="author-bio">技术、生活！</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/mitk/2014/07/31/mitk-cmake-error.html" title="MITK自定义插件CMake编译时出错">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/c++/2014/08/04/c-to-string.html" title="C++通过ostringstream实现任意类型转string">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
 </article>
+<div class="clearfix"></div>
 
-
-<article class="home">
-
-  <span class="post-date">
-    
-    October
-    14th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/10/14/creat-2d-asm-itk-pca.html" ><span data-hover==Creating a 2D Active Shape Model in ITK Using PCA>Creating a 2D Active Shape Model in ITK Using PCA</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    27th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/08/27/mitk-cant-use-headfile.html" ><span data-hover==MITK中本来存在的头文件无法使用>MITK中本来存在的头文件无法使用</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    4th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/08/04/mitk-include-custom-head-file.html" ><span data-hover==MITK--如何在源文件中引用自定义头文件>MITK--如何在源文件中引用自定义头文件</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    4th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/c++/2014/08/04/c-to-string.html" ><span data-hover==C++通过ostringstream实现任意类型转string>C++通过ostringstream实现任意类型转string</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    3rd,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/08/03/add-guassian-noise-image.html" ><span data-hover==MITK中如何给图像添加高斯噪声>MITK中如何给图像添加高斯噪声</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    31st,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/07/31/mitk-cmake-error.html" ><span data-hover==MITK自定义插件CMake编译时出错>MITK自定义插件CMake编译时出错</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    31st,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/07/31/mitk-cant-find-itk-head-file.html" ><span data-hover==MITK插件找不到itk的头文件>MITK插件找不到itk的头文件</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    30th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/07/30/mitks-coding-process.html" ><span data-hover==MITK编程流程>MITK编程流程</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    30th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html" ><span data-hover==标准Lena测试图像下载>标准Lena测试图像下载</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-<hr/>
-
-<ul class="pager"> 
-
-  
-  <li class="previous disabled">
-    <a>&larr; Newer</a>
-  </li>
-  
-  
-  <li>
-    <span class="page_number">Page: 1 of 2</span>
-  </li>
-
-  
-  <li class="next">
-    <a href="/page2">Older &rarr;</a>
-  </li>
-  
-
-</ul>
 
 
 

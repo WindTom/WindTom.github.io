@@ -1,21 +1,473 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>{{ site.title }}</title>
-		<description>{{ site.description }}</description>
-		<link>{{ site.BASE_PATH }}/</link>
-		<atom:link href="{{ site.BASE_PATH }}/{{ site.rss_path }}" rel="self" type="application/rss+xml" />
-		{% for post in site.posts limit:10 %}
+		<title>WindTom</title>
+		<description>WindTom's Blog</description>
+		<link>/</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
 			<item>
-				<title>{{ post.title }}</title>
-				<description>{{ post.content | xml_escape }}</description>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>{{ site.BASE_PATH }}{{ post.url }}</link>
-				<guid isPermaLink="true">{{ site.BASE_PATH }}{{ post.url }}</guid>
+				<title>超声、超声心动图和多普勒基础入门（一）</title>
+				<description>&lt;hr /&gt;
+
+&lt;p&gt;英文链接: 
+（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound） 
+本文的目的是尽量以图片介绍超声心动图和多普勒基础知识。&lt;/p&gt;
+
+&lt;p&gt;题外话：看老外的科普性的文章，最大的感受就是直观，很容易让人明白，而国人总喜欢取术语，而且取名又让人很难理解其中的含义。百度上搜一个问题，不同的博客给的都是同一个答案。如果我们都能少一些拷贝粘贴，多写一些理解性的话，那别人学起来就容易多了。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;超声&lt;/h3&gt;
+&lt;p&gt;简单来说，超声就是声波，和人的声音一样，只是你听不见而已。声音是纵波，沿声音传播方向前后振荡。 
+人能听见的声音大概在15000到20000赫兹，而临床上超声的频率在1000到12000赫兹。我们能墙角拐弯处能听见声音，是因为声音在这些弯角处发生衍射；高频（短波长）声音则会像电磁波一样沿直线传播，遇到物体时反射回来的波束能量也更为集中，就像光束的反射一样。因为波长短，高频声波更易在较小的物体上发生发射，且在气态媒介中不易传播。 
+高中物理课本告诉我们波长和频率f成反比，它们与速度v的关系是:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/gongshi.gif?raw=true&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;声波在不同媒介中的速度不同。&lt;/p&gt;
+
+&lt;p&gt;脉冲电压加在晶片上，晶体产生振动，从而产生超声波，我们叫这种晶体为压电晶体。同一个晶体可以作为反射超声波的接收者。&lt;/p&gt;
+
+&lt;p&gt;什么是超声数据？ 
+超声数据按照复杂度可作如下分类：&lt;/p&gt;
+&lt;table style=&quot;text-align: left; width: 100%;&quot; border=&quot;0&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;vertical-align: top; text-align: center;&quot;&gt;&lt;img style=&quot;width: 261px; height: 249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; height=&quot;249&quot; width=&quot;261&quot; /&gt;&lt;br /&gt;
+          &lt;/td&gt;
+          &lt;td style=&quot;vertical-align: top; text-align: center;&quot;&gt;&lt;img style=&quot;width: 261px; height: 249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true&quot; /&gt;&lt;img style=&quot;width: 261px; height:
+              249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true&quot; /&gt;&lt;br /&gt;
+          &lt;/td&gt;
+          &lt;td style=&quot;vertical-align: top; text-align: center;&quot;&gt;&lt;img style=&quot;width: 261px; height: 249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true&quot; height=&quot;249&quot; width=&quot;261&quot; /&gt;&lt;br /&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;vertical-align: top;&quot;&gt;&lt;small&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Basically, a reflected
+                ultrasound pulse is a waveform. However, storing the
+                full waveform, called RF data, is demanding in terms of
+                storage, as each point on the curve would have to be
+                represented in some way or other. However, if the full
+                RF data are stored, the amplitude and frequency data
+                could both be calculated in post processing. &lt;/span&gt;&lt;/small&gt;&lt;br /&gt;
+          &lt;/td&gt;
+          &lt;td style=&quot;vertical-align: top;&quot;&gt;&lt;small&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;The pulse has a certain
+                amplitude. Just storing the amplitude is much les
+                demanding (corresponding more or less to one number per
+                pulse). This is the only data that are used in grey
+                scale imaging, where the amplitude is displayed as
+                brightness of the point correspåonding to the scatterer
+                as in &lt;a href=&quot;#2D&quot;&gt;B-mode&lt;/a&gt; and &lt;a href=&quot;#M-mode&quot;&gt;M-mode&lt;/a&gt;.&lt;/span&gt;&lt;/small&gt;&lt;br /&gt;
+          &lt;/td&gt;
+          &lt;td style=&quot;vertical-align: top;&quot;&gt;&lt;small&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;However, the reflected
+                ultrasound pulse has a frequency (or a spectrum of
+                frequencies), and this can be represented as a numerical
+                value per image pixel as well, as described in &lt;a href=&quot;#Doppler&quot;&gt;Doppler &lt;/a&gt;imaging. Still, the
+                amount of data is far less than the RF data. &lt;/span&gt;&lt;/small&gt;&lt;br /&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page&#39;s canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable
+    };
+    */
+    (function() {  // DON&#39;T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement(&#39;script&#39;);
+        
+        s.src = &#39;//windtom.disqus.com/embed.js&#39;;
+        
+        s.setAttribute(&#39;data-timestamp&#39;, +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+</description>
+				<pubDate>Mon, 11 Jul 2016 00:00:00 +0800</pubDate>
+				<link>/ultrasound/2016/07/11/ultrasound-introduction.html</link>
+				<guid isPermaLink="true">/ultrasound/2016/07/11/ultrasound-introduction.html</guid>
 			</item>
-		{% endfor %}
+		
+			<item>
+				<title>Creating a 2D Active Shape Model in ITK Using PCA</title>
+				<description>&lt;p&gt;原帖地址：http://www.kitware.com/source/home/post/52&lt;/p&gt;
+
+&lt;p&gt;ITK is an excellent example of an open-source framework in extreme programming. Strengths of the toolkit include superb documentation and list serve support, and a supportive and vibrant programming community. One missing area of documentation in the ITK software guide includes the implementation of itk::GeodesicActiveContourShapePriorLevelSetImageFilter. The generation of the active shape model (ASM) in this example is provided with no example code or images. Here, we provide sample images and commented code to generate an ASM using itk::ImagePCAShapeModelEstimator. We use the challenging problem of segmenting the femoral condyle cartilage of the knee in our example.&lt;/p&gt;
+
+&lt;p&gt;Many classic described segmentation algorithms such as active contours (snakes), level set, and watershed rely on edge-based criteria [1-4].  For segmentation of articular femoral knee cartilage, a solely edge-based algorithm is inadequate because of the poor contrast at the cartilage and soft tissue interfaces.  One approach is to use a priori information to create an active shape model to help guide segmentation [5].&lt;/p&gt;
+
+&lt;p&gt;The goal of an active shape model is to appropriately describe all of the allowed statistical variation of some generic shape.  The model is formed by using a training set of objects that are already segmented either manually or by some other automated or semi-automated method. The variation among the set of these previously segmented shapes is used to describe the variation of the shape model and therefore the training set needs to be a good representation of the overall distribution of allowable shapes.  This can be accomplished with a large sample size or good variation among the training images.&lt;/p&gt;
+
+&lt;p&gt;Principal component analysis (PCA) is used to decompose the large variation in the natural shapes of a given object into a set of variables that describe the majority of the variation.  The basic steps of PCA include aligning the training images, finding the corresponding landmarks, computing the covariance matrix of these landmarks, and finally finding the determinate of the covariance matrix.&lt;/p&gt;
+
+&lt;p&gt;In the first step of PCA, the training images should be transformed iteratively to maximize their overlapping area.  In the classical implementation, the N0 iteration consisted of the training images being registered with the first training image using a similarity transform that can rotate, scale, and translate the image.  After this first iteration, the mean image is computed.  For the following iterations, the training images are registered to the mean image, which is then recomputed. This process eventually converges and results in a set of training images aligned with maximal overlap. A subset of aligned training images used to create the femoral cartilage shape model are shown in Figure1.&lt;/p&gt;
+</description>
+				<pubDate>Tue, 14 Oct 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/10/14/creat-2d-asm-itk-pca.html</link>
+				<guid isPermaLink="true">/mitk/2014/10/14/creat-2d-asm-itk-pca.html</guid>
+			</item>
+		
+			<item>
+				<title>MITK中本来存在的头文件无法使用</title>
+				<description>&lt;p&gt;在使用MITK 插件的时候，我们会发现本来存在的头文件，mitk工程里却无法include进来，原因是project—properties—C/C++—General—-Additional Include Directories里并没有把相关头文件的文件路径添加进去。&lt;/p&gt;
+
+&lt;p&gt;比如ITK Modules中Group Filtering内的 Module ITKColormap，我们无法引用里面的 itkScalarToRGBColormapImageFilter.h&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;比较方便的办法是，找到插件源文件下的CMakeLists.txt文件，在里面加入PACKAGE_DEPENDS ITK&lt;/td&gt;
+      &lt;td&gt;ITKColormap。CMakeLists.txt内容如下&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
+&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_awesomeproject_myLevelSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
+&lt;span class=&quot;n&quot;&gt;find_package&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OPENCV&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REQUIRED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
+&lt;span class=&quot;n&quot;&gt;include_directories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OPENCV_INCLUDE_DIRS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;   
+  
+&lt;span class=&quot;no&quot;&gt;MACRO_CREATE_MITK_CTK_PLUGIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;  
+  &lt;span class=&quot;no&quot;&gt;EXPORT_DIRECTIVE&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MYLEVELSET_EXPORT&lt;/span&gt;  
+  &lt;span class=&quot;no&quot;&gt;EXPORTED_INCLUDE_SUFFIXES&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;  
+  &lt;span class=&quot;no&quot;&gt;MODULE_DEPENDS&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MitkQtWidgetsExt&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MitkSegmentation&lt;/span&gt;  
+  &lt;span class=&quot;no&quot;&gt;PACKAGE_DEPENDS&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ITK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ITKColormap&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+				<pubDate>Wed, 27 Aug 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/08/27/mitk-cant-use-headfile.html</link>
+				<guid isPermaLink="true">/mitk/2014/08/27/mitk-cant-use-headfile.html</guid>
+			</item>
+		
+			<item>
+				<title>MITK--如何在源文件中引用自定义头文件</title>
+				<description>&lt;p&gt;[Toc]&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;&lt;strong&gt;引用方法：&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;MITK编程中，我们常常需要自定义头文件，比如在VS工程里面给插件AddNoise创建一个头文件testHeadFile.h：&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+    &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/custom1.png?raw=true&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;但是这样做不好的地方在于：团队开发中，我们是上传MITK-ProjectTemplate源文件，其它成员下载源文件后CMake编译一下就能使用了。你自己在VS工程创建头文件后，VS并不会把它自动放入MITK-ProjectTemplate源文件里。所以其他成员在编译你上传的代码后，VS会提示找不到头文件。&lt;/p&gt;
+
+&lt;p&gt;正确的做法是：将testHeadFile.h复制到源文件 MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise\src文件夹内。&lt;/p&gt;
+
+&lt;p&gt;同时修改MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise文件夹下的files.cmake文件：set(SRC_CPP_FILES)里添加 itkAdditiveGaussianNoiseImageFilter.h和itkNoiseBaseImageFilter.h，如：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
+  &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SRC_CPP_FILES&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;itkAdditiveGaussianNoiseImageFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;itkNoiseBaseImageFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;testHeadFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;   &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;在此处添加&lt;/span&gt; &lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;&lt;strong&gt;测试：&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;使用CMake重新编译MITK-ProjectTemplate，进行测试。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;&lt;strong&gt;替代方法：&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;如果上述方法不行，可以使用下述方法：&lt;/p&gt;
+
+&lt;p&gt;同样，将testHeadFile.h复制到源文件 MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise\src文件夹内。&lt;/p&gt;
+
+&lt;p&gt;修改MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise文件夹内的files.cmake,找到下列语句并将testHeadFile.h语句添加进去。如：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
+&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;MOC_H_FILES&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_awesomeproject_AddNoise_Activator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;internal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;AddNoise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itkAdditiveGaussianNoiseImageFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itkNoiseBaseImageFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;testHeadFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;h&lt;/span&gt;  &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;在此处添加&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+				<pubDate>Mon, 04 Aug 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/08/04/mitk-include-custom-head-file.html</link>
+				<guid isPermaLink="true">/mitk/2014/08/04/mitk-include-custom-head-file.html</guid>
+			</item>
+		
+			<item>
+				<title>C++通过ostringstream实现任意类型转string</title>
+				<description>
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
+ &lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iostream&amp;gt;  &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;string&amp;gt;  &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+   &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;头文件是&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sstream&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ostringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  
+   &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;输出是55—65.123。&lt;/p&gt;
+
+&lt;p&gt;如果想实现小数点后只显示一位数字，使用下面方法：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
+&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iostream&amp;gt;  &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;sstream&amp;gt;  &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iomanip&amp;gt;  &lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ostringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setprecision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+    
+&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+				<pubDate>Mon, 04 Aug 2014 00:00:00 +0800</pubDate>
+				<link>/c++/2014/08/04/c-to-string.html</link>
+				<guid isPermaLink="true">/c++/2014/08/04/c-to-string.html</guid>
+			</item>
+		
+			<item>
+				<title>MITK中如何给图像添加高斯噪声</title>
+				<description>&lt;p&gt;最近由于需要，要将读入的RGB图像转化成灰度图像，然后对图像加噪声，以验证去噪算法的效率。ITK在最新的4.6.0中就集成了Image Noise一个模块，里面有给图像加高斯噪声、斑点噪声、椒盐噪声和计算PSNR（峰值信噪比）的算法，但MITK使用的是ITK4.5.0的库，我们无法直接调用这些加噪Filter。&lt;/p&gt;
+
+&lt;p&gt;要想使用这些Filter方法也很简单。&lt;/p&gt;
+
+&lt;p&gt;1.下载ITK4.6.0，ITK4.6.0\Modules\Filtering\ImageNoise\include文件里就是所需要的所有头文件（图一），或者直接网上找所需要的头文件。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;
+    &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/guassian1.png?raw=true&quot; /&gt;
+
+    &lt;p&gt;图一：ImageNoise文件夹内的加噪Filter &lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;比如我新建了一个AddNoise插件：&lt;/p&gt;
+
+&lt;p&gt;2.在插件内新建一个同名的头文件，如itkAdditiveGaussianNoiseImageFilter.h，并将内容复制进去。然后再把itkAdditiveGaussianNoiseImageFilter.hxx复制到新建的itkAdditiveGaussianNoiseImageFilter.h文件夹下(我的为Plugins\my.awesomeproject.AddNoise)。&lt;/p&gt;
+
+&lt;p&gt;我们注意到itkAdditiveGaussianNoiseImageFilter.h还引用了itkNoiseBaseImageFilter.h，这个头文件ITK4.5.0里也没有，可以用同样的方法加进来。&lt;/p&gt;
+
+&lt;p&gt;3.这些都做完后，我们发现itkAdditiveGaussianNoiseImageFilter.h头文件里的代码出错了：
+PCH warning: header stop cannot be in a macro or #if block. An intellisense PCH file was not generated
+方法是在头文件最上面加入一行代码：#pragma once
+这样就可以了，插件完美运行，附截图一张：&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+      &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/guassian2.png?raw=true&quot; /&gt;
+   &lt;/div&gt;
+</description>
+				<pubDate>Sun, 03 Aug 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/08/03/add-guassian-noise-image.html</link>
+				<guid isPermaLink="true">/mitk/2014/08/03/add-guassian-noise-image.html</guid>
+			</item>
+		
+			<item>
+				<title>MITK自定义插件CMake编译时出错</title>
+				<description>&lt;p&gt;使用PluginGenerator1.4.0生成出来的MITK插件并不能直接放到projectTemplate里使用。原因是CMake编译的时候出错，会提示你修改刚刚生成插件中的CMakeLists.txt。&lt;/p&gt;
+
+&lt;p&gt;解决方法是：找到该txt，将MODULE_DEPENDIENCES QMITKExt 改为 MODULE_DEPENDS MitkQtWidgetsExt，保存后再次CMake编译就不会出错了。&lt;/p&gt;
+
+&lt;p&gt;备注：CMake编译指的是编译整个projectTemplate，不是编译一个单独的插件。&lt;/p&gt;
+</description>
+				<pubDate>Thu, 31 Jul 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/07/31/mitk-cmake-error.html</link>
+				<guid isPermaLink="true">/mitk/2014/07/31/mitk-cmake-error.html</guid>
+			</item>
+		
+			<item>
+				<title>MITK插件找不到itk的头文件</title>
+				<description>&lt;p&gt;插件中编码时，想使用itk中的算法，就必须先引用该算法头文件，但很有可能VS找不到这个头文件。你可能会选择在工程设置中手动添加头文件，但这种方法非常费力，且新建一个工程时又得重新添加。
+好的办法是，找到projectTemplate中Plugins文件夹下的该插件文件夹，如my.awesomeproject.AddNoise.&lt;/p&gt;
+
+&lt;p&gt;找到CMakeLists.txt文档，将最后一句改为MODULE_DEPENDS MitkQtWidgetsExt MitkSegmentation。然后重新编译projectTemplate即可。&lt;/p&gt;
+
+&lt;p&gt;附：（插件下CMakeLists.txt文档中的内容）&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-kramdown&quot; data-lang=&quot;kramdown&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;project(my_awesomeproject_AddNoise)  
+	  
+   MACRO_CREATE_MITK_CTK_PLUGIN(  
+   EXPORT_DIRECTIVE ADDNOISE_EXPORT  
+   EXPORTED_INCLUDE_SUFFIXES src  
+   MODULE_DEPENDS MitkQtWidgetsExt MitkSegmentation  
+)&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+				<pubDate>Thu, 31 Jul 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/07/31/mitk-cant-find-itk-head-file.html</link>
+				<guid isPermaLink="true">/mitk/2014/07/31/mitk-cant-find-itk-head-file.html</guid>
+			</item>
+		
+			<item>
+				<title>MITK编程流程</title>
+				<description>&lt;p&gt;MITK官方网站：www.mitk.org&lt;/p&gt;
+
+&lt;p&gt;使用MITK编程的一般流程为：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;创建自定义插件&lt;br /&gt;
+使用PlugInGenerator创建一个自定义插件，注意插件的命名要符合MITKTemplate的命名方式，插件可以存放在任何位置，下一步会拷贝至template文件夹下。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;拷贝自定义插件&lt;br /&gt;
+将生成的插件(Plugin)放进MITKTemplate文件夹中的Plugins文件夹下，并修改该文件夹下的Plugins.cmake，将自定义插件添加进去。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用CMake编译MITKTemplate
+注意将两个superbuild选项设为OFF，同时将编译好的ITK、VTK、DCMTK等路径填好。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开编译好的Template，使用StartVS_debug.bat，或者StartVS_release打开相应版本的工程。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将AwsomeAPP设为启动项。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;运行测试工程。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开插件的.h和.cpp文件，编写自己的程序。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+				<pubDate>Wed, 30 Jul 2014 00:00:00 +0800</pubDate>
+				<link>/mitk/2014/07/30/mitks-coding-process.html</link>
+				<guid isPermaLink="true">/mitk/2014/07/30/mitks-coding-process.html</guid>
+			</item>
+		
+			<item>
+				<title>标准Lena测试图像下载</title>
+				<description>&lt;p&gt;在做图像处理的时候常常用到Lena图像，但网上提供的测试图标准不一。这是Rice University提供的标准测试图，省去大家四处寻找之苦。另外，仔细阅读这个链接，你还会发现其他有用信息^.^&lt;/p&gt;
+
+&lt;h2 id=&quot;httpwwwecericeeduwakinimages&quot;&gt;原文链接： http://www.ece.rice.edu/~wakin/images/&lt;/h2&gt;
+&lt;p&gt;# Wet Paint #
+This test image was taken by our group in Duncan Hall at Rice University. The Matlab file for the 1024x1024 image is &lt;a href=&quot;http://www.ece.rice.edu/~wakin/images/paint.mat&quot;&gt;here&lt;/a&gt;.
+# Lena/Lenna #&lt;/p&gt;
+
+&lt;p&gt;There seem to be many versions of the Lena (aka “Lenna”) test image available. This problem was noted by Shapiro in his 1993 zerotree paper, and it remains surprisingly true today. This web page is an attempt to clear up some of the confusion (and hopefully not add to it).&lt;/p&gt;
+
+&lt;p&gt;The files on this page are given in lossless compression formats. These can be imported into Matlab or opened using photo-editing software. The imread command in Matlab is often useful for importing files such as tiff or bmp. (You may need to convert the data to type double after loading it). For example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lena512 = imread(&#39;lena512.bmp&#39;);
+
+lena512 = double(lena512);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To write an image to a file, use imwrite:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;imwrite(uint8(lena512),&#39;lena512.bmp&#39;,&#39;bmp&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;x512-color-24-bit&quot;&gt;512x512 Color (24-bit)&lt;/h1&gt;
+&lt;p&gt;This seems to be a pretty widely accepted standard, which originated from a scan of the published photograph (see The Lenna Story). This version is also provided at the USC-SIPI Image Database.&lt;/p&gt;
+
+&lt;p&gt;TIFF: lena512color.tiff (787kB)&lt;/p&gt;
+
+&lt;h1 id=&quot;x512-grayscale-8-bit&quot;&gt;512x512 Grayscale (8-bit)&lt;/h1&gt;
+
+&lt;p&gt;There doesn’t seem to be as much agreement on this version of the image. At some point, the original color image needed to be converted to grayscale. As Shapiro noted, options included taking only the green component of the RGB representation, or using a luminance-only version. You could also average the RGB components, etc.&lt;/p&gt;
+
+&lt;p&gt;I’m not sure how the following version was generated, but it is provided by the Image Communications Lab at UCLA (they apparently obtained it from RPI).&lt;/p&gt;
+
+&lt;p&gt;Each of the following files should contain the same information. If there is truly a standard version of the 512x512 Grayscale Lena, this seems to be it.&lt;/p&gt;
+
+&lt;p&gt;BMP: lena512.bmp (263kB)&lt;/p&gt;
+
+&lt;p&gt;PGM: lena512.pgm (262kB)&lt;/p&gt;
+
+&lt;p&gt;MATLAB: lena512.mat (262kB)&lt;/p&gt;
+
+&lt;h1 id=&quot;comparing-different-versions&quot;&gt;Comparing Different Versions&lt;/h1&gt;
+
+&lt;p&gt;To illustrate the importance of using a standard version, let’s look at a few different ones that are floating around. We’ll compress each of them using a JPEG2000 coder (obtained from The JasPer Project).&lt;/p&gt;
+
+&lt;p&gt;You can see the Matlab versions of the images here. If you click on the following links, you can see standard jpg files. (These are just for viewing and comparision purposes - use the matlab files for experiments!)&lt;/p&gt;
+
+&lt;p&gt;Image 1 is the standard which is discussed in the above section. Image 2 is another version which I’ve seen, and it looks and behaves very similar to the standard. Image 3 is obtained by taking the green component from the 24-bit original (described above). It appears darker than the others, and it is harder to compress. Image 4 is yet another version that seems to be floating around. Visually it is very different from the others… …&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Wx8GoSJ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 30 Jul 2014 00:00:00 +0800</pubDate>
+				<link>/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html</link>
+				<guid isPermaLink="true">/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html</guid>
+			</item>
+		
 	</channel>
 </rss>
