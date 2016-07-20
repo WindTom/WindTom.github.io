@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>C++通过ostringstream实现任意类型转string</title>
+	
+	<meta name="description" content="">
+	
+	<meta name="author" content="WindTom">
+
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+
+	<!-- Le fav and touch icons -->
+	<!-- Update these with your own images
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	-->
+
+	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+</head>
+
+<body>
+	<nav class="navbar navbar-default visible-xs" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<!-- 把导航按钮切换到下拉菜单 -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span><!-- 供视力不好的人使用 -->
+				<span class="icon-bar"></span><!-- 三个span创建汉堡包按钮 -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/WindTom">
+				<i class="fa fa-github"></i>  <!--给主页设置图标-->
+			</a>
+			
+			
+			
+			<a type="button" class="navbar-toggle nav-link" href="mailto:WindTom@github.com">
+				<i class="fa fa-envelope"></i>
+			</a>
+			
+			<a class="navbar-brand" href="/">
+				<img src="https://github.com/WindTom/imagestom/blob/master/windtom-very-little.jpg?raw=true" class="img-circle" />
+				WindTom
+			</a>
+		</div> 
+         <!--下拉菜单-->
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/categories.html">Categories</a></li>
+				<li><a href="/tags.html">Tags</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+	<!-- nav-menu-dropdown -->
+	<div class="btn-group hidden-xs" id="nav-menu">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			<i class="fa fa-bars"></i>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
+			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
+			<li class="divider"></li>
+			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+		</ul>
+	</div>
+    <!--侧边栏-->
+	<div class="col-sm-3 sidebar hidden-xs" style="">
+		<!-- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<img src="https://github.com/WindTom/imagestom/blob/master/windtom-very-little.jpg?raw=true" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/">WindTom</a>
+    </h3>
+</header>
+
+
+<div id="bio" class="text-center">
+	技术、生活！
+</div>
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/WindTom">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:WindTom@github.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+<!-- sidebar.html end -->
+
+	</div>
+   <!--右边栏-->
+	<div class="col-sm-9 col-sm-offset-3">
+		<div class="page-header">
+  <h1>C++通过ostringstream实现任意类型转string </h1>
+</div>
+	
+<article>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   August 
+	   4th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre></td><td class="code"><pre> 
+ <span class="c1">#include &lt;iostream&gt;  </span>
+<span class="c1">#include &lt;string&gt;  </span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>  
+<span class="n">int</span> <span class="n">main</span><span class="p">()</span>  
+<span class="p">{</span>  
+   <span class="n">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">55</span><span class="p">;</span>  
+   <span class="n">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">65</span><span class="o">.</span><span class="mi">123</span><span class="p">;</span>  
+   <span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>  
+   <span class="sr">//</span><span class="err">头文件是</span><span class="n">sstream</span>  
+   <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">oss</span><span class="p">;</span>  
+   <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s2">"---"</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">;</span>  
+   <span class="n">str</span> <span class="o">=</span> <span class="n">oss</span><span class="p">.</span><span class="nf">str</span><span class="p">();</span>  
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+<span class="p">}</span>  <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>输出是55—65.123。</p>
+
+<p>如果想实现小数点后只显示一位数字，使用下面方法：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre></td><td class="code"><pre> 
+<span class="c1">#include &lt;iostream&gt;  </span>
+<span class="c1">#include &lt;sstream&gt;  </span>
+<span class="c1">#include &lt;iomanip&gt;  </span>
+    
+<span class="n">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>  
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">fmt</span><span class="p">(</span><span class="no">T</span> <span class="k">in</span><span class="p">,</span> <span class="n">int</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">int</span> <span class="n">prec</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">s</span><span class="p">;</span>  
+    <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="n">width</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="n">prec</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="k">in</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="nf">str</span><span class="p">();</span>  
+<span class="p">}</span>  
+    
+<span class="n">int</span> <span class="n">main</span><span class="p">(){</span>  
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="n">fmt</span><span class="p">(</span><span class="mi">66</span><span class="o">.</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">30</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>  
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>  
+<span class="p">}</span>  <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#C++-ref">
+					C++ <span>(1)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#C++-ref">
+					C++ <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ostringstream-ref">
+					ostringstream <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=C++通过ostringstream实现任意类型转string"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="http://www.gravatar.com/avatar/" class="img-rounded author-image" />
+        <h4 class="section-title author-name">WindTom</h4>
+        <p class="author-bio">技术、生活！</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/mitk/2014/08/03/add-guassian-noise-image.html" title="MITK中如何给图像添加高斯噪声">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/mitk/2014/08/04/mitk-include-custom-head-file.html" title="MITK--如何在源文件中引用自定义头文件">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+
+     <!--底注-->
+	<footer>
+		<hr/>
+		<p>
+			&copy; 2016 WindTom with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+		</p>
+	</footer>
+	</div>
+
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
+
+
+

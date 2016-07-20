@@ -2,7 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>WindTom</title>
+	<title>MITK中本来存在的头文件无法使用</title>
+	
+	<meta name="description" content="">
 	
 	<meta name="author" content="WindTom">
 
@@ -133,59 +135,146 @@
    <!--右边栏-->
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <!-- <h1>WindTom </h1> -->
-  <h1><p>文章</p></h1>
+  <h1>MITK中本来存在的头文件无法使用 </h1>
 </div>
+	
+<article>
 
-<!----------------------------------------------------------------
-     _ _           _ _          
-  __| | |__  _   _| | |         Ascii arts included in this page:
- / _` | '_ \| | | | | |         - R2D2, provided by: http://www.chris.com/
-| (_| | |_) | |_| | | |         - Texts, generated from: http://www.network-science.de/ascii/
- \__,_|_.__/ \__, |_|_|         http://github.com/dbtek/dbyll
--------------|___/------------------------------------------------>
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   August 
+	   27th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p>在使用MITK 插件的时候，我们会发现本来存在的头文件，mitk工程里却无法include进来，原因是project—properties—C/C++—General—-Additional Include Directories里并没有把相关头文件的文件路径添加进去。</p>
 
-  <style>
-    pre {
-          background: none;
-          border: none;
-    }
-  </style>
+<p>比如ITK Modules中Group Filtering内的 Module ITKColormap，我们无法引用里面的 itkScalarToRGBColormapImageFilter.h</p>
 
-  <pre>
+<table>
+  <tbody>
+    <tr>
+      <td>比较方便的办法是，找到插件源文件下的CMakeLists.txt文件，在里面加入PACKAGE_DEPENDS ITK</td>
+      <td>ITKColormap。CMakeLists.txt内容如下</td>
+    </tr>
+  </tbody>
+</table>
 
-                       444444444       000000000            444444444   
-                      4::::::::4     00:::::::::00         4::::::::4  
-                     4:::::::::4   00:::::::::::::00      4:::::::::4  
-                    4::::44::::4  0:::::::000:::::::0    4::::44::::4  
-                   4::::4 4::::4  0::::::0   0::::::0   4::::4 4::::4  
-                  4::::4  4::::4  0:::::0     0:::::0  4::::4  4::::4  
-                 4::::4   4::::4  0:::::0     0:::::0 4::::4   4::::4  
-                4::::444444::::4440:::::0 000 0:::::04::::444444::::444
-                4::::::::::::::::40:::::0 000 0:::::04::::::::::::::::4
-                4444444444:::::4440:::::0     0:::::04444444444:::::444
-                          4::::4  0:::::0     0:::::0          4::::4  
-                          4::::4  0::::::0   0::::::0          4::::4  
-                          4::::4  0:::::::000:::::::0          4::::4  
-                        44::::::44 00:::::::::::::00         44::::::44
-                        4::::::::4   00:::::::::00           4::::::::4
-                        4444444444     000000000             4444444444
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre> 
+<span class="n">project</span><span class="p">(</span><span class="n">my_awesomeproject_myLevelSet</span><span class="p">)</span>  
+<span class="n">find_package</span> <span class="p">(</span><span class="no">OPENCV</span> <span class="no">REQUIRED</span><span class="p">)</span>  
+<span class="n">include_directories</span><span class="p">(</span><span class="err">$</span><span class="p">{</span><span class="no">OPENCV_INCLUDE_DIRS</span><span class="p">})</span>   
+  
+<span class="no">MACRO_CREATE_MITK_CTK_PLUGIN</span><span class="p">(</span>  
+  <span class="no">EXPORT_DIRECTIVE</span> <span class="no">MYLEVELSET_EXPORT</span>  
+  <span class="no">EXPORTED_INCLUDE_SUFFIXES</span> <span class="n">src</span>  
+  <span class="no">MODULE_DEPENDS</span> <span class="no">MitkQtWidgetsExt</span> <span class="no">MitkSegmentation</span>  
+  <span class="no">PACKAGE_DEPENDS</span> <span class="no">ITK</span><span class="o">|</span><span class="no">ITKColormap</span>  <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-         ,-----.             _   _     _           _                 _     _               _   
-       ,'_/_|_\_`.          | |_| |__ (_)___   ___| |__   ___  _   _| | __| |  _ __   ___ | |_ 
-      /<<::8[O]::>\         | __| '_ \| / __| / __| '_ \ / _ \| | | | |/ _` | | '_ \ / _ \| __|
-     _|-----------|_        | |_| | | | \__ \ \__ \ | | | (_) | |_| | | (_| | | | | | (_) | |_ 
- :::|  | ====-=- |  |:::     \__|_| |_|_|___/ |___/_| |_|\___/ \__,_|_|\__,_| |_| |_|\___/ \__|
- :::|  | -=-==== |  |:::                                                                         
- :::\  | ::::|()||  /:::     _                                                          
- ::::| | ....|()|| |::::    | |__   __ _ _ __  _ __   ___ _ __       _____   _____ _ __ 
-     | |_________| |        | '_ \ / _` | '_ \| '_ \ / _ \ '_ \     / _ \ \ / / _ \ '__|
-     | |\_______/| |        | | | | (_| | |_) | |_) |  __/ | | |_  |  __/\ V /  __/ |   
-    /   \ /   \ /   \       |_| |_|\__,_| .__/| .__/ \___|_| |_( )  \___| \_/ \___|_|   
-    `---' `---' `---'                   |_|   |_|              |/                       
+	  </div>
+
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#MITK-ref">
+					MITK <span>(8)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#mitk-ref">
+					mitk <span>(4)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#cmake-ref">
+					cmake <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=MITK中本来存在的头文件无法使用"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="http://www.gravatar.com/avatar/" class="img-rounded author-image" />
+        <h4 class="section-title author-name">WindTom</h4>
+        <p class="author-bio">技术、生活！</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/mitk/2014/08/04/mitk-include-custom-head-file.html" title="MITK--如何在源文件中引用自定义头文件">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="/mitk/2014/10/14/creat-2d-asm-itk-pca.html" title="Creating a 2D Active Shape Model in ITK Using PCA">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
 
 
-    </pre>
 
 
      <!--底注-->
