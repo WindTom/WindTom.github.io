@@ -1,431 +1,74 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>WindTom</title>
-	
-	<meta name="author" content="WindTom">
+---
+layout: page
+tagline:
+---
 
-	<!-- Enable responsive viewport -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<!-- Le styles -->
-	<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
-	<link href="/assets/css/style.css" rel="stylesheet">
-
-	<!-- Le fav and touch icons -->
-	<!-- Update these with your own images
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-	-->
-
-	<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
-</head>
-
-<body>
-	<nav class="navbar navbar-default visible-xs" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<!-- 把导航按钮切换到下拉菜单 -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span><!-- 供视力不好的人使用 -->
-				<span class="icon-bar"></span><!-- 三个span创建汉堡包按钮 -->
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			
-			<a type="button" class="navbar-toggle nav-link" href="http://github.com/WindTom">
-				<i class="fa fa-github"></i>  <!--给主页设置图标-->
-			</a>
-			
-			
-			
-			<a type="button" class="navbar-toggle nav-link" href="mailto:WindTom@github.com">
-				<i class="fa fa-envelope"></i>
-			</a>
-			
-			<a class="navbar-brand" href="/">
-				<img src="https://github.com/WindTom/imagestom/blob/master/windtom-very-little.jpg?raw=true" class="img-circle" />
-				WindTom
-			</a>
-		</div> 
-         <!--下拉菜单-->
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="/">Home</a></li>
-				<li><a href="/categories.html">Categories</a></li>
-				<li><a href="/tags.html">Tags</a></li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
-	</nav>
-	<!-- nav-menu-dropdown -->
-	<div class="btn-group hidden-xs" id="nav-menu">
-		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			<i class="fa fa-bars"></i>
-		</button>
-		<ul class="dropdown-menu" role="menu">
-			<li><a href="/"><i class="fa fa-home"></i>Home</a></li>
-			<li><a href="/categories.html"><i class="fa fa-folder"></i>Categories</a></li>
-			<li><a href="/tags.html"><i class="fa fa-tags"></i>Tags</a></li>
-			<li class="divider"></li>
-			<li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
-		</ul>
-	</div>
-    <!--侧边栏-->
-	<div class="col-sm-3 sidebar hidden-xs" style="">
-		<!-- sidebar.html -->
-<header class="sidebar-header" role="banner">
-	<a href="/">
-		<img src="https://github.com/WindTom/imagestom/blob/master/windtom-very-little.jpg?raw=true" class="img-circle" />
-	</a>
-	<h3 class="title">
-        <a href="/">WindTom</a>
-    </h3>
-</header>
-
-
-<div id="bio" class="text-center">
-	技术、生活！
-</div>
-
-
-<div id="contact-list" class="text-center">
-	<ul class="list-unstyled list-inline">
-		
-		<li>
-			<a class="btn btn-default btn-sm" href="https://github.com/WindTom">
-				<i class="fa fa-github-alt fa-lg"></i>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="btn btn-default btn-sm" href="mailto:WindTom@github.com">
-				<i class="fa fa-envelope fa-lg"></i>
-			</a>
-		</li>
-		
-	</ul>
-	<ul id="contact-list-secondary" class="list-unstyled list-inline">
-		
-		
-		<li>
-			<a class="btn btn-default btn-sm" href="/feed.xml">
-				<i class="fa fa-rss fa-lg"></i>
-			</a>
-		</li>
-	</ul>
-</div>
-<!-- sidebar.html end -->
-
-	</div>
-   <!--右边栏-->
-	<div class="col-sm-9 col-sm-offset-3">
-		<div class="page-header">
-  <!-- <h1>WindTom </h1> -->
-  <h1><p>文章</p></h1>
-</div>
-
-
+{% for post in paginator.posts %}
 
 <article class="home">
 
   <span class="post-date">
-    
-    July
-    11th,
-    
-    2016
+    {% assign d = post.date | date: "%d" | plus:'0' %}
+    {{ post.date | date: "%B" }}
+    {% case d %}
+    {% when 1 or 21 or 31 %}{{ d }}st,
+    {% when 2 or 22 %}{{ d }}nd,
+    {% when 3 or 23 %}{{ d }}rd,
+    {% else %}{{ d }}th,
+    {% endcase %}
+    {{ post.date | date: "%Y" }}
   </span>
 
   <h3>
-    <a href="/ultrasound/2016/07/11/ultrasound-introduction.html" ><span data-hover==超声、超声心动图和多普勒基础入门（一）>超声、超声心动图和多普勒基础入门（一）</span>></a>
+    <a href="{{ site.BASE_PATH }}{{ post.url }}" ><span data-hover=={{ post.title }}>{{ post.title }}</span>></a>
   </h3>
 
   <div>
-    
-    
-    
-    
-    
+    {% if post.fullview %}
+    {{ post.content }}
+    {% else %}
+    {% if post.shortinfo %}
+    {{ post.shortinfo }}
+    {% elsif post.description %}
+    {{ post.description }}
+    {% else %}
+    {{ post.excerpt }}
+    {% endif %}
+    {% endif %}
   </div>
 
 </article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    October
-    14th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/10/14/creat-2d-asm-itk-pca.html" ><span data-hover==Creating a 2D Active Shape Model in ITK Using PCA>Creating a 2D Active Shape Model in ITK Using PCA</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    27th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/08/27/mitk-cant-use-headfile.html" ><span data-hover==MITK中本来存在的头文件无法使用>MITK中本来存在的头文件无法使用</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    4th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/08/04/mitk-include-custom-head-file.html" ><span data-hover==MITK--如何在源文件中引用自定义头文件>MITK--如何在源文件中引用自定义头文件</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    4th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/c++/2014/08/04/c-to-string.html" ><span data-hover==C++通过ostringstream实现任意类型转string>C++通过ostringstream实现任意类型转string</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    August
-    3rd,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/08/03/add-guassian-noise-image.html" ><span data-hover==MITK中如何给图像添加高斯噪声>MITK中如何给图像添加高斯噪声</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    31st,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/07/31/mitk-cmake-error.html" ><span data-hover==MITK自定义插件CMake编译时出错>MITK自定义插件CMake编译时出错</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    31st,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/07/31/mitk-cant-find-itk-head-file.html" ><span data-hover==MITK插件找不到itk的头文件>MITK插件找不到itk的头文件</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    30th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/mitk/2014/07/30/mitks-coding-process.html" ><span data-hover==MITK编程流程>MITK编程流程</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    July
-    30th,
-    
-    2014
-  </span>
-
-  <h3>
-    <a href="/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html" ><span data-hover==标准Lena测试图像下载>标准Lena测试图像下载</span>></a>
-  </h3>
-
-  <div>
-    
-    
-    
-    
-    
-  </div>
-
-</article>
-
+{% endfor %}
 <hr/>
 
 <ul class="pager"> 
 
-  
+  {% if paginator.previous_page %}
+  <li class="previous">
+    {% if paginator.previous_page == 1 %}
+    <a href="{{ site.BASE_PATH }}/">&larr; Newer</a>
+    {% else %}
+    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">&larr; Newer</a>
+    {% endif %}
+  </li>
+  {% else %}
   <li class="previous disabled">
     <a>&larr; Newer</a>
   </li>
-  
+  {% endif %}
   
   <li>
-    <span class="page_number">Page: 1 of 2</span>
+    <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   </li>
 
-  
+  {% if paginator.next_page %}
   <li class="next">
-    <a href="/page2">Older &rarr;</a>
+    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">Older &rarr;</a>
   </li>
-  
+  {% else %}
+  <li class="next disabled">
+    <a>Older &rarr;</a>        
+  </li>
+  {% endif %}
 
 </ul>
-
-
-
-     <!--底注-->
-	<footer>
-		<hr/>
-		<p>
-			&copy; 2016 WindTom with <a href="http://jekyllrb.com/">Jekyll</a>. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
-		</p>
-	</footer>
-	</div>
-
-	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/assets/js/app.js"></script>
-</body>
-</html>
-
-
-
