@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
+html{
+background-image:url(/assets/images/confectionary.png);
+}
 
 body{
 	color: #2c3e50;
@@ -9,6 +12,7 @@ body{
 	top: 0px;
 	padding-top: 10%;
 	background-color:#00CCFF;
+	background-image:url(/assets/images/wood_pattern.png);
 	color: #fff;
 }
 
@@ -103,6 +107,7 @@ article{
 
 .article_body{
 	margin-top: 20px;
+	font-size:18px;
 	margin-bottom: 20px;
 }
 
@@ -189,18 +194,19 @@ footer {
 
 /* nav-vertical-tabs component */
 .nav-tabs-vertical {
-    border-right: 1px solid #ddd;
+    
 }
 
 .nav-tabs-vertical li {
     margin-right: -1px;
+	font-size:18px;
 }
 
-.nav-tabs-vertical>li.active>a, .nav-tabs-vertical>li.active>a:hover, .nav-tabs-vertical>li.active>a:focus {
-    color: #555;
+.nav-tabs-vertical>li.active>a {
+    color:#FF0000;
     cursor: default;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color:#CCFF00;
+    /*border: 1px solid #ddd;*/
     border-right-color: transparent;
 }
 
@@ -208,6 +214,11 @@ footer {
     line-height: 1.428571429;
     border: 1px solid transparent;
     border-radius: 4px 0 0 4px;
+}
+
+.nav-tabs-vertical>li>a:hover {
+   
+	background-color:#CCCCCC;
 }
 
 .badge { background: #F2756A; }
@@ -226,8 +237,12 @@ footer {
 ul.dropdown-menu>li>a>i.fa {
     width: 1.3em;
 }
-
-/*glow for webkit*/
+/*categories的样式*/
+.tab-content{
+font-size:16px;
+font-weight:bold;
+}
+/*发光样式*/
 
 @-webkit-keyframes neon1 {
   from {
