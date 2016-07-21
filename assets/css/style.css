@@ -11,7 +11,7 @@ body{
 	position: fixed;
 	top: 0px;
 	padding-top: 10%;
-	background-color:#00CCFF;
+	/*background-color:#00CCFF;*/
 	background-image:url(/assets/images/brickwall.png);
 	color: #fff;
 }
