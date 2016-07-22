@@ -44,7 +44,7 @@ a.nav-link i{
 	font-size: 16px;
 }
 a.nav-link:hover { color: #777; }
-
+/*²à±ßÀ¸ÖÐÄ³Ïî*/v
 #bio {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 15px;
@@ -106,8 +106,12 @@ article{
 }
 
 .article_body{
+	font-family: Arial,'Times New Roman','Microsoft YaHei',SimHei;
 	margin-top: 20px;
-	font-size:18px;
+	font-size: 17px;
+	word-spacing: 8px
+	letter-spacing: 2px;
+	line-height: 150%;
 	margin-bottom: 20px;
 }
 

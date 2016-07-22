@@ -138,12 +138,12 @@
 	</div>
    <!--右边栏-->
 	<div class="col-md-9 col-md-offset-3 col-sm-6 col-lg-9 col-lg-offset-3 " id="rightside">
-		<div class="page-header">
+		﻿<div class="page-header">
   <h1>MITK中本来存在的头文件无法使用 </h1>
 </div>
 
 <article>
-	<div class="col-sm-10">
+	<div class="col-sm-12">
 	 <span class="post-date">
 	 
 	   2014-08-27
@@ -159,35 +159,19 @@
 
 <p>比如ITK Modules中Group Filtering内的 Module ITKColormap，我们无法引用里面的 itkScalarToRGBColormapImageFilter.h</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>比较方便的办法是，找到插件源文件下的CMakeLists.txt文件，在里面加入PACKAGE_DEPENDS ITK</td>
-      <td>ITKColormap。CMakeLists.txt内容如下</td>
-    </tr>
-  </tbody>
-</table>
+<p>比较方便的办法是，找到插件源文件下的CMakeLists.txt文件，在里面加入<code class="highlighter-rouge">PACKAGE_DEPENDS ITK || ITKColorma</code>。CMakeLists.txt内容如下</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre></td><td class="code"><pre> 
-<span class="n">project</span><span class="p">(</span><span class="n">my_awesomeproject_myLevelSet</span><span class="p">)</span>  
-<span class="n">find_package</span> <span class="p">(</span><span class="no">OPENCV</span> <span class="no">REQUIRED</span><span class="p">)</span>  
-<span class="n">include_directories</span><span class="p">(</span><span class="err">$</span><span class="p">{</span><span class="no">OPENCV_INCLUDE_DIRS</span><span class="p">})</span>   
+<div class="highlighter-rouge"><pre class="highlight"><code>project(my_awesomeproject_myLevelSet)  
+find_package (OPENCV REQUIRED)  
+include_directories(${OPENCV_INCLUDE_DIRS})   
   
-<span class="no">MACRO_CREATE_MITK_CTK_PLUGIN</span><span class="p">(</span>  
-  <span class="no">EXPORT_DIRECTIVE</span> <span class="no">MYLEVELSET_EXPORT</span>  
-  <span class="no">EXPORTED_INCLUDE_SUFFIXES</span> <span class="n">src</span>  
-  <span class="no">MODULE_DEPENDS</span> <span class="no">MitkQtWidgetsExt</span> <span class="no">MitkSegmentation</span>  
-  <span class="no">PACKAGE_DEPENDS</span> <span class="no">ITK</span><span class="o">|</span><span class="no">ITKColormap</span>  <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+MACRO_CREATE_MITK_CTK_PLUGIN(  
+  EXPORT_DIRECTIVE MYLEVELSET_EXPORT  
+  EXPORTED_INCLUDE_SUFFIXES src  
+  MODULE_DEPENDS MitkQtWidgetsExt MitkSegmentation  
+  PACKAGE_DEPENDS ITK|ITKColormap  
+</code></pre>
+</div>
 
 	  </div>
 
@@ -230,12 +214,12 @@
 		  
 		</ul>
 		  
-        <hr>
+ 
 		
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'WindTom';
+    var disqus_shortname = 'windtom';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -251,28 +235,17 @@
         
 		<div>
       <section class="share col-sm-6">
-        <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=MITK中本来存在的头文件无法使用"
-           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-          <i class="fa fa-twitter fa-lg"></i>
-          Twitter
-        </a>
-        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
-           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-          <i class="fa fa-facebook fa-lg"></i>
-          Facebook
-        </a>
-        <a class="btn btn-default btn-sm gplus"
-           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
-          <i class="fa fa-google-plus fa-lg"></i>
-          Google+
-        </a>
-      </section>
-
-      <section class="col-sm-6 author">
-        <img src="http://www.gravatar.com/avatar/" class="img-rounded author-image" />
-        <h4 class="section-title author-name">WindTom</h4>
-        <p class="author-bio">技术、生活！</p>
+        <h4 class="section-title">分享此文章</h4>
+        ﻿  <div class="bdsharebuttonbox">
+       <a href="#" class="bds_more" data-cmd="more"></a>
+	   <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	   <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	   <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+	   <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook">
+	   </a><a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+  </div>
+  
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       </section>
     </div>
 
@@ -289,10 +262,7 @@
 
 		<hr>
 	</div>
-	
-	<div class="col-sm-2 sidebar-2">
-	
-	</div>
+
 </article>
 <div class="clearfix"></div>
 

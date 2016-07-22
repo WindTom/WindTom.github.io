@@ -138,12 +138,12 @@
 	</div>
    <!--右边栏-->
 	<div class="col-md-9 col-md-offset-3 col-sm-6 col-lg-9 col-lg-offset-3 " id="rightside">
-		<div class="page-header">
+		﻿<div class="page-header">
   <h1>超声、超声心动图和多普勒基础入门（一） </h1>
 </div>
 
 <article>
-	<div class="col-sm-10">
+	<div class="col-sm-12">
 	 <span class="post-date">
 	 
 	   2016-07-11
@@ -156,6 +156,7 @@
 	 </span>
 	  <div class="article_body">
 	  <hr />
+<p>[TOC]</p>
 
 <p>英文链接: 
 （http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound） 
@@ -163,7 +164,7 @@
 
 <p>题外话：看老外的科普性的文章，最大的感受就是直观，很容易让人明白，而国人总喜欢取术语，而且取名又让人很难理解其中的含义。百度上搜一个问题，不同的博客给的都是同一个答案。如果我们都能少一些拷贝粘贴，多写一些理解性的话，那别人学起来就容易多了。</p>
 
-<h3 id="section">超声</h3>
+<h3 id="section"><strong>超声</strong></h3>
 <p>简单来说，超声就是声波，和人的声音一样，只是你听不见而已。声音是纵波，沿声音传播方向前后振荡。 
 人能听见的声音大概在15000到20000赫兹，而临床上超声的频率在1000到12000赫兹。我们能墙角拐弯处能听见声音，是因为声音在这些弯角处发生衍射；高频（短波长）声音则会像电磁波一样沿直线传播，遇到物体时反射回来的波束能量也更为集中，就像光束的反射一样。因为波长短，高频声波更易在较小的物体上发生发射，且在气态媒介中不易传播。 
 高中物理课本告诉我们波长和频率f成反比，它们与速度v的关系是:</p>
@@ -176,43 +177,46 @@
 
 <p>什么是超声数据？ 
 超声数据按照复杂度可作如下分类：</p>
-<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
-      <tbody>
+<table style="text-align: center; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+      <tbody align="center">
         <tr>
-          <td style="vertical-align: top; text-align: center;"><img style="width: 261px; height: 249px;" alt="" src="https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true" height="249" width="261" /><br />
+          <td width="33%"><img src="https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true" />
           </td>
-          <td style="vertical-align: top; text-align: center;"><img style="width: 261px; height: 249px;" alt="" src="https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true" /><img style="width: 261px; height:
-              249px;" alt="" src="https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true" /><br />
+
+          <td width="33%">
+		       <img src="https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true" width="45%" />
+          
+               <img src="https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true" width="45%" />
           </td>
-          <td style="vertical-align: top; text-align: center;"><img style="width: 261px; height: 249px;" alt="" src="https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true" height="249" width="261" /><br />
+
+          <td width="33%">
+		      <img src="https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true" />
           </td>
+
         </tr>
         <tr>
-          <td style="vertical-align: top;"><small><span style="font-weight: bold;">Basically, a reflected
-                ultrasound pulse is a waveform. However, storing the
-                full waveform, called RF data, is demanding in terms of
-                storage, as each point on the curve would have to be
-                represented in some way or other. However, if the full
-                RF data are stored, the amplitude and frequency data
-                could both be calculated in post processing. </span></small><br />
+          <td>
+                <span><small> <b>
+				 通常，接收到的反射超声回波是一个波形（也称RF Data），但是存储这种波形对存储空间要求很大，因为波形曲线上每个点都要求能够表达出来。不过，如果能够将RF Data存储下来，回波的振幅和频率也能借此计算出来。 
+                </b></small></span> 
           </td>
-          <td style="vertical-align: top;"><small><span style="font-weight: bold;">The pulse has a certain
-                amplitude. Just storing the amplitude is much les
-                demanding (corresponding more or less to one number per
-                pulse). This is the only data that are used in grey
-                scale imaging, where the amplitude is displayed as
-                brightness of the point correspåonding to the scatterer
-                as in <a href="#2D">B-mode</a> and <a href="#M-mode">M-mode</a>.</span></small><br />
+          <td><small><span><b>
+		      
+		       超声回波具有振幅，只存储振幅的开销要少得多。这也是灰度成像中使用的唯一数据，比如B型和M型超声中各点（散射体对应着各个点）的亮度就是振幅信息。
+               </b></span></small>
+			   
           </td>
-          <td style="vertical-align: top;"><small><span style="font-weight: bold;">However, the reflected
-                ultrasound pulse has a frequency (or a spectrum of
-                frequencies), and this can be represented as a numerical
-                value per image pixel as well, as described in <a href="#Doppler">Doppler </a>imaging. Still, the
-                amount of data is far less than the RF data. </span></small><br />
-          </td>
+          <td><small><span><b>
+		     同样，超声回波也具有频率信息，这些信息同样可以作为像素值，在图像上显示出来。比如多普勒成像。另外，这种数据对存储空间的要求比RF Data少很多。
+			 </b>
+			 </span>
+             </small> 
+		  </td>
         </tr>
       </tbody>
     </table>
+
+<hr />
 
 <div id="disqus_thread"></div>
 <script>
@@ -272,12 +276,12 @@
 		  
 		</ul>
 		  
-        <hr>
+ 
 		
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'WindTom';
+    var disqus_shortname = 'windtom';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -293,28 +297,17 @@
         
 		<div>
       <section class="share col-sm-6">
-        <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=超声、超声心动图和多普勒基础入门（一）"
-           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-          <i class="fa fa-twitter fa-lg"></i>
-          Twitter
-        </a>
-        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
-           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-          <i class="fa fa-facebook fa-lg"></i>
-          Facebook
-        </a>
-        <a class="btn btn-default btn-sm gplus"
-           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
-          <i class="fa fa-google-plus fa-lg"></i>
-          Google+
-        </a>
-      </section>
-
-      <section class="col-sm-6 author">
-        <img src="http://www.gravatar.com/avatar/" class="img-rounded author-image" />
-        <h4 class="section-title author-name">WindTom</h4>
-        <p class="author-bio">技术、生活！</p>
+        <h4 class="section-title">分享此文章</h4>
+        ﻿  <div class="bdsharebuttonbox">
+       <a href="#" class="bds_more" data-cmd="more"></a>
+	   <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	   <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	   <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+	   <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook">
+	   </a><a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+  </div>
+  
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
       </section>
     </div>
 
@@ -331,10 +324,7 @@
 
 		<hr>
 	</div>
-	
-	<div class="col-sm-2 sidebar-2">
-	
-	</div>
+
 </article>
 <div class="clearfix"></div>
 

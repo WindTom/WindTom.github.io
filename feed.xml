@@ -9,6 +9,7 @@
 			<item>
 				<title>超声、超声心动图和多普勒基础入门（一）</title>
 				<description>&lt;hr /&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
 
 &lt;p&gt;英文链接: 
 （http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound） 
@@ -16,7 +17,7 @@
 
 &lt;p&gt;题外话：看老外的科普性的文章，最大的感受就是直观，很容易让人明白，而国人总喜欢取术语，而且取名又让人很难理解其中的含义。百度上搜一个问题，不同的博客给的都是同一个答案。如果我们都能少一些拷贝粘贴，多写一些理解性的话，那别人学起来就容易多了。&lt;/p&gt;
 
-&lt;h3 id=&quot;section&quot;&gt;超声&lt;/h3&gt;
+&lt;h3 id=&quot;section&quot;&gt;&lt;strong&gt;超声&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;简单来说，超声就是声波，和人的声音一样，只是你听不见而已。声音是纵波，沿声音传播方向前后振荡。 
 人能听见的声音大概在15000到20000赫兹，而临床上超声的频率在1000到12000赫兹。我们能墙角拐弯处能听见声音，是因为声音在这些弯角处发生衍射；高频（短波长）声音则会像电磁波一样沿直线传播，遇到物体时反射回来的波束能量也更为集中，就像光束的反射一样。因为波长短，高频声波更易在较小的物体上发生发射，且在气态媒介中不易传播。 
 高中物理课本告诉我们波长和频率f成反比，它们与速度v的关系是:&lt;/p&gt;
@@ -29,43 +30,46 @@
 
 &lt;p&gt;什么是超声数据？ 
 超声数据按照复杂度可作如下分类：&lt;/p&gt;
-&lt;table style=&quot;text-align: left; width: 100%;&quot; border=&quot;0&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;
-      &lt;tbody&gt;
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;
+      &lt;tbody align=&quot;center&quot;&gt;
         &lt;tr&gt;
-          &lt;td style=&quot;vertical-align: top; text-align: center;&quot;&gt;&lt;img style=&quot;width: 261px; height: 249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; height=&quot;249&quot; width=&quot;261&quot; /&gt;&lt;br /&gt;
+          &lt;td width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; /&gt;
           &lt;/td&gt;
-          &lt;td style=&quot;vertical-align: top; text-align: center;&quot;&gt;&lt;img style=&quot;width: 261px; height: 249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true&quot; /&gt;&lt;img style=&quot;width: 261px; height:
-              249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true&quot; /&gt;&lt;br /&gt;
+
+          &lt;td width=&quot;33%&quot;&gt;
+		       &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;
+          
+               &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;
           &lt;/td&gt;
-          &lt;td style=&quot;vertical-align: top; text-align: center;&quot;&gt;&lt;img style=&quot;width: 261px; height: 249px;&quot; alt=&quot;&quot; src=&quot;https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true&quot; height=&quot;249&quot; width=&quot;261&quot; /&gt;&lt;br /&gt;
+
+          &lt;td width=&quot;33%&quot;&gt;
+		      &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true&quot; /&gt;
           &lt;/td&gt;
+
         &lt;/tr&gt;
         &lt;tr&gt;
-          &lt;td style=&quot;vertical-align: top;&quot;&gt;&lt;small&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;Basically, a reflected
-                ultrasound pulse is a waveform. However, storing the
-                full waveform, called RF data, is demanding in terms of
-                storage, as each point on the curve would have to be
-                represented in some way or other. However, if the full
-                RF data are stored, the amplitude and frequency data
-                could both be calculated in post processing. &lt;/span&gt;&lt;/small&gt;&lt;br /&gt;
+          &lt;td&gt;
+                &lt;span&gt;&lt;small&gt; &lt;b&gt;
+				 通常，接收到的反射超声回波是一个波形（也称RF Data），但是存储这种波形对存储空间要求很大，因为波形曲线上每个点都要求能够表达出来。不过，如果能够将RF Data存储下来，回波的振幅和频率也能借此计算出来。 
+                &lt;/b&gt;&lt;/small&gt;&lt;/span&gt; 
           &lt;/td&gt;
-          &lt;td style=&quot;vertical-align: top;&quot;&gt;&lt;small&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;The pulse has a certain
-                amplitude. Just storing the amplitude is much les
-                demanding (corresponding more or less to one number per
-                pulse). This is the only data that are used in grey
-                scale imaging, where the amplitude is displayed as
-                brightness of the point correspåonding to the scatterer
-                as in &lt;a href=&quot;#2D&quot;&gt;B-mode&lt;/a&gt; and &lt;a href=&quot;#M-mode&quot;&gt;M-mode&lt;/a&gt;.&lt;/span&gt;&lt;/small&gt;&lt;br /&gt;
+          &lt;td&gt;&lt;small&gt;&lt;span&gt;&lt;b&gt;
+		      
+		       超声回波具有振幅，只存储振幅的开销要少得多。这也是灰度成像中使用的唯一数据，比如B型和M型超声中各点（散射体对应着各个点）的亮度就是振幅信息。
+               &lt;/b&gt;&lt;/span&gt;&lt;/small&gt;
+			   
           &lt;/td&gt;
-          &lt;td style=&quot;vertical-align: top;&quot;&gt;&lt;small&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;However, the reflected
-                ultrasound pulse has a frequency (or a spectrum of
-                frequencies), and this can be represented as a numerical
-                value per image pixel as well, as described in &lt;a href=&quot;#Doppler&quot;&gt;Doppler &lt;/a&gt;imaging. Still, the
-                amount of data is far less than the RF data. &lt;/span&gt;&lt;/small&gt;&lt;br /&gt;
-          &lt;/td&gt;
+          &lt;td&gt;&lt;small&gt;&lt;span&gt;&lt;b&gt;
+		     同样，超声回波也具有频率信息，这些信息同样可以作为像素值，在图像上显示出来。比如多普勒成像。另外，这种数据对存储空间的要求比RF Data少很多。
+			 &lt;/b&gt;
+			 &lt;/span&gt;
+             &lt;/small&gt; 
+		  &lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
+
+&lt;hr /&gt;
 
 &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -98,7 +102,7 @@
 		
 			<item>
 				<title>Creating a 2D Active Shape Model in ITK Using PCA</title>
-				<description>&lt;p&gt;原帖地址：http://www.kitware.com/source/home/post/52&lt;/p&gt;
+				<description>&lt;p&gt;原帖地址: http://www.kitware.com/source/home/post/52&lt;/p&gt;
 
 &lt;p&gt;ITK is an excellent example of an open-source framework in extreme programming. Strengths of the toolkit include superb documentation and list serve support, and a supportive and vibrant programming community. One missing area of documentation in the ITK software guide includes the implementation of itk::GeodesicActiveContourShapePriorLevelSetImageFilter. The generation of the active shape model (ASM) in this example is provided with no example code or images. Here, we provide sample images and commented code to generate an ASM using itk::ImagePCAShapeModelEstimator. We use the challenging problem of segmenting the femoral condyle cartilage of the knee in our example.&lt;/p&gt;
 
@@ -121,35 +125,19 @@
 
 &lt;p&gt;比如ITK Modules中Group Filtering内的 Module ITKColormap，我们无法引用里面的 itkScalarToRGBColormapImageFilter.h&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;比较方便的办法是，找到插件源文件下的CMakeLists.txt文件，在里面加入PACKAGE_DEPENDS ITK&lt;/td&gt;
-      &lt;td&gt;ITKColormap。CMakeLists.txt内容如下&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;比较方便的办法是，找到插件源文件下的CMakeLists.txt文件，在里面加入&lt;code class=&quot;highlighter-rouge&quot;&gt;PACKAGE_DEPENDS ITK || ITKColorma&lt;/code&gt;。CMakeLists.txt内容如下&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
-&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_awesomeproject_myLevelSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
-&lt;span class=&quot;n&quot;&gt;find_package&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OPENCV&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;REQUIRED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
-&lt;span class=&quot;n&quot;&gt;include_directories&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OPENCV_INCLUDE_DIRS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;   
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;project(my_awesomeproject_myLevelSet)  
+find_package (OPENCV REQUIRED)  
+include_directories(${OPENCV_INCLUDE_DIRS})   
   
-&lt;span class=&quot;no&quot;&gt;MACRO_CREATE_MITK_CTK_PLUGIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;  
-  &lt;span class=&quot;no&quot;&gt;EXPORT_DIRECTIVE&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MYLEVELSET_EXPORT&lt;/span&gt;  
-  &lt;span class=&quot;no&quot;&gt;EXPORTED_INCLUDE_SUFFIXES&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;  
-  &lt;span class=&quot;no&quot;&gt;MODULE_DEPENDS&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MitkQtWidgetsExt&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MitkSegmentation&lt;/span&gt;  
-  &lt;span class=&quot;no&quot;&gt;PACKAGE_DEPENDS&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ITK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ITKColormap&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+MACRO_CREATE_MITK_CTK_PLUGIN(  
+  EXPORT_DIRECTIVE MYLEVELSET_EXPORT  
+  EXPORTED_INCLUDE_SUFFIXES src  
+  MODULE_DEPENDS MitkQtWidgetsExt MitkSegmentation  
+  PACKAGE_DEPENDS ITK|ITKColormap  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
 				<pubDate>Wed, 27 Aug 2014 00:00:00 +0800</pubDate>
 				<link>/mitk/2014/08/27/mitk-cant-use-headfile.html</link>
@@ -158,9 +146,8 @@
 		
 			<item>
 				<title>MITK--如何在源文件中引用自定义头文件</title>
-				<description>&lt;p&gt;[Toc]&lt;/p&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;&lt;strong&gt;引用方法：&lt;/strong&gt;&lt;/h3&gt;
+				<description>
+&lt;h3 id=&quot;section&quot;&gt;&lt;strong&gt;引用方法:&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;p&gt;MITK编程中，我们常常需要自定义头文件，比如在VS工程里面给插件AddNoise创建一个头文件testHeadFile.h：&lt;/p&gt;
 
@@ -221,76 +208,45 @@
 		
 			<item>
 				<title>C++通过ostringstream实现任意类型转string</title>
-				<description>
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
- &lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iostream&amp;gt;  &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;string&amp;gt;  &lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-   &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;头文件是&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sstream&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ostringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  
-   &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+				<description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;  
+#include &amp;lt;string&amp;gt;  
+using namespace std;  
+int main()  
+{  
+   int a = 55;  
+   double b = 65.123;  
+   string str = &quot;&quot;;  
+   //头文件是sstream  
+   std::ostringstream oss;  
+   oss &amp;lt;&amp;lt; a &amp;lt;&amp;lt; &quot;---&quot; &amp;lt;&amp;lt; b;  
+   str = oss.str();  
+   cout &amp;lt;&amp;lt; str &amp;lt;&amp;lt; endl;  
+   return 0;  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;输出是55—65.123。&lt;/p&gt;
 
 &lt;p&gt;如果想实现小数点后只显示一位数字，使用下面方法：&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt; 
-&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iostream&amp;gt;  &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;sstream&amp;gt;  &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iomanip&amp;gt;  &lt;/span&gt;
-    
-&lt;span class=&quot;n&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ostringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setprecision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
-    
-&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  &lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;  
+#include &amp;lt;sstream&amp;gt;  
+#include &amp;lt;iomanip&amp;gt;  
+	
+template &amp;lt;class T&amp;gt;  
+std::string fmt(T in, int width = 0, int prec = 0) {  
+	std::ostringstream s;  
+	s &amp;lt;&amp;lt; std::setw(width) &amp;lt;&amp;lt; std::setprecision(prec) &amp;lt;&amp;lt; in;  
+	return s.str();  
+}  
+	
+int main(){  
+	std::string s = fmt(66.0 / 30.0, 2, 2);  
+	std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; &quot;\n&quot;;  
+}  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
 				<pubDate>Mon, 04 Aug 2014 00:00:00 +0800</pubDate>
 				<link>/cplusplus/2014/08/04/c-to-string.html</link>
