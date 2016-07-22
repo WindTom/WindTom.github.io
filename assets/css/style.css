@@ -24,7 +24,7 @@ body{
 	letter-spacing: 3px;
 	text-transform: uppercase;
 }
-
+/*头像下方主题样式*/
 .sidebar-header .title a{
      text-decoration:none;
 	 color: #fff;
