@@ -7,12 +7,61 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>超声、超声心动图和多普勒基础入门（三）</title>
+				<description>&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;英文原文链接： &lt;br /&gt;
+（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound）&lt;/p&gt;
+
+&lt;h2 id=&quot;m-mode&quot;&gt;&lt;strong&gt;M-mode&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;M型超声是能够记录并显示心脏运动的第一种超声设备。下图为典型的M-型超声图像。&lt;/p&gt;
+&lt;div&gt;
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
+
+&lt;tr&gt;
+&lt;td colspan=&quot;3&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/vvpslax.JPG?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/vvmm.JPG?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/mvmm.JPG?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/aomm.JPG?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;a&lt;/td&gt;
+&lt;td&gt;b&lt;/td&gt;
+&lt;td&gt;c&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td colspan=&quot;3&quot;&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;典型的M-型超声成像。a是左心室成像。b是二尖瓣成像。c是主动脉血管成像（二维长轴）。这里振幅表现为白色的亮度。&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;&lt;strong&gt;深度分辨率、带宽&lt;/strong&gt;&lt;/h2&gt;
+</description>
+				<pubDate>Sat, 23 Jul 2016 00:00:00 +0800</pubDate>
+				<link>/ultrasound/2016/07/23/ultrasound-intro-3.html</link>
+				<guid isPermaLink="true">/ultrasound/2016/07/23/ultrasound-intro-3.html</guid>
+			</item>
+		
+			<item>
 				<title>超声、超声心动图和多普勒基础入门（二）</title>
 				<description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;&lt;strong&gt;吸收&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;&lt;strong&gt;超声功率/机械指数&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;&lt;strong&gt;衰减&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;&lt;strong&gt;增益&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-4&quot; id=&quot;markdown-toc-section-4&quot;&gt;&lt;strong&gt;时间增益补偿&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-5&quot; id=&quot;markdown-toc-section-5&quot;&gt;&lt;strong&gt;压缩和拒绝&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;英文原文链接： &lt;br /&gt;
@@ -55,29 +104,21 @@
 &lt;p&gt;超声波在传输过程中由于反射和散射会产生衰减。因此可以想象，为了成像就必须反射回部分超声波，而这会导致衰减。&lt;/p&gt;
 
 &lt;p&gt;基本上，高反射率的物体会导致图像上产生衰减阴影（如下图）。位于低密度（反射率）器官背后的组织会更明亮。&lt;/p&gt;
-&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;1&quot;&gt;
-	&lt;tr&gt;
-		&lt;th width=&quot;50%&quot;&gt;
-		&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation.GIF?raw=true&quot; /&gt;
-		&lt;/th&gt;
-		&lt;th width=&quot;50%&quot;&gt;
-		&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Ultrasound%20gallstones.JPG?raw=true&quot; /&gt;
-		&lt;/th&gt;
-	&lt;/tr&gt;
-    &lt;tr&gt;
-	   &lt;td width=&quot;50%&quot;&gt;
-		&lt;p&gt;	&lt;small&gt;&lt;b&gt;
-			上图为位于不同反射率结构后面的同一个匀质组织（比如肝脏）的成像示意图。高反射率细胞组织（如钙化组织）的背后会产生高衰减（图上左侧白色圆圈），因此其后面的扇区看起来明显更暗，甚至可能完全是阴影。低反射率组织结构（如液体）的背后衰减就很轻（右侧黑色圆圈），其后面的组织能接受到更多的超声波，在成像上与周围组织相比看起来更密（明亮）。
-        &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;
-	   &lt;/td&gt;
+&lt;div&gt;
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
 
-	    &lt;td width=&quot;50%&quot;&gt;
-			&lt;p&gt;	&lt;small&gt;&lt;b&gt;
-			上图为肝脏组织的成像，其前面有胆囊，胆囊中又含有高密度的结石，造成结石后方出现阴影。胆囊中的其余地方充满液体，因此位于这些部位后方的扇区密度更大，看起来也更明亮或称(coloring)
-	        &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;
-	    &lt;/td&gt;
-    &lt;/tr&gt;
+&lt;tr&gt;
+&lt;th width=&quot;50%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation.GIF?raw=true&quot; /&gt;&lt;/th&gt;
+&lt;th width=&quot;50%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Ultrasound%20gallstones.JPG?raw=true&quot; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td width=&quot;50%&quot;&gt;&lt;p&gt;	&lt;small&gt;&lt;b&gt;上图为位于不同反射率结构后面的同一个匀质组织（比如肝脏）的成像示意图。高反射率细胞组织（如钙化组织）的背后会产生高衰减（图上左侧白色圆圈），因此其后面的扇区看起来明显更暗，甚至可能完全是阴影。低反射率组织结构（如液体）的背后衰减就很轻（右侧黑色圆圈），其后面的组织能接受到更多的超声波，在成像上与周围组织相比看起来更密（明亮）。&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;td width=&quot;50%&quot;&gt;&lt;p&gt;	&lt;small&gt;&lt;b&gt;上图为肝脏组织的成像，其前面有胆囊，胆囊中又含有高密度的结石，造成结石后方出现阴影。胆囊中的其余地方充满液体，因此位于这些部位后方的扇区密度更大，看起来也更明亮或称coloring&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;
 衰减大约造成10%的能量损失，加上超声波的衍射，能够被反射回来成像的能量就更少。不过最主要的原因是细胞吸收。另外，衰减随着深度的增加也加重，再加上回程的能量损失，反射回探头的能量就更少了。&lt;/p&gt;
 
@@ -87,7 +128,105 @@
 
 &lt;h2 id=&quot;section-3&quot;&gt;&lt;strong&gt;增益&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;增益（gain）可以对抗衰减，方法是在后处理中对反射信号进行时间/距离补偿增益。不过加大增益补偿的同时也提高了信噪比（&lt;strong&gt;疑问：这是好事还是坏事？&lt;/strong&gt;）。增益补偿可以在获得图像的同时进行，也可以在后期处理中进行。&lt;/p&gt;
+&lt;p&gt;增益（gain）可以对抗衰减，方法是在后处理中对反射信号进行增益补偿。不过加大增益补偿的同时也提高了信噪比（&lt;strong&gt;疑问：这是好事还是坏事？&lt;/strong&gt;）。增益补偿可以在获得图像的同时进行，也可以在后期处理中进行。&lt;/p&gt;
+
+&lt;div&gt;
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation.jpg?raw=true&quot; /&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation%20gain.jpg?raw=true&quot; /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;&lt;b&gt;&lt;small&gt;未补偿的图像。可看到信号强度（可见度）随着深度不断衰减&lt;/small&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;b&gt;&lt;small&gt;增益补偿的图像。加大了信号的振幅，使得扇区后端组织结构更为清晰。不过扇区前端同样被增强，包括腔室内的噪声，因此该部分区域对比度降低。&lt;/small&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;&lt;strong&gt;时间增益补偿&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;现今所有的商业超声设备上都具有时间增益补偿（time gain compensation，TGC）功能。即根据传输时间对反射信号进行增益补偿，相当于根据距离进行增益补偿。不过这种方案并不理想，如果噪声不随着深度衰减或者随着深度衰减的程度不一，可能降低信噪比，导致某个深度产生灰度模糊。好处是能够获得更为平衡的图像，而且能够补偿大部分衰减。在谐波成像出现之前，TGC是可以调节的。由于谐波成像去除了很大部分腔室噪声，现在大多数设备采用自动TGC，但是保留了手动设置选项。时间增益补偿是一项预处理功能，必须在获得图像的同时进行处理。&lt;/p&gt;
+&lt;div&gt;&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;下图为TGC控制按钮。每个滑动按钮控制某个深度上的增益水平  &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;在老旧型号上，为了获得平衡图像必须手动设置TGC!  &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/TGC1.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/TGC2.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation%20tgc.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt; 如今的设备都有自动TGC，所以为获得平衡图像滑动按钮都应该放在中间&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;按照老习惯设置按钮会导致双倍增益补偿，造成低端增益过大，而顶端又太小 &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/TGC1.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/TGC2.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation%20tgc.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/double%20tgc.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;&lt;strong&gt;压缩和拒绝&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;低振幅信号可以通过拒绝函数（reject function）过滤掉，比如过滤腔室噪声，代价是可能丢失有用的低振幅信号。&lt;/p&gt;
+
+&lt;p&gt;最后，灰度级被压缩（compressed）制造出更加陡峭的饱和曲线（saturation curve）。意思就是图像在低振幅达到全饱和（纯黑，&lt;strong&gt;注意原文说纯白，但我理解的是纯黑&lt;/strong&gt;），同时低振幅的亮度被降低。&lt;/p&gt;
+
+&lt;p&gt;需要注意的是本节提到的都是后处理函数，不会改善信号质量或原始信噪比。&lt;/p&gt;
+
+&lt;div&gt;&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/default.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Gain%20and%20reject.GIF?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;默认增益、拒绝和压缩设置下得到的图像  &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;增益、拒绝和压缩原理。所有曲线反映的都是亮度和被拒绝信号振幅之间的关系。黑色曲线为常规增益。提高增益补偿（红色曲线）会提高包括噪声以及灰度最弱的点在内的所有信号的强度，缺点是除了增强信号外，强度值较大的信号达到饱和值，可能导致图像的细节消失。蓝色曲线表示的是压缩，压缩能够产生更为陡峭的亮度曲线，让本来灰暗的信号更加灰暗，明亮的信号更加明亮，因此弱信号可能同背景噪声一起消失，而强信号达到饱和值，导致细节丢失。最后，浅灰色区域表示的是拒绝操作，该操作将低于某一阈值的所有信号都设为黑色。结合高增益补偿和拒绝操作将会产生同压缩操作类似的效果.&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/higain.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/reject.png?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/logain.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/compr.jpg?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;相同图像采用高增益补偿（上图）提高了心内膜的亮度，但亮度饱和导致细节丢失以及腔室内噪声增大。低增益补偿（下图）导致腔室内噪声下降，但细节丢失（如侧壁心内膜） &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;  相同图像采用高拒绝（上图）操作导致图像腔室噪声降低，但同样细节丢失（侧壁心内膜）。压缩操作（下图）提高了亮度导致心肌细节减少&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
 
@@ -130,45 +269,27 @@
 &lt;h2 id=&quot;section-1&quot;&gt;&lt;strong&gt;什么是超声数据？&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;超声数据按照复杂度可作如下分类：&lt;/p&gt;
+&lt;div&gt;
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt; 
+   
+&lt;tr&gt;
+&lt;th width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; /&gt;&lt;/th&gt;
 
-&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;
-     
-        &lt;tr&gt;
-          &lt;th width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; /&gt;
-          &lt;/th&gt;
+&lt;th width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;        &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;&lt;/th&gt;
 
-          &lt;th width=&quot;33%&quot;&gt;
-		       &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;
-          
-               &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;
-          &lt;/th&gt;
+&lt;th width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true&quot; /&gt; &lt;/th&gt;&lt;/tr&gt;
 
-          &lt;th width=&quot;33%&quot;&gt;
-		      &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true&quot; /&gt;
-          &lt;/th&gt;
-
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;
-                &lt;span&gt;&lt;small&gt; &lt;b&gt;
-				 通常，接收到的反射超声回波是一个波形（也称RF Data），但是存储这种波形对存储空间要求很大，因为波形曲线上每个点都要求能够表达出来。不过，如果能够将RF Data存储下来，回波的振幅和频率也能借此计算出来。 
-                &lt;/b&gt;&lt;/small&gt;&lt;/span&gt; 
-          &lt;/td&gt;
-          &lt;td&gt;&lt;small&gt;&lt;span&gt;&lt;b&gt;
-		      
-		       超声回波具有振幅，只存储振幅的开销要少得多。这也是灰度成像中使用的唯一数据，比如B型和M型超声中各点（散射体对应着各个点）的亮度就是振幅信息。
-               &lt;/b&gt;&lt;/span&gt;&lt;/small&gt;
-			   
-          &lt;/td&gt;
-          &lt;td&gt;&lt;small&gt;&lt;span&gt;&lt;b&gt;
-		     同样，超声回波也具有频率信息，这些信息同样可以作为像素值，在图像上显示出来。比如多普勒成像。另外，这种数据对存储空间的要求比RF Data少很多。
-			 &lt;/b&gt;
-			 &lt;/span&gt;
-             &lt;/small&gt; 
-		  &lt;/td&gt;
-        &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span&gt;&lt;small&gt;&lt;b&gt;通常，接收到的反射超声回波是一个波形（也称RF Data），但是存储这种波形对存储空间要求很大，因为波形曲线上每个点都要求能够表达出来。不过，如果能够将RF Data存储下来，回波的振幅和频率也能借此计算出来。&lt;/b&gt;&lt;/small&gt;&lt;/span&gt; 
+&lt;/td&gt;
+&lt;td&gt;&lt;small&gt;&lt;span&gt;&lt;b&gt;超声回波具有振幅，只存储振幅的开销要少得多。这也是灰度成像中使用的唯一数据，比如B型和M型超声中各点（散射体对应着各个点）的亮度就是振幅信息。&lt;/b&gt;&lt;/span&gt;&lt;/small&gt;			   
+&lt;/td&gt;
+&lt;td&gt;&lt;small&gt;&lt;span&gt;&lt;b&gt;同样，超声回波也具有频率信息，这些信息同样可以作为像素值，在图像上显示出来。比如多普勒成像。另外，这种数据对存储空间的要求比RF Data少很多。&lt;/b&gt;&lt;/span&gt;&lt;/small&gt; 
+&lt;/td&gt;
+&lt;/tr&gt;
       
-    &lt;/table&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section-2&quot;&gt;&lt;strong&gt;超声成像&lt;/strong&gt;&lt;/h2&gt;
@@ -180,17 +301,15 @@
 &lt;p&gt;当一束超声波被发射出去，接收者每隔一小段时间就接收一下（取样）。因为超声的速度是恒定的，从超声发射出去到接收到反射回来信号的时间只与距离有关，也就是说与该组织的距离有关。这个距离对应到图像上就是深度信息。不同的组织结构反射回来的能量也不同，所以反射回来的信号携带两种信息：深度信息和振幅信息。下一条超声波什么时候发射取决于想探查的最大深度。&lt;/p&gt;
 
 &lt;p&gt;用下面图来解释，P点投射出去一支超声波大军去撞墙（组织边界），有的小兵比较猛，直接穿墙，有的小兵头破血流地回来了（超声波被反射回来）。与此同时一个接收者在P点就等着统计返回来的小兵数量。&lt;/p&gt;
-
+&lt;div&gt;
 &lt;table width=&quot;100%&quot; align=&quot;center&quot;&gt;
-	&lt;tr&gt;
-		&lt;td&gt;
-	  		&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Amode.gif?raw=true&quot; /&gt;
-		&lt;/td&gt;
-		&lt;td&gt;
-			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Amode1.JPG?raw=true&quot; /&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt; 
-&lt;/table&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Amode.gif?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Amode1.JPG?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt; 
+&lt;/table&gt; 
+&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;过了一秒，抬头检查，没人来，先休息下；又过了一秒，发现回来了几个小兵，这肯定是撞第一个墙的人来了。数一下人数和时间，休息去。&lt;/p&gt;
@@ -209,16 +328,14 @@
 &lt;p&gt;某一时刻也就是某一深度接收到的能量值，以能量振幅的形式显示就是A型超声。以发射矩阵上某点的亮度值显示就是B型超声。如果有一些散射体在动，则可以让B型超声的点在屏幕上动起来，这就叫M型超声。&lt;/p&gt;
 
 &lt;p&gt;可以参见下图，下图中离P点近的是第一个边界（散射体），最远的是第三个散射体。且第三个散射体在运动。A型超声反映每个散射体的深度和反射能量信息。B型超声以亮度表示反射回来的能量大小。最下面一个散射体在动，如果用时间曲线来反映，第三个反射体的运动就是一条曲线（M型超声）&lt;/p&gt;
+&lt;div&gt;
 &lt;table width=&quot;100%&quot; align=&quot;center&quot;&gt;
- 	&lt;tr&gt;
-		&lt;td&gt;
-			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/sektor_puls1.gif?raw=true&quot; /&gt;
-		&lt;/td&gt;
-        &lt;td&gt;
-            &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/abm.gif?raw=true&quot; /&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/sektor_puls1.gif?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/abm.gif?raw=true&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt; 
+&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;脉冲入射能量和反射能量的比例被称为反射系数（reflection efficient）；入射能量和透射能量的比例被称为透射系数（transmission coefficient）。这两个系数都取决于界面两侧材料的声阻抗。一种传输媒介的声阻抗定义为声音在该媒介中的传播速度c和该媒介的密度之积：&lt;/p&gt;
@@ -233,48 +350,32 @@
 因此：&lt;br /&gt;
 -无规律的，或者说不均匀的散射体只能将部分能量反射回探头
 -在反射面垂直于超声波入射方向时，散射体越匀质，反射的能量越多。&lt;/p&gt;
-
+&lt;div&gt;
 &lt;table border=&quot;1px&quot; width=&quot;80%&quot; align=&quot;center&quot;&gt;
-	&lt;tr&gt;
-		&lt;td&gt;
-			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Scatterers.GIF?raw=true&quot; width=&quot;100%&quot; /&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;
-			&lt;p&gt;&lt;small&gt;
-               &lt;b&gt;反射面大小和方向对反射能量的影响。左侧两图为平面反射面，当平面与入射波垂直，绝大部分能量将被反射回探头（这里并不是全部能量，因为入射波束前锋并不是平的）；当平面倾斜45度，几乎绝大部分能量将被反射到其他方向，探头接收到的反射能量微乎其微。中间两图展示了弯曲的散射面，这时会有更多能量被反射到不同方向，当然探头接收到的能量相对更少，但如果将散射面倾斜，可能会有更多能量反射到探头。比如，当心脏室壁收缩时，室壁方向就会发生变化。最后一张图展示了一个完全不规则的散射面，入射能量被反射到各个方向，但探头接收到的能量非常少。&lt;/b&gt;
-            &lt;/small&gt;
-     		&lt;/p&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Scatterers.GIF?raw=true&quot; width=&quot;100%&quot; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;反射面大小和方向对反射能量的影响。左侧两图为平面反射面，当平面与入射波垂直，绝大部分能量将被反射回探头（这里并不是全部能量，因为入射波束前锋并不是平的）；当平面倾斜45度，几乎绝大部分能量将被反射到其他方向，探头接收到的反射能量微乎其微。中间两图展示了弯曲的散射面，这时会有更多能量被反射到不同方向，当然探头接收到的能量相对更少，但如果将散射面倾斜，可能会有更多能量反射到探头。比如，当心脏室壁收缩时，室壁方向就会发生变化。最后一张图展示了一个完全不规则的散射面，入射能量被反射到各个方向，但探头接收到的能量非常少。&lt;/b&gt;&lt;/small&gt;
+&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;br /&gt;
 
 &lt;table border=&quot;1px&quot; width=&quot;100%&quot; align=&quot;center&quot;&gt;
-	&lt;tr&gt;
-		&lt;td width=&quot;50%&quot;&gt;
-			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/reflected%20direction.JPG?raw=true&quot; width=&quot;100%&quot; /&gt;
-		&lt;/td&gt;
-		&lt;td width=&quot;50%&quot;&gt;
-			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Tissuechar.jpg?raw=true&quot; width=&quot;100%&quot; /&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;		
-			&lt;p&gt;&lt;small&gt;
-               &lt;b&gt;上图为一幅左心室长轴图，反映了反射面方向不同所造成的影响。三处箭头所指处被称为隔血层（septum-blood interface），淡绿色箭头所指处由于表面垂直于超声波入射方向，其亮度要高于表面倾斜于入射波方向的区域（红色箭头）。&lt;/b&gt;
-               &lt;/small&gt;
-     		&lt;/p&gt;
-  		&lt;/td&gt;
- 		&lt;td&gt;
-			&lt;p&gt;&lt;small&gt;
-               &lt;b&gt;上图为心动周期内整体散射(integrated backscatter)振幅的周期性变化。这不是对心肌密度变化的反映，因为心肌是不能压缩的，所以振幅的变化大多数反映了心肌纤维的方向变化。&lt;/b&gt;
-            &lt;/small&gt;
-     		&lt;/p&gt;
-		&lt;/td&gt;
-	&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width=&quot;50%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/reflected%20direction.JPG?raw=true&quot; width=&quot;100%&quot; /&gt;&lt;/td&gt;		
+&lt;td width=&quot;50%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Tissuechar.jpg?raw=true&quot; width=&quot;100%&quot; /&gt;&lt;/td&gt;	
+&lt;/tr&gt;	
+
+&lt;tr&gt;		
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;上图为一幅左心室长轴图，反映了反射面方向不同所造成的影响。三处箭头所指处被称为隔血层（septum-blood interface），淡绿色箭头所指处由于表面垂直于超声波入射方向，其亮度要高于表面倾斜于入射波方向的区域（红色箭头）。&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;上图为心动周期内整体散射(integrated backscatter)振幅的周期性变化。这不是对心肌密度变化的反映，因为心肌是不能压缩的，所以振幅的变化大多数反映了心肌纤维的方向变化。&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/table&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;注意：术语&lt;strong&gt;反射&lt;/strong&gt;指的是反射回探头的信号，而&lt;strong&gt;散射&lt;/strong&gt;(scattering)指的是各个方向上的反射信号。&lt;/p&gt;
@@ -519,44 +620,6 @@ PCH warning: header stop cannot be in a macro or #if block. An intellisense PCH 
 				<pubDate>Thu, 31 Jul 2014 00:00:00 +0800</pubDate>
 				<link>/mitk/2014/07/31/mitk-cant-find-itk-head-file.html</link>
 				<guid isPermaLink="true">/mitk/2014/07/31/mitk-cant-find-itk-head-file.html</guid>
-			</item>
-		
-			<item>
-				<title>MITK编程流程</title>
-				<description>&lt;p&gt;MITK官方网站：www.mitk.org&lt;/p&gt;
-
-&lt;p&gt;使用MITK编程的一般流程为：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;创建自定义插件&lt;br /&gt;
-使用PlugInGenerator创建一个自定义插件，注意插件的命名要符合MITKTemplate的命名方式，插件可以存放在任何位置，下一步会拷贝至template文件夹下。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;拷贝自定义插件&lt;br /&gt;
-将生成的插件(Plugin)放进MITKTemplate文件夹中的Plugins文件夹下，并修改该文件夹下的Plugins.cmake，将自定义插件添加进去。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用CMake编译MITKTemplate
-注意将两个superbuild选项设为OFF，同时将编译好的ITK、VTK、DCMTK等路径填好。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开编译好的Template，使用StartVS_debug.bat，或者StartVS_release打开相应版本的工程。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将AwsomeAPP设为启动项。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;运行测试工程。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开插件的.h和.cpp文件，编写自己的程序。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-				<pubDate>Wed, 30 Jul 2014 00:00:00 +0800</pubDate>
-				<link>/mitk/2014/07/30/mitks-coding-process.html</link>
-				<guid isPermaLink="true">/mitk/2014/07/30/mitks-coding-process.html</guid>
 			</item>
 		
 	</channel>
