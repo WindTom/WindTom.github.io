@@ -7,13 +7,112 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>超声、超声心动图和多普勒基础入门（二）</title>
+				<description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;&lt;strong&gt;吸收&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;&lt;strong&gt;超声功率/机械指数&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;&lt;strong&gt;衰减&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;&lt;strong&gt;增益&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;英文原文链接： &lt;br /&gt;
+（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound）&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;&lt;strong&gt;吸收&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;入射超声波的一部分被组织吸收，转化成热量。这表示被吸收的能量过高可能导致生物反应。&lt;/p&gt;
+
+&lt;p&gt;细胞吸收超声波的问题必须受到重视，原因有二：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;细胞被加热程度决定了超声设备的安全标准。被吸收的能量应该被限制在不足以破坏组织细胞。如今，细胞吸收率已经能够被计算并且应用于商业医疗设备的标准之中（被称为机械指数（mechanical index））。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;超声波能量衰减。细胞吸收是超声波束穿透能力（穿透深度）的主要障碍。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;决定能量吸收能力的因素有两个：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;组织密度。密度越高，吸收越多。所以超声波在媒介中的衰减率为液体&amp;lt;脂肪&amp;lt;肌肉&amp;lt;纤维组织&amp;lt;钙化和骨头&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;超声波束频率。频率越高，吸收越高。超声在人体组织内衰减情况大概为 1 db/cm MHz。（不过，这是单向的衰减数据，实际中要考虑到超声波要走一个来回才能成像）。因此，探查的深度确定后，就可以决定超声频率上限。虽然加大发射的超声波能量也能提高穿透深度，但这无疑会增加被吸收的能量，而组织吸收能量是有限制的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;&lt;strong&gt;超声功率/机械指数&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;超声功率指的是探头发射能量的振幅，也就是发射进病人身体内的总能量，单位是分贝。&lt;/p&gt;
+
+&lt;p&gt;机械指数指的是病人吸收的能量。这不仅取决于超声功率，还取决于波束对焦点（波束对焦的区域最高），但随着深度的增加而减弱。机械指数是衡量超声波生物反应的一个指标，医疗设备上标注的一般是最大值。通常，机械指数在1.5（B型超声）到0.1之间。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;&lt;strong&gt;衰减&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;超声波在传输过程中由于反射和散射会产生衰减。因此可以想象，为了成像就必须反射回部分超声波，而这会导致衰减。&lt;/p&gt;
+
+&lt;p&gt;基本上，高反射率的物体会导致图像上产生衰减阴影（如下图）。位于低密度（反射率）器官背后的组织会更明亮。&lt;/p&gt;
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;1&quot;&gt;
+	&lt;tr&gt;
+		&lt;th width=&quot;50%&quot;&gt;
+		&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/attenuation.GIF?raw=true&quot; /&gt;
+		&lt;/th&gt;
+		&lt;th width=&quot;50%&quot;&gt;
+		&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Ultrasound%20gallstones.JPG?raw=true&quot; /&gt;
+		&lt;/th&gt;
+	&lt;/tr&gt;
+    &lt;tr&gt;
+	   &lt;td width=&quot;50%&quot;&gt;
+		&lt;p&gt;	&lt;small&gt;&lt;b&gt;
+			上图为位于不同反射率结构后面的同一个匀质组织（比如肝脏）的成像示意图。高反射率细胞组织（如钙化组织）的背后会产生高衰减（图上左侧白色圆圈），因此其后面的扇区看起来明显更暗，甚至可能完全是阴影。低反射率组织结构（如液体）的背后衰减就很轻（右侧黑色圆圈），其后面的组织能接受到更多的超声波，在成像上与周围组织相比看起来更密（明亮）。
+        &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;
+	   &lt;/td&gt;
+
+	    &lt;td width=&quot;50%&quot;&gt;
+			&lt;p&gt;	&lt;small&gt;&lt;b&gt;
+			上图为肝脏组织的成像，其前面有胆囊，胆囊中又含有高密度的结石，造成结石后方出现阴影。胆囊中的其余地方充满液体，因此位于这些部位后方的扇区密度更大，看起来也更明亮或称(coloring)
+	        &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;
+	    &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;
+衰减大约造成10%的能量损失，加上超声波的衍射，能够被反射回来成像的能量就更少。不过最主要的原因是细胞吸收。另外，衰减随着深度的增加也加重，再加上回程的能量损失，反射回探头的能量就更少了。&lt;/p&gt;
+
+&lt;p&gt;衰减是限制超声波束穿透深度（这个深度指的是超声波发射出去后，探头仍能接收到有效信号的距离）的主要因素。波长越短，衰减越大，穿透距离也越短。&lt;/p&gt;
+
+&lt;p&gt;有效的距离大概在200-300x（这个单位在原文中也看不清）。临床上，质量好的成像的穿透参数大约为3.5MHz 10~20cm（成人心脏探查量），5MHz 5~10cm（儿科心脏探查），7.5 MHz 2~5cm, 10 MHZ 1~4 cm。后两个频率应用在血管探查。不过，避开衰减的途径之一是谐波成像（harmonic imaging）。也就是说，以一定频率发射出去的波束，探头接收到信号后以两倍频率进行分析（傅里叶分析），这提高了反射信号的信噪比，而不会有分辨率损失，尤其是在图像的最深处。（&lt;em&gt;什么是最深处？指图像上远离发射源的位置&lt;/em&gt;）&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;&lt;strong&gt;增益&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;增益（gain）可以对抗衰减，方法是在后处理中对反射信号进行时间/距离补偿增益。不过加大增益补偿的同时也提高了信噪比（&lt;strong&gt;疑问：这是好事还是坏事？&lt;/strong&gt;）。增益补偿可以在获得图像的同时进行，也可以在后期处理中进行。&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+</description>
+				<pubDate>Sat, 23 Jul 2016 00:00:00 +0800</pubDate>
+				<link>/ultrasound/2016/07/23/ultrasound-intro-2.html</link>
+				<guid isPermaLink="true">/ultrasound/2016/07/23/ultrasound-intro-2.html</guid>
+			</item>
+		
+			<item>
 				<title>超声、超声心动图和多普勒基础入门（一）</title>
 				<description>&lt;hr /&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;&lt;strong&gt;超声&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;&lt;strong&gt;什么是超声数据？&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;&lt;strong&gt;超声成像&lt;/strong&gt;&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#section-3&quot; id=&quot;markdown-toc-section-3&quot;&gt;&lt;strong&gt;反射和散射&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;英文链接: 
-（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound） 
-本文的目的是尽量以图片介绍超声心动图和多普勒基础知识。&lt;/p&gt;
+&lt;p&gt;英文原文链接: 
+（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound）&lt;/p&gt;
+
+&lt;p&gt;本文的目的是尽量以图片介绍超声心动图和多普勒基础知识。&lt;/p&gt;
 
 &lt;p&gt;题外话：看老外的科普性的文章，最大的感受就是直观，很容易让人明白，而国人总喜欢取术语，而且取名又让人很难理解其中的含义。百度上搜一个问题，不同的博客给的都是同一个答案。如果我们都能少一些拷贝粘贴，多写一些理解性的话，那别人学起来就容易多了。&lt;/p&gt;
 
@@ -22,29 +121,31 @@
 人能听见的声音大概在15000到20000赫兹，而临床上超声的频率在1000到12000赫兹。我们能墙角拐弯处能听见声音，是因为声音在这些弯角处发生衍射；高频（短波长）声音则会像电磁波一样沿直线传播，遇到物体时反射回来的波束能量也更为集中，就像光束的反射一样。因为波长短，高频声波更易在较小的物体上发生发射，且在气态媒介中不易传播。 
 高中物理课本告诉我们波长和频率f成反比，它们与速度v的关系是:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/gongshi.gif?raw=true&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/gongshi.gif?raw=true&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;声波在不同媒介中的速度不同。&lt;/p&gt;
 
 &lt;p&gt;脉冲电压加在晶片上，晶体产生振动，从而产生超声波，我们叫这种晶体为压电晶体。同一个晶体可以作为反射超声波的接收者。&lt;/p&gt;
 
-&lt;p&gt;什么是超声数据？ 
-超声数据按照复杂度可作如下分类：&lt;/p&gt;
-&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;
-      &lt;tbody align=&quot;center&quot;&gt;
-        &lt;tr&gt;
-          &lt;td width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; /&gt;
-          &lt;/td&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;&lt;strong&gt;什么是超声数据？&lt;/strong&gt;&lt;/h2&gt;
 
-          &lt;td width=&quot;33%&quot;&gt;
+&lt;p&gt;超声数据按照复杂度可作如下分类：&lt;/p&gt;
+
+&lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;2&quot; cellspacing=&quot;2&quot;&gt;
+     
+        &lt;tr&gt;
+          &lt;th width=&quot;33%&quot;&gt;&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF.GIF?raw=true&quot; /&gt;
+          &lt;/th&gt;
+
+          &lt;th width=&quot;33%&quot;&gt;
 		       &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/RF-ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;
           
                &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/ampl.GIF?raw=true&quot; width=&quot;45%&quot; /&gt;
-          &lt;/td&gt;
+          &lt;/th&gt;
 
-          &lt;td width=&quot;33%&quot;&gt;
+          &lt;th width=&quot;33%&quot;&gt;
 		      &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/freq.GIF?raw=true&quot; /&gt;
-          &lt;/td&gt;
+          &lt;/th&gt;
 
         &lt;/tr&gt;
         &lt;tr&gt;
@@ -66,34 +167,126 @@
              &lt;/small&gt; 
 		  &lt;/td&gt;
         &lt;/tr&gt;
-      &lt;/tbody&gt;
+      
     &lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;&lt;strong&gt;超声成像&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;&lt;strong&gt;反射和散射&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;一般来说，所有超声成像的原理都是，发射出去的超声波在经过两个组织的边界时，部分能量被反射回来。如下图三条竖线代表三个边界。反射能量的多少根据各组织的阻抗而定。通常见到的超声成像只用到了振幅信息。&lt;/p&gt;
+
+&lt;p&gt;当一束超声波被发射出去，接收者每隔一小段时间就接收一下（取样）。因为超声的速度是恒定的，从超声发射出去到接收到反射回来信号的时间只与距离有关，也就是说与该组织的距离有关。这个距离对应到图像上就是深度信息。不同的组织结构反射回来的能量也不同，所以反射回来的信号携带两种信息：深度信息和振幅信息。下一条超声波什么时候发射取决于想探查的最大深度。&lt;/p&gt;
+
+&lt;p&gt;用下面图来解释，P点投射出去一支超声波大军去撞墙（组织边界），有的小兵比较猛，直接穿墙，有的小兵头破血流地回来了（超声波被反射回来）。与此同时一个接收者在P点就等着统计返回来的小兵数量。&lt;/p&gt;
+
+&lt;table width=&quot;100%&quot; align=&quot;center&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+	  		&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Amode.gif?raw=true&quot; /&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Amode1.JPG?raw=true&quot; /&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt; 
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;过了一秒，抬头检查，没人来，先休息下；又过了一秒，发现回来了几个小兵，这肯定是撞第一个墙的人来了。数一下人数和时间，休息去。&lt;/p&gt;
+
+&lt;p&gt;过了一秒，抬头检查，没人来，难道剩下的小兵都很猛吗?休息去 
+又过了一秒，抬头检查，没人来，这么猛？！休息去 
+再过了一秒，还是没人来，这批人吃补药了？休息去。 
+又过了一秒，抬头检查，回来一批。原来不是补药吃的好，是距离有点远耶。统计一下回来的人数，记录时间，休息去。&lt;/p&gt;
+
+&lt;p&gt;就这样每隔一秒抬头检查一次，过了一段时间，又有一批小兵回来了，这应该是撞到第三面墙了，继续统计。继续……&lt;/p&gt;
+
+&lt;p&gt;这里，统计员记录的时间就是深度信息（距离信息），统计的小兵人数就是对应的振幅信息。&lt;/p&gt;
+
+&lt;p&gt;我们可以计算到，发射源与反射物体间的距离为声波速度与统计时间的乘积再除以2，为什么除以2？（因为小兵走了一个来回，与目的地之间的距离当然是一半了）&lt;/p&gt;
+
+&lt;p&gt;某一时刻也就是某一深度接收到的能量值，以能量振幅的形式显示就是A型超声。以发射矩阵上某点的亮度值显示就是B型超声。如果有一些散射体在动，则可以让B型超声的点在屏幕上动起来，这就叫M型超声。&lt;/p&gt;
+
+&lt;p&gt;可以参见下图，下图中离P点近的是第一个边界（散射体），最远的是第三个散射体。且第三个散射体在运动。A型超声反映每个散射体的深度和反射能量信息。B型超声以亮度表示反射回来的能量大小。最下面一个散射体在动，如果用时间曲线来反映，第三个反射体的运动就是一条曲线（M型超声）&lt;/p&gt;
+&lt;table width=&quot;100%&quot; align=&quot;center&quot;&gt;
+ 	&lt;tr&gt;
+		&lt;td&gt;
+			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/sektor_puls1.gif?raw=true&quot; /&gt;
+		&lt;/td&gt;
+        &lt;td&gt;
+            &lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/abm.gif?raw=true&quot; /&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;脉冲入射能量和反射能量的比例被称为反射系数（reflection efficient）；入射能量和透射能量的比例被称为透射系数（transmission coefficient）。这两个系数都取决于界面两侧材料的声阻抗。一种传输媒介的声阻抗定义为声音在该媒介中的传播速度c和该媒介的密度之积：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z=c\times \rho&lt;/script&gt;
+
+&lt;p&gt;因此，如果声音在两种媒介中的传播速度相差悬殊，则声音在其中间界面上的反射率接近100%，也就是说能量无法从第一个媒介传播到第二个媒介。这种情况常发生于软组织和骨头之间的界面，或者是软组织和空气之间的界面上。这时可以认为第二个媒介存在于阴影中。&lt;/p&gt;
+
+&lt;p&gt;声波被以多个方向反射，反射波并不能直接返回发射器，因此这种反射结构也常被称为&lt;strong&gt;散射体&lt;/strong&gt;（scatterers）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;需要注意的是反射回探头的能量（也就是反射信号振幅）的多少，不只取决于反射系数，反射信号的方向同样重要。&lt;/strong&gt;&lt;br /&gt;
+因此：&lt;br /&gt;
+-无规律的，或者说不均匀的散射体只能将部分能量反射回探头
+-在反射面垂直于超声波入射方向时，散射体越匀质，反射的能量越多。&lt;/p&gt;
+
+&lt;table border=&quot;1px&quot; width=&quot;80%&quot; align=&quot;center&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Scatterers.GIF?raw=true&quot; width=&quot;100%&quot; /&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			&lt;p&gt;&lt;small&gt;
+               &lt;b&gt;反射面大小和方向对反射能量的影响。左侧两图为平面反射面，当平面与入射波垂直，绝大部分能量将被反射回探头（这里并不是全部能量，因为入射波束前锋并不是平的）；当平面倾斜45度，几乎绝大部分能量将被反射到其他方向，探头接收到的反射能量微乎其微。中间两图展示了弯曲的散射面，这时会有更多能量被反射到不同方向，当然探头接收到的能量相对更少，但如果将散射面倾斜，可能会有更多能量反射到探头。比如，当心脏室壁收缩时，室壁方向就会发生变化。最后一张图展示了一个完全不规则的散射面，入射能量被反射到各个方向，但探头接收到的能量非常少。&lt;/b&gt;
+            &lt;/small&gt;
+     		&lt;/p&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;table border=&quot;1px&quot; width=&quot;100%&quot; align=&quot;center&quot;&gt;
+	&lt;tr&gt;
+		&lt;td width=&quot;50%&quot;&gt;
+			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/reflected%20direction.JPG?raw=true&quot; width=&quot;100%&quot; /&gt;
+		&lt;/td&gt;
+		&lt;td width=&quot;50%&quot;&gt;
+			&lt;img src=&quot;https://github.com/WindTom/imagestom/blob/master/Tissuechar.jpg?raw=true&quot; width=&quot;100%&quot; /&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;		
+			&lt;p&gt;&lt;small&gt;
+               &lt;b&gt;上图为一幅左心室长轴图，反映了反射面方向不同所造成的影响。三处箭头所指处被称为隔血层（septum-blood interface），淡绿色箭头所指处由于表面垂直于超声波入射方向，其亮度要高于表面倾斜于入射波方向的区域（红色箭头）。&lt;/b&gt;
+               &lt;/small&gt;
+     		&lt;/p&gt;
+  		&lt;/td&gt;
+ 		&lt;td&gt;
+			&lt;p&gt;&lt;small&gt;
+               &lt;b&gt;上图为心动周期内整体散射(integrated backscatter)振幅的周期性变化。这不是对心肌密度变化的反映，因为心肌是不能压缩的，所以振幅的变化大多数反映了心肌纤维的方向变化。&lt;/b&gt;
+            &lt;/small&gt;
+     		&lt;/p&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;注意：术语&lt;strong&gt;反射&lt;/strong&gt;指的是反射回探头的信号，而&lt;strong&gt;散射&lt;/strong&gt;(scattering)指的是各个方向上的反射信号。&lt;/p&gt;
+
+&lt;p&gt;因此，超声图像上显示的组织密度取决于室壁和纤维方向。心脏某个部位的纤维方向与入射超声波垂直时，从图像上看密度较大。而实际上振幅（被反射信号的明暗）并不足以反映组织密度，也有可能是反射方向不同。因此，整体散射可以用来研究周期性变化，但不能用于研究组织特性。&lt;/p&gt;
+
+&lt;p&gt;（下页继续）&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    /*
-    var disqus_config = function () {
-        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page&#39;s canonical URL variable
-        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page&#39;s unique identifier variable
-    };
-    */
-    (function() {  // DON&#39;T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement(&#39;script&#39;);
-        
-        s.src = &#39;//windtom.disqus.com/embed.js&#39;;
-        
-        s.setAttribute(&#39;data-timestamp&#39;, +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
 
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
 </description>
 				<pubDate>Mon, 11 Jul 2016 00:00:00 +0800</pubDate>
 				<link>/ultrasound/2016/07/11/ultrasound-introduction.html</link>
@@ -364,65 +557,6 @@ PCH warning: header stop cannot be in a macro or #if block. An intellisense PCH 
 				<pubDate>Wed, 30 Jul 2014 00:00:00 +0800</pubDate>
 				<link>/mitk/2014/07/30/mitks-coding-process.html</link>
 				<guid isPermaLink="true">/mitk/2014/07/30/mitks-coding-process.html</guid>
-			</item>
-		
-			<item>
-				<title>标准Lena测试图像下载</title>
-				<description>&lt;p&gt;在做图像处理的时候常常用到Lena图像，但网上提供的测试图标准不一。这是Rice University提供的标准测试图，省去大家四处寻找之苦。另外，仔细阅读这个链接，你还会发现其他有用信息^.^&lt;/p&gt;
-
-&lt;h2 id=&quot;httpwwwecericeeduwakinimages&quot;&gt;原文链接： http://www.ece.rice.edu/~wakin/images/&lt;/h2&gt;
-&lt;p&gt;# Wet Paint #
-This test image was taken by our group in Duncan Hall at Rice University. The Matlab file for the 1024x1024 image is &lt;a href=&quot;http://www.ece.rice.edu/~wakin/images/paint.mat&quot;&gt;here&lt;/a&gt;.
-# Lena/Lenna #&lt;/p&gt;
-
-&lt;p&gt;There seem to be many versions of the Lena (aka “Lenna”) test image available. This problem was noted by Shapiro in his 1993 zerotree paper, and it remains surprisingly true today. This web page is an attempt to clear up some of the confusion (and hopefully not add to it).&lt;/p&gt;
-
-&lt;p&gt;The files on this page are given in lossless compression formats. These can be imported into Matlab or opened using photo-editing software. The imread command in Matlab is often useful for importing files such as tiff or bmp. (You may need to convert the data to type double after loading it). For example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lena512 = imread(&#39;lena512.bmp&#39;);
-
-lena512 = double(lena512);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;To write an image to a file, use imwrite:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;imwrite(uint8(lena512),&#39;lena512.bmp&#39;,&#39;bmp&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;x512-color-24-bit&quot;&gt;512x512 Color (24-bit)&lt;/h1&gt;
-&lt;p&gt;This seems to be a pretty widely accepted standard, which originated from a scan of the published photograph (see The Lenna Story). This version is also provided at the USC-SIPI Image Database.&lt;/p&gt;
-
-&lt;p&gt;TIFF: lena512color.tiff (787kB)&lt;/p&gt;
-
-&lt;h1 id=&quot;x512-grayscale-8-bit&quot;&gt;512x512 Grayscale (8-bit)&lt;/h1&gt;
-
-&lt;p&gt;There doesn’t seem to be as much agreement on this version of the image. At some point, the original color image needed to be converted to grayscale. As Shapiro noted, options included taking only the green component of the RGB representation, or using a luminance-only version. You could also average the RGB components, etc.&lt;/p&gt;
-
-&lt;p&gt;I’m not sure how the following version was generated, but it is provided by the Image Communications Lab at UCLA (they apparently obtained it from RPI).&lt;/p&gt;
-
-&lt;p&gt;Each of the following files should contain the same information. If there is truly a standard version of the 512x512 Grayscale Lena, this seems to be it.&lt;/p&gt;
-
-&lt;p&gt;BMP: lena512.bmp (263kB)&lt;/p&gt;
-
-&lt;p&gt;PGM: lena512.pgm (262kB)&lt;/p&gt;
-
-&lt;p&gt;MATLAB: lena512.mat (262kB)&lt;/p&gt;
-
-&lt;h1 id=&quot;comparing-different-versions&quot;&gt;Comparing Different Versions&lt;/h1&gt;
-
-&lt;p&gt;To illustrate the importance of using a standard version, let’s look at a few different ones that are floating around. We’ll compress each of them using a JPEG2000 coder (obtained from The JasPer Project).&lt;/p&gt;
-
-&lt;p&gt;You can see the Matlab versions of the images here. If you click on the following links, you can see standard jpg files. (These are just for viewing and comparision purposes - use the matlab files for experiments!)&lt;/p&gt;
-
-&lt;p&gt;Image 1 is the standard which is discussed in the above section. Image 2 is another version which I’ve seen, and it looks and behaves very similar to the standard. Image 3 is obtained by taking the green component from the 24-bit original (described above). It appears darker than the others, and it is harder to compress. Image 4 is yet another version that seems to be floating around. Visually it is very different from the others… …&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Wx8GoSJ.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-				<pubDate>Wed, 30 Jul 2014 00:00:00 +0800</pubDate>
-				<link>/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html</link>
-				<guid isPermaLink="true">/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html</guid>
 			</item>
 		
 	</channel>

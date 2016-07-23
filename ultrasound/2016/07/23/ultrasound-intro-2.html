@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>如何使用MITK定义的插件</title>
+	<title>超声、超声心动图和多普勒基础入门（二）</title>
 	
 	<meta name="description" content="">
 	
@@ -140,25 +140,105 @@
    <!--右边栏-->
 	<div class="col-md-9 col-md-offset-3 col-sm-6 col-lg-9 col-lg-offset-3 " id="rightside">
 		﻿<div class="page-header">
-  <h1>如何使用MITK定义的插件 </h1>
+  <h1>超声、超声心动图和多普勒基础入门（二） </h1>
 </div>
 
 <article id="myArticle">
 	<div class="col-sm-10">
 	 <span class="post-date">
 	 
-	   2014-07-28
+	   2016-07-23
 	   <!--
 	   
 	   July 
-	   28th,
-	   
-	   2014  -->
+	   23rd,
+	     
+	   2016  -->
 	 </span>
 	  <div class="article_body">
-	  <p>使用MITK编辑界面的时候，QT Designer中只显示 QT 自带的组件，但如果你想用MITK中的QT组件，比如QmitkDataStorageComboBox ，应该怎么做呢？</p>
+	  <ul id="markdown-toc">
+  <li><a href="#section" id="markdown-toc-section"><strong>吸收</strong></a></li>
+  <li><a href="#section-1" id="markdown-toc-section-1"><strong>超声功率/机械指数</strong></a></li>
+  <li><a href="#section-2" id="markdown-toc-section-2"><strong>衰减</strong></a></li>
+  <li><a href="#section-3" id="markdown-toc-section-3"><strong>增益</strong></a></li>
+</ul>
 
-<p>方法是在QT Designer中创建一个普通的combo box，然后右键点击，选择“提升为”，在弹出对话框中，“提升的类名称：”QmitkDataStorageComboBox，头文件QmitkDataStorageComboBox.h，然后点击添加就可以了。非常方便！</p>
+<p>英文原文链接： <br />
+（http://folk.ntnu.no/stoylen/strainrate/Basic_ultrasound#ultrasound）</p>
+
+<h2 id="section"><strong>吸收</strong></h2>
+
+<p>入射超声波的一部分被组织吸收，转化成热量。这表示被吸收的能量过高可能导致生物反应。</p>
+
+<p>细胞吸收超声波的问题必须受到重视，原因有二：</p>
+
+<ol>
+  <li>
+    <p>细胞被加热程度决定了超声设备的安全标准。被吸收的能量应该被限制在不足以破坏组织细胞。如今，细胞吸收率已经能够被计算并且应用于商业医疗设备的标准之中（被称为机械指数（mechanical index））。</p>
+  </li>
+  <li>
+    <p>超声波能量衰减。细胞吸收是超声波束穿透能力（穿透深度）的主要障碍。</p>
+  </li>
+</ol>
+
+<p>决定能量吸收能力的因素有两个：</p>
+
+<ol>
+  <li>
+    <p>组织密度。密度越高，吸收越多。所以超声波在媒介中的衰减率为液体&lt;脂肪&lt;肌肉&lt;纤维组织&lt;钙化和骨头</p>
+  </li>
+  <li>
+    <p>超声波束频率。频率越高，吸收越高。超声在人体组织内衰减情况大概为 1 db/cm MHz。（不过，这是单向的衰减数据，实际中要考虑到超声波要走一个来回才能成像）。因此，探查的深度确定后，就可以决定超声频率上限。虽然加大发射的超声波能量也能提高穿透深度，但这无疑会增加被吸收的能量，而组织吸收能量是有限制的。</p>
+  </li>
+</ol>
+
+<h2 id="section-1"><strong>超声功率/机械指数</strong></h2>
+
+<p>超声功率指的是探头发射能量的振幅，也就是发射进病人身体内的总能量，单位是分贝。</p>
+
+<p>机械指数指的是病人吸收的能量。这不仅取决于超声功率，还取决于波束对焦点（波束对焦的区域最高），但随着深度的增加而减弱。机械指数是衡量超声波生物反应的一个指标，医疗设备上标注的一般是最大值。通常，机械指数在1.5（B型超声）到0.1之间。</p>
+
+<h2 id="section-2"><strong>衰减</strong></h2>
+
+<p>超声波在传输过程中由于反射和散射会产生衰减。因此可以想象，为了成像就必须反射回部分超声波，而这会导致衰减。</p>
+
+<p>基本上，高反射率的物体会导致图像上产生衰减阴影（如下图）。位于低密度（反射率）器官背后的组织会更明亮。</p>
+<table style="text-align: center; width: 100%;" border="1" cellpadding="2" cellspacing="1">
+	<tr>
+		<th width="50%">
+		<img src="https://github.com/WindTom/imagestom/blob/master/attenuation.GIF?raw=true" />
+		</th>
+		<th width="50%">
+		<img src="https://github.com/WindTom/imagestom/blob/master/Ultrasound%20gallstones.JPG?raw=true" />
+		</th>
+	</tr>
+    <tr>
+	   <td width="50%">
+		<p>	<small><b>
+			上图为位于不同反射率结构后面的同一个匀质组织（比如肝脏）的成像示意图。高反射率细胞组织（如钙化组织）的背后会产生高衰减（图上左侧白色圆圈），因此其后面的扇区看起来明显更暗，甚至可能完全是阴影。低反射率组织结构（如液体）的背后衰减就很轻（右侧黑色圆圈），其后面的组织能接受到更多的超声波，在成像上与周围组织相比看起来更密（明亮）。
+        </b></small></p>
+	   </td>
+
+	    <td width="50%">
+			<p>	<small><b>
+			上图为肝脏组织的成像，其前面有胆囊，胆囊中又含有高密度的结石，造成结石后方出现阴影。胆囊中的其余地方充满液体，因此位于这些部位后方的扇区密度更大，看起来也更明亮或称(coloring)
+	        </b></small></p>
+	    </td>
+    </tr>
+</table>
+<p><br />
+衰减大约造成10%的能量损失，加上超声波的衍射，能够被反射回来成像的能量就更少。不过最主要的原因是细胞吸收。另外，衰减随着深度的增加也加重，再加上回程的能量损失，反射回探头的能量就更少了。</p>
+
+<p>衰减是限制超声波束穿透深度（这个深度指的是超声波发射出去后，探头仍能接收到有效信号的距离）的主要因素。波长越短，衰减越大，穿透距离也越短。</p>
+
+<p>有效的距离大概在200-300x（这个单位在原文中也看不清）。临床上，质量好的成像的穿透参数大约为3.5MHz 10~20cm（成人心脏探查量），5MHz 5~10cm（儿科心脏探查），7.5 MHz 2~5cm, 10 MHZ 1~4 cm。后两个频率应用在血管探查。不过，避开衰减的途径之一是谐波成像（harmonic imaging）。也就是说，以一定频率发射出去的波束，探头接收到信号后以两倍频率进行分析（傅里叶分析），这提高了反射信号的信噪比，而不会有分辨率损失，尤其是在图像的最深处。（<em>什么是最深处？指图像上远离发射源的位置</em>）</p>
+
+<h2 id="section-3"><strong>增益</strong></h2>
+
+<p>增益（gain）可以对抗衰减，方法是在后处理中对反射信号进行时间/距离补偿增益。不过加大增益补偿的同时也提高了信噪比（<strong>疑问：这是好事还是坏事？</strong>）。增益补偿可以在获得图像的同时进行，也可以在后期处理中进行。</p>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
 	  </div>
 
@@ -168,8 +248,8 @@
 		  
 		  
 			 
-				<li><a href="/categories.html#MITK-ref">
-					MITK <span>(8)</span>
+				<li><a href="/categories.html#Ultrasound-ref">
+					Ultrasound <span>(1)</span>
 					
 				</a></li>
 			
@@ -184,15 +264,15 @@
 		  
 			 
 				<li>
-					<a href="/tags.html#mitk-ref">
-					mitk <span>(4)</span>
+					<a href="/tags.html#ultrasound-ref">
+					ultrasound <span>(2)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
-					<a href="/tags.html#qt-ref">
-					qt <span>(1)</span>
+					<a href="/tags.html#超声-ref">
+					超声 <span>(1)</span>
 					
 					</a>
 				</li>
@@ -223,7 +303,7 @@
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">分享此文章</h4>
-		  <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=如何使用MITK定义的插件"
+		  <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=超声、超声心动图和多普勒基础入门（二）"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -246,10 +326,10 @@
 
 		<ul class="pager">
 		  
-		  <li class="previous disabled"><a>&larr; Previous</a></li>
+		  <li class="previous"><a href="/ultrasound/2016/07/11/ultrasound-introduction.html" title="超声、超声心动图和多普勒基础入门（一）">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/%E5%9B%BE%E5%83%8F/2014/07/30/download-lena-image.html" title="标准Lena测试图像下载">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
