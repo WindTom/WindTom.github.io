@@ -442,7 +442,7 @@
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;脉冲入射能量和反射能量的比例被称为反射系数（reflection efficient）；入射能量和透射能量的比例被称为透射系数（transmission coefficient）。这两个系数都取决于界面两侧材料的声阻抗。一种传输媒介的声阻抗定义为声音在该媒介中的传播速度c和该媒介的密度之积：公式3&lt;/p&gt;
+&lt;p&gt;脉冲入射能量和反射能量的比例被称为反射系数（reflection efficient）；入射能量和透射能量的比例被称为透射系数（transmission coefficient）。这两个系数都取决于界面两侧材料的声阻抗。一种传输媒介的声阻抗定义为声音在该媒介中的传播速度c和该媒介的密度之积：公式1&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;z=c\times \rho&lt;/script&gt;
 
@@ -487,10 +487,6 @@
 &lt;p&gt;因此，超声图像上显示的组织密度取决于室壁和纤维方向。心脏某个部位的纤维方向与入射超声波垂直时，从图像上看密度较大。而实际上振幅（被反射信号的明暗）并不足以反映组织密度，也有可能是反射方向不同。因此，整体散射可以用来研究周期性变化，但不能用于研究组织特性。&lt;/p&gt;
 
 &lt;p&gt;（下页继续）&lt;/p&gt;
-&lt;div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
-
-&lt;/div&gt;
 
 </description>
 				<pubDate>Mon, 11 Jul 2016 00:00:00 +0800</pubDate>
