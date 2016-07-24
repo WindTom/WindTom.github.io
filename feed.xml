@@ -442,7 +442,7 @@
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;脉冲入射能量和反射能量的比例被称为反射系数（reflection efficient）；入射能量和透射能量的比例被称为透射系数（transmission coefficient）。这两个系数都取决于界面两侧材料的声阻抗。一种传输媒介的声阻抗定义为声音在该媒介中的传播速度c和该媒介的密度之积：&lt;/p&gt;
+&lt;p&gt;脉冲入射能量和反射能量的比例被称为反射系数（reflection efficient）；入射能量和透射能量的比例被称为透射系数（transmission coefficient）。这两个系数都取决于界面两侧材料的声阻抗。一种传输媒介的声阻抗定义为声音在该媒介中的传播速度c和该媒介的密度之积：公式&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;z=c\times \rho&lt;/script&gt;
 
