@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>MITK--如何在源文件中引用自定义头文件</title>
+	<title>超声、超声心动图和多普勒基础入门（四）</title>
 	
 	<meta name="description" content="">
 	
@@ -140,76 +140,28 @@
    <!--右边栏-->
 	<div class="col-md-9 col-md-offset-3 col-sm-6 col-lg-9 col-lg-offset-3 " id="rightside">
 		﻿<div class="page-header">
-  <h1>MITK--如何在源文件中引用自定义头文件 </h1>
+  <h1>超声、超声心动图和多普勒基础入门（四） </h1>
 </div>
 
 <article id="myArticle">
 	<div class="col-sm-10">
 	 <span class="post-date">
 	 
-	   2014-08-04
+	   2016-07-24
 	   <!--
 	   
-	   August 
-	   4th,
+	   July 
+	   24th,
 	   
-	   2014  -->
+	   2016  -->
 	 </span>
 	  <div class="article_body">
-	  
-<h3 id="section"><strong>引用方法:</strong></h3>
+	  <ul>
+  <li></li>
+</ul>
 
-<p>MITK编程中，我们常常需要自定义头文件，比如在VS工程里面给插件AddNoise创建一个头文件testHeadFile.h：</p>
+<h2 id="section"><strong>二维成像</strong></h2>
 
-<div align="center">
-    <img src="https://github.com/WindTom/imagestom/blob/master/custom1.png?raw=true" />
-</div>
-
-<p>但是这样做不好的地方在于：团队开发中，我们是上传MITK-ProjectTemplate源文件，其它成员下载源文件后CMake编译一下就能使用了。你自己在VS工程创建头文件后，VS并不会把它自动放入MITK-ProjectTemplate源文件里。所以其他成员在编译你上传的代码后，VS会提示找不到头文件。</p>
-
-<p>正确的做法是：将testHeadFile.h复制到源文件 MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise\src文件夹内。</p>
-
-<p>同时修改MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise文件夹下的files.cmake文件：set(SRC_CPP_FILES)里添加 itkAdditiveGaussianNoiseImageFilter.h和itkNoiseBaseImageFilter.h，如：</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5</pre></td><td class="code"><pre> 
-  <span class="n">set</span><span class="p">(</span><span class="no">SRC_CPP_FILES</span>  
-  <span class="n">itkAdditiveGaussianNoiseImageFilter</span><span class="p">.</span><span class="nf">h</span>  
-  <span class="n">itkNoiseBaseImageFilter</span><span class="p">.</span><span class="nf">h</span>  
-  <span class="n">testHeadFile</span><span class="p">.</span><span class="nf">h</span>   <span class="sr">//</span><span class="err">在此处添加</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<h3 id="section-1"><strong>测试：</strong></h3>
-
-<p>使用CMake重新编译MITK-ProjectTemplate，进行测试。</p>
-
-<h3 id="section-2"><strong>替代方法：</strong></h3>
-
-<p>如果上述方法不行，可以使用下述方法：</p>
-
-<p>同样，将testHeadFile.h复制到源文件 MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise\src文件夹内。</p>
-
-<p>修改MITK-ProjectTemplate\Plugins\my.awesomeproject.AddNoise文件夹内的files.cmake,找到下列语句并将testHeadFile.h语句添加进去。如：</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8</pre></td><td class="code"><pre> 
-<span class="n">set</span><span class="p">(</span><span class="no">MOC_H_FILES</span>  
-  <span class="n">src</span><span class="o">/</span><span class="n">internal</span><span class="o">/</span><span class="n">my_awesomeproject_AddNoise_Activator</span><span class="p">.</span><span class="nf">h</span>  
-  <span class="n">src</span><span class="o">/</span><span class="n">internal</span><span class="o">/</span><span class="no">AddNoise</span><span class="p">.</span><span class="nf">h</span>  
-  <span class="n">src</span><span class="o">/</span><span class="n">itkAdditiveGaussianNoiseImageFilter</span><span class="p">.</span><span class="nf">h</span>  
-  <span class="n">src</span><span class="o">/</span><span class="n">itkNoiseBaseImageFilter</span><span class="p">.</span><span class="nf">h</span>  
-  <span class="n">testHeadFile</span><span class="p">.</span><span class="nf">h</span>  <span class="sr">//</span><span class="err">在此处添加</span>  
-<span class="p">)</span>  <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
 
 	  </div>
 
@@ -219,8 +171,8 @@
 		  
 		  
 			 
-				<li><a href="/categories.html#MITK-ref">
-					MITK <span>(8)</span>
+				<li><a href="/categories.html#ultrasound-ref">
+					ultrasound <span>(4)</span>
 					
 				</a></li>
 			
@@ -235,15 +187,8 @@
 		  
 			 
 				<li>
-					<a href="/tags.html#头文件-ref">
-					头文件 <span>(2)</span>
-					,
-					</a>
-				</li>
-			 
-				<li>
-					<a href="/tags.html#MITK-ref">
-					MITK <span>(3)</span>
+					<a href="/tags.html#ultrasound-ref">
+					ultrasound <span>(4)</span>
 					
 					</a>
 				</li>
@@ -274,7 +219,7 @@
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">分享此文章</h4>
-		  <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=MITK--如何在源文件中引用自定义头文件"
+		  <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=超声、超声心动图和多普勒基础入门（四）"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -297,10 +242,10 @@
 
 		<ul class="pager">
 		  
-		  <li class="previous"><a href="/cplusplus/2014/08/04/c-to-string.html" title="C++通过ostringstream实现任意类型转string">&larr; Previous</a></li>
+		  <li class="previous"><a href="/ultrasound/2016/07/23/ultrasound-intro-3.html" title="超声、超声心动图和多普勒基础入门（三）">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/mitk/2014/08/27/mitk-cant-use-headfile.html" title="MITK中本来存在的头文件无法使用">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
