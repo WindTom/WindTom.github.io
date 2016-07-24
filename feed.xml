@@ -33,7 +33,10 @@
 
 &lt;h2 id=&quot;m-mode&quot;&gt;&lt;strong&gt;M-mode&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;M型超声是能够记录并显示心脏运动的第一种超声设备。下图为典型的M-型超声图像。&lt;/p&gt;
+&lt;p&gt;M型超声是能够记录并显示心脏运动的第一种超声设备。下图为典型的M-型超声图像。
+公式：
+&lt;script type=&quot;math/tex&quot;&gt;\zeta \leqslant \mu \chi&lt;/script&gt;&lt;/p&gt;
+
 &lt;div&gt;
 &lt;table style=&quot;text-align: center; width: 100%;&quot; border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
 
@@ -145,8 +148,9 @@
 &lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;左为二次谐波成像(1.7/3.5 MHz),右为原图像。由于谐波成像将频率减半，导致血液和隔膜交界处的回声(echo)更厚，但腔室内噪声明显减少。 &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt;表面回声（surface echos）的厚度取决于脉冲长度和频率。这张隔膜的成像展示了ASE 的leading-edge to leading-edge 测量方法，方法中减去了魔宠长度。而Penn方法将两侧交界面都包含了进去，导致对厚度估计过高。（博主注：原文没有说清楚，导致此处理解不是很明白） &lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
-
-&lt;br /&gt;&lt;br /&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/table&gt;
+&lt;br /&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 </description>
 				<pubDate>Sat, 23 Jul 2016 00:00:00 +0800</pubDate>
