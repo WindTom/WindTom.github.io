@@ -115,7 +115,7 @@
 &lt;td&gt;&lt;p&gt;&lt;small&gt;&lt;b&gt; 图：具有相同频率、不同持续时间（脉冲长度或者说震荡次数）的两个不同脉冲。较短的脉冲具有更宽的频率色散（dispersion），也就是更大的带宽。&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
-&lt;br /&gt;&lt;br /&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;
 
 &lt;p&gt;震荡次数相同的情况下表，更高的频率会导致脉冲更短，也就是说在不增加带宽的情况下缩短脉冲长度。对于成像来说，理想的脉冲应该是最高的频率，最短的脉冲长度。不过，由于噪声不均匀地分布在不同频域，谐波成像（which analyses at half the frequency）会减少噪声。给定频率，谐波成像将拉长脉冲长度，这样的结果是成像物体更厚。&lt;/p&gt;
 
