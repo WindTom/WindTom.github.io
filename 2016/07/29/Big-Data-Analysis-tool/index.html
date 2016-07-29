@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>MITK插件找不到itk的头文件</title>
-    <meta name="description" content="插件中编码时，想使用itk中的算法，就必须先引用该算法头文件，但很有可能VS找不到这个头文件。你可能会选择在工程设置中手动添加头文件，但这种方法非常费力，且新建一个工程时又得重新添加。好的办法是，找到projectTemplate中Plugins文件夹下的该插件文件夹，如my.awesomeproject.Add...">
+    <title>大数据分析工具</title>
+    <meta name="description" content="注：本文内容来自互联网">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://windtom.github.io/2014/07/31/mitk-cant-find-itk-head-file/">
+    <link rel="canonical" href="http://windtom.github.io/2016/07/29/Big-Data-Analysis-tool/">
     <link rel="alternate" type="application/rss+xml" title="WindTom" href="http://windtom.github.io /feed.xml ">
 
 
@@ -132,11 +132,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>MITK插件找不到itk的头文件</h1>
+        <h1>大数据分析工具</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2014-07-31
+                <i class="fa fa-calendar"></i>2016-07-29
             </div>
 
             <div class="label-card">
@@ -156,7 +156,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#MITK" title="Category: MITK" rel="category">MITK</a>
+        <a href="/category/#大数据挖掘" title="Category: 大数据挖掘" rel="category">大数据挖掘</a>
     
   
 
@@ -173,17 +173,17 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#MITK" title="Tag: MITK" rel="tag">MITK</a-->
-        <a href="/tag/#MITK" title="Tag: MITK" rel="tag">MITK</a>&nbsp;
+        <!--a href="/tag/#%E5%A4%A7%E6%95%B0%E6%8D%AE" title="Tag: 大数据" rel="tag">大数据</a-->
+        <a href="/tag/#大数据" title="Tag: 大数据" rel="tag">大数据</a>&nbsp;
     
-        <!--a href="/tag/#itk" title="Tag: itk" rel="tag">itk</a-->
-        <a href="/tag/#itk" title="Tag: itk" rel="tag">itk</a>&nbsp;
+        <!--a href="/tag/#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98" title="Tag: 数据挖掘" rel="tag">数据挖掘</a-->
+        <a href="/tag/#数据挖掘" title="Tag: 数据挖掘" rel="tag">数据挖掘</a>&nbsp;
     
-        <!--a href="/tag/#%E5%A4%B4%E6%96%87%E4%BB%B6" title="Tag: 头文件" rel="tag">头文件</a-->
-        <a href="/tag/#头文件" title="Tag: 头文件" rel="tag">头文件</a>&nbsp;
+        <!--a href="/tag/#Hadoop" title="Tag: Hadoop" rel="tag">Hadoop</a-->
+        <a href="/tag/#Hadoop" title="Tag: Hadoop" rel="tag">Hadoop</a>&nbsp;
     
-        <!--a href="/tag/#%E6%8F%92%E4%BB%B6" title="Tag: 插件" rel="tag">插件</a-->
-        <a href="/tag/#插件" title="Tag: 插件" rel="tag">插件</a>
+        <!--a href="/tag/#R" title="Tag: R" rel="tag">R</a-->
+        <a href="/tag/#R" title="Tag: R" rel="tag">R</a>
     
   
 
@@ -194,22 +194,23 @@
         </div>
         <hr>
         <article itemscope itemtype="https://schema.org/BlogPosting">
-        <p>插件中编码时，想使用itk中的算法，就必须先引用该算法头文件，但很有可能VS找不到这个头文件。你可能会选择在工程设置中手动添加头文件，但这种方法非常费力，且新建一个工程时又得重新添加。
-好的办法是，找到projectTemplate中Plugins文件夹下的该插件文件夹，如my.awesomeproject.AddNoise.</p>
+        
+<p><strong>注：本文内容来自互联网</strong></p>
 
-<p>找到CMakeLists.txt文档，将最后一句改为MODULE_DEPENDS MitkQtWidgetsExt MitkSegmentation。然后重新编译projectTemplate即可。</p>
+<p>##大数据分析的六大最好工具</p>
 
-<p>附：（插件下CMakeLists.txt文档中的内容）</p>
+<p>原文链接见<a href="http://www.he11oworld.com/cloud/1145.html">这里</a>。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>project(my_awesomeproject_AddNoise)  
-	  
-   MACRO_CREATE_MITK_CTK_PLUGIN(  
-   EXPORT_DIRECTIVE ADDNOISE_EXPORT  
-   EXPORTED_INCLUDE_SUFFIXES src  
-   MODULE_DEPENDS MitkQtWidgetsExt MitkSegmentation  
-)
-</code></pre>
-</div>
+<p>此文总结来说就是介绍了大数据分析的几个工具，分别是：
+1. Hadoop
+2. HPCC(高性能计算与通信)
+3. Storm。开源软件，一个分布式、容错的实时计算系统。</p>
+
+<p>##大数据分析八大工具
+原文<a href="http://tieba.baidu.com/p/3866999054">这里</a></p>
+
+<p>##大数据全栈式开发语言
+原文<a href="http://insights.thoughtworkers.org/full-stack-python/">这里</a></p>
 
         </article>
         <hr>
@@ -226,214 +227,12 @@
                     
                 
                     
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://windtom.github.io/2014/08/04/mitk-include-custom-head-file/">MITK--如何在源文件中引用自定义头文件
+                            <a href="http://windtom.github.io/2016/07/30/R-And-Hadoop/">数据挖掘平台-R语言与Hadoop
                             
                             </a>
                         </li>
@@ -441,6 +240,24 @@
                         
                     
                 
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
             
@@ -456,6 +273,180 @@
             
         
             
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
             
                 
                     
@@ -486,13 +477,13 @@
     
     <div class="pre">
 
-        <p><strong>上一篇</strong> <a href="/2014/07/30/mitks-coding-process/">MITK编程流程</a></p>
+        <p><strong>上一篇</strong> <a href="/2016/07/24/ultrasound-intro-2d-imaging/">超声、超声心动图和多普勒基础入门（四）</a></p>
         
     </div>
     <div class="nex">
 
         
-        <p><strong>下一篇</strong> <a href="/2014/07/31/mitk-cmake-error/">MITK自定义插件CMake编译时出错</a></p>
+        <p><strong>下一篇</strong> <a href="/2016/07/30/R-And-Hadoop/">数据挖掘平台-R语言与Hadoop</a></p>
         
     </div>
 </div>
@@ -510,8 +501,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://windtom.github.io/2014/07/31/mitk-cant-find-itk-head-file/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://windtom.github.io/2014/07/31/mitk-cant-find-itk-head-file/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://windtom.github.io/2016/07/29/Big-Data-Analysis-tool/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://windtom.github.io/2016/07/29/Big-Data-Analysis-tool/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
