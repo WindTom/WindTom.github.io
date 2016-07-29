@@ -5,8 +5,8 @@
     <description></description>
     <link>http://windtom.github.io/</link>
     <atom:link href="http://windtom.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 30 Jul 2016 02:17:06 +0800</pubDate>
-    <lastBuildDate>Sat, 30 Jul 2016 02:17:06 +0800</lastBuildDate>
+    <pubDate>Sat, 30 Jul 2016 02:25:05 +0800</pubDate>
+    <lastBuildDate>Sat, 30 Jul 2016 02:25:05 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -20,7 +20,10 @@
       &lt;li&gt;&lt;a href=&quot;#knime&quot; id=&quot;markdown-toc-knime&quot;&gt;KNIME&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#orange&quot; id=&quot;markdown-toc-orange&quot;&gt;Orange&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#ggobi&quot; id=&quot;markdown-toc-ggobi&quot;&gt;GGobi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#r-1&quot; id=&quot;markdown-toc-r-1&quot;&gt;R语言是否适用企业级大数据挖掘应用&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#r-1&quot; id=&quot;markdown-toc-r-1&quot;&gt;R语言大数据挖掘应用&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#r-2&quot; id=&quot;markdown-toc-r-2&quot;&gt;R语言是否适用企业级大数据挖掘应用&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#hadoop&quot; id=&quot;markdown-toc-hadoop&quot;&gt;Hadoop家族&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#rhadoop&quot; id=&quot;markdown-toc-rhadoop&quot;&gt;R语言如何与Hadoop结合？&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
@@ -53,13 +56,12 @@
 &lt;h3 id=&quot;ggobi&quot;&gt;GGobi&lt;/h3&gt;
 &lt;p&gt;用于交互式可视化的开源软件，使用Brushing的方法。GFobi可以用作R软件的插件，或者通过Perl,Python等脚本语言来调用。网上文章(链接见上文)推荐使用KNIME，同时安装Weka和R扩展包。&lt;/p&gt;
 
-&lt;hr /&gt;
-&lt;p&gt;## R语言大数据挖掘应用&lt;/p&gt;
+&lt;h2 id=&quot;r-1&quot;&gt;R语言大数据挖掘应用&lt;/h2&gt;
 
 &lt;p&gt;使用R语言在Hadoop平台上进行分析，可采用的方式有：
 Ｒ语言的RJDBC包链接Hive传递SQL进行数据的查询和导入，得到的数据在R语言里面进行数据预处理于算法建模，再把分析模型的结果存储到本地的MySQL，然后提供作为PHP的数据查询，从而让PHP进行分析挖掘后台的数据可视化处理。这样就形成了一条“可视化数据挖掘闭环”(Visual Data Mining Closed Loop)&lt;/p&gt;
 
-&lt;h3 id=&quot;r-1&quot;&gt;R语言是否适用企业级大数据挖掘应用&lt;/h3&gt;
+&lt;h3 id=&quot;r-2&quot;&gt;R语言是否适用企业级大数据挖掘应用&lt;/h3&gt;
 
 &lt;p&gt;作者&lt;a href=&quot;http://www.bjt.name/&quot;&gt;刘思喆&lt;/a&gt;在文章&lt;a href=&quot;http://www.thebigdata.cn/JieJueFangAn/12031.html&quot;&gt;R语言企业级大数据挖掘应用&lt;/a&gt;中提出一个看似另类的解决方案——在企业级数据挖掘中使用R语言＋Hadoop的方式。&lt;/p&gt;
 
@@ -140,10 +142,15 @@ RHadoop是Hadoop与R语言结合的开源产品。RHadoop包含三个R包 (rmr�
     
       <item>
         <title>大数据分析工具</title>
-        <description>
-&lt;p&gt;&lt;strong&gt;注：本文内容来自互联网&lt;/strong&gt;&lt;/p&gt;
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#section&quot; id=&quot;markdown-toc-section&quot;&gt;大数据分析的六大最好工具&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-1&quot; id=&quot;markdown-toc-section-1&quot;&gt;大数据分析八大工具&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#section-2&quot; id=&quot;markdown-toc-section-2&quot;&gt;大数据全栈式开发语言&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;##大数据分析的六大最好工具&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(注：本文内容来自互联网)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;大数据分析的六大最好工具&lt;/h2&gt;
 
 &lt;p&gt;原文链接见&lt;a href=&quot;http://www.he11oworld.com/cloud/1145.html&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
@@ -152,11 +159,11 @@ RHadoop是Hadoop与R语言结合的开源产品。RHadoop包含三个R包 (rmr�
 2. HPCC(高性能计算与通信)
 3. Storm。开源软件，一个分布式、容错的实时计算系统。&lt;/p&gt;
 
-&lt;p&gt;##大数据分析八大工具
-原文&lt;a href=&quot;http://tieba.baidu.com/p/3866999054&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;大数据分析八大工具&lt;/h2&gt;
+&lt;p&gt;原文&lt;a href=&quot;http://tieba.baidu.com/p/3866999054&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;##大数据全栈式开发语言
-原文&lt;a href=&quot;http://insights.thoughtworkers.org/full-stack-python/&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;大数据全栈式开发语言&lt;/h2&gt;
+&lt;p&gt;原文&lt;a href=&quot;http://insights.thoughtworkers.org/full-stack-python/&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Jul 2016 00:00:00 +0800</pubDate>
         <link>http://windtom.github.io/2016/07/29/Big-Data-Analysis-tool/</link>
