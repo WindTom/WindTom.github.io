@@ -5,9 +5,37 @@
     <description></description>
     <link>http://windtom.github.io/</link>
     <atom:link href="http://windtom.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 30 Jul 2016 02:55:26 +0800</pubDate>
-    <lastBuildDate>Sat, 30 Jul 2016 02:55:26 +0800</lastBuildDate>
+    <pubDate>Sun, 31 Jul 2016 14:16:34 +0800</pubDate>
+    <lastBuildDate>Sun, 31 Jul 2016 14:16:34 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>大数据挖掘招聘要求</title>
+        <description>
+&lt;p&gt;下面整理了目前市面上对数据挖掘从业者的招聘要求，从中我们也可以看出目前的技术趋势或者技术热点。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;丰富的数据挖掘、数据建模或机器学习项目经验，擅长常用统计方法，包括且不限于：线性回归、逻辑回归、时间序列、聚类及神经网络。&lt;/li&gt;
+  &lt;li&gt;有自然语言处理、数据挖掘、文本挖掘、图像识别、用户画像相关经验，精通其中一两个领域。&lt;/li&gt;
+  &lt;li&gt;熟悉Linux操作系统，具备Linux环境研发能力。&lt;/li&gt;
+  &lt;li&gt;熟悉一种关系型数据库（MySQL、PostgreSQL）&lt;/li&gt;
+  &lt;li&gt;熟悉高性能KV存储（如Redis、RocksDB）&lt;/li&gt;
+  &lt;li&gt;熟悉R、Python等编程语言/软件，熟悉Java\Scala、Hadoop\MapReduce、Spark、SAS、Hive、熟悉数据挖掘的常用算法，拥有海量数据处理和挖掘经验&lt;/li&gt;
+  &lt;li&gt;精通c/c++编程，熟练使用一门以上脚本语言（PHP/Python/shell）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 31 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://windtom.github.io/2016/07/31/big-data-mining-requirements/</link>
+        <guid isPermaLink="true">http://windtom.github.io/2016/07/31/big-data-mining-requirements/</guid>
+        
+        <category>大数据</category>
+        
+        <category>招聘</category>
+        
+        
+        <category>大数据挖掘</category>
+        
+      </item>
     
       <item>
         <title>数据挖掘平台-R语言与Hadoop</title>
@@ -155,15 +183,29 @@ RHadoop是Hadoop与R语言结合的开源产品。RHadoop包含三个R包 (rmr�
 &lt;p&gt;原文链接见&lt;a href=&quot;http://www.he11oworld.com/cloud/1145.html&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;此文总结来说就是介绍了大数据分析的几个工具，分别是：
-1. Hadoop
-2. HPCC(高性能计算与通信)
-3. Storm。开源软件，一个分布式、容错的实时计算系统。&lt;/p&gt;
+1. Hadoop&lt;br /&gt;
+2. HPCC(高性能计算与通信)&lt;br /&gt;
+3. Storm。开源软件，一个分布式、容错的实时计算系统。&lt;br /&gt;
+4. Apache Drill。开源项目，目的是帮助企业用户寻找更为有效、加快Hadoop海量数据查询。&lt;br /&gt;
+5. RapidMiner。世界领先的数据挖掘解决方案，免费提供数据挖掘技术和库，全部使用Java代码。&lt;br /&gt;
+6. Pentaho BI。以流程为中心，面向解决方案的框架。目的在于将一系列面向商务智能的独立产品如Jfree、Quartz等集成在一起，构成复杂的、完整的商务智能解决方案。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-1&quot;&gt;大数据分析八大工具&lt;/h2&gt;
-&lt;p&gt;原文&lt;a href=&quot;http://tieba.baidu.com/p/3866999054&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文见&lt;a href=&quot;http://tieba.baidu.com/p/3866999054&quot;&gt;这里&lt;/a&gt;。主要是IBM、HP等各大厂商提供的解决方案。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-2&quot;&gt;大数据全栈式开发语言&lt;/h2&gt;
-&lt;p&gt;原文&lt;a href=&quot;http://insights.thoughtworkers.org/full-stack-python/&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文见&lt;a href=&quot;http://insights.thoughtworkers.org/full-stack-python/&quot;&gt;这里&lt;/a&gt;。本文主要分析了Python在大数据开发中发挥的全能作用。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;云基础设施 &lt;br /&gt;
+ Hadoop因为MapReduce数据处理速度不够快，已经不再作为大数据处理的首先，但它的HDFS和Yarn两个组件越来越受欢迎。Hadoop MapReduce的替代者是号称快上100倍的Spark,其开发语言是Scala，但提供了Java、Python、Scala的开发接口。&lt;/li&gt;
+  &lt;li&gt;DevOps
+ DevOps的中文名是开发自运维。DevOps推崇自动化构建、测试、部署以及系统度量等技术。&lt;/li&gt;
+  &lt;li&gt;网络爬虫
+ 网络爬虫是Python的传统强势领域，最流行的爬虫框架Scrapy\http工具包urlib2，html解析工具beautifulsoup，XML解析器等等。Python能够很好地支持携程操作。&lt;/li&gt;
+  &lt;li&gt;数据处理
+ 在理论研究领域，R语言比较受欢迎，但R语言多被用来做原型实验。Python本身就是一门工程型语言，用它实验的算法可以直接应用于产品中。Python的数据处理相关类库也非常丰富。&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         <pubDate>Fri, 29 Jul 2016 00:00:00 +0800</pubDate>
         <link>http://windtom.github.io/2016/07/29/Big-Data-Analysis-tool/</link>
@@ -818,61 +860,6 @@ MACRO_CREATE_MITK_CTK_PLUGIN(
         
         
         <category>MITK</category>
-        
-      </item>
-    
-      <item>
-        <title>C++通过ostringstream实现任意类型转string</title>
-        <description>&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;iostream&amp;gt;  &lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;#include &amp;lt;string&amp;gt;  &lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	&lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  
-	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	   &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;头文件是&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sstream&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ostringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  
-	   &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;输出是55—65.123。&lt;/p&gt;
-
-&lt;p&gt;如果想实现小数点后只显示一位数字，使用下面方法：&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iostream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-	&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sstream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-	&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iomanip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-		
-	&lt;span class=&quot;n&quot;&gt;template&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-	&lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
-		&lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ostringstream&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  
-		&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setprecision&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;  
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;  
-		
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;  
-		&lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;66.0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;30.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;  
-		&lt;span class=&quot;nl&quot;&gt;std:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\n&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;  
-	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Mon, 04 Aug 2014 00:00:00 +0800</pubDate>
-        <link>http://windtom.github.io/2014/08/04/c-to-string/</link>
-        <guid isPermaLink="true">http://windtom.github.io/2014/08/04/c-to-string/</guid>
-        
-        <category>CPlusPlus</category>
-        
-        <category>ostringstream</category>
-        
-        
-        <category>CPlusPlus</category>
         
       </item>
     
