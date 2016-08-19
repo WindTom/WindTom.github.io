@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "大数据分析工具"
-categories: 大数据挖掘
+categories: 数据挖掘
 tags: 大数据 数据挖掘  Hadoop R
 ---
 

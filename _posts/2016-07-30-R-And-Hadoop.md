@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "数据挖掘平台-R语言与Hadoop"
-categories: 大数据挖掘
+categories: 数据挖掘
 tags: R Hadoop 大数据 数据挖掘
 ---
 * content  

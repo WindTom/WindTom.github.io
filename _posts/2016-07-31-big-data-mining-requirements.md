@@ -2,7 +2,7 @@
 layout: post
 title: "大数据挖掘招聘要求"
 description: ""
-category: 大数据挖掘
+category: 数据挖掘
 tags: [大数据,招聘]
 ---
 * content
