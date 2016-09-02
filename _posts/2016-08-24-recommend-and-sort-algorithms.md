@@ -42,7 +42,7 @@ LDA(Latent Dirichlet Allocation)话题模型
 2. gongshi
 3. 
 3. xiam \\(x=(x_{1},x_{2},...,x_{p})^{T}\\)
-$$(x=(x_{1},x_{2},...,x_{p})^{T}$$
+\\[(x=(x_{1},x_{2},...,x_{p})^{T}\\]
 
 $$
 \begin{align*}
