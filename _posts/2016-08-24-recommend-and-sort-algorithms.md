@@ -42,10 +42,9 @@ LDA(Latent Dirichlet Allocation)话题模型
 2. gongshi
 3. 
 3. xiam \\(x=(x_{1},x_{2},...,x_{p})^{T}\\)
+$$(x=(x_{1},x_{2},...,x_{p})^{T}$$
 
-
-\[
-
+$$
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
   = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
@@ -61,6 +60,6 @@ LDA(Latent Dirichlet Allocation)话题模型
     \end{array} \right)
 \end{align*}
 
-]\
+$$
 
 上面是公式
