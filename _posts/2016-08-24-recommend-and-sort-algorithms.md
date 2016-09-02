@@ -39,9 +39,12 @@ LDA(Latent Dirichlet Allocation)话题模型
 #### 计算方法
 
 1. 原始指标数据的标准化采集p维随机向量<img src="http://latex.codecogs.com/png.latex?x%3D%28x_%7B1%7D%2Cx_%7B2%7D%2C...%2Cx_%7Bp%7D%29%5E%7BT%7D">
+2. gongshi
+3. 
+3. xiam \\(x=(x_{1},x_{2},...,x_{p})^{T}\\)
 
 
-$$
+\[
 
 \begin{align*}
   & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
@@ -58,6 +61,6 @@ $$
     \end{array} \right)
 \end{align*}
 
-$$
+]\
 
 上面是公式
