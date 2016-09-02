@@ -36,5 +36,24 @@ LDA(Latent Dirichlet Allocation)话题模型
 
 通过用一些较小的新的数量指标（因子）代替原来较多的指标，这些新指标是原来指标的线性组合，并且能充分载有原来指标的信息，起到降维的作用，而且指标间不相关。可用新指标对原来信息的反映程度作为权。该方法客观性强，避免了人为赋权所造成的偏差。缺点是新指标不可能完全反映原来指标的信息，有一定的偏差，适用于有数据的样本。
 
+#### 计算方法
+
+1. 原始指标数据的标准化采集p维随机向量<img src="http://latex.codecogs.com/png.latex?x%3D%28x_%7B1%7D%2Cx_%7B2%7D%2C...%2Cx_%7Bp%7D%29%5E%7BT%7D">
 
 
+$$
+\begin{align*}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{align*}
+$$
