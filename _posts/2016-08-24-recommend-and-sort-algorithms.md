@@ -22,7 +22,7 @@ LDA(Latent Dirichlet Allocation)话题模型
 ## 关联分析中的置信度、支持度和提升度<sup>[[1]](http://www.360doc.com/content/15/0611/19/25802092_477451393.shtml)</sup>
 
 
-## 权重系数的确定方法
+## 权重系数的确定方法（<sup>[[1]](http://doc.mbalib.com/view/28415cb56e34ca527b0f148f4ae11be5.html)</sup>）
 
 综合评价中，根据样本数据的有无，可将计算方法分为定量和定性两大类。
 
@@ -38,28 +38,24 @@ LDA(Latent Dirichlet Allocation)话题模型
 
 #### 计算方法
 
-1. 原始指标数据的标准化采集p维随机向量<img src="http://latex.codecogs.com/png.latex?x%3D%28x_%7B1%7D%2Cx_%7B2%7D%2C...%2Cx_%7Bp%7D%29%5E%7BT%7D">
-2. gongshi
-3. 
-3. xiam \\(x=(x_{1},x_{2},...,x_{p})^{T}\\)
-\\[(x=(x_{1},x_{2},...,x_{p})^{T}\\]
+1. 原始指标数据的标准化采集p维随机向量 <img src="http://latex.codecogs.com/png.latex?x%3D%28x_%7B1%7D%2Cx_%7B2%7D%2C...%2Cx_%7Bp%7D%29%5E%7BT%7D">。n个样本 <img src="http://latex.codecogs.com/png.latex?X_%7Bi%7D%3D%28x_%7Bi%2C1%7D%2Cx_%7Bi%2C2%7D%2C...%2Cx_%7Bi%2Cp%7D%29%5E%7BT%7D%2Cn%3Ep">。
 
-$$
-\begin{align*}
-  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
-  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
-  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
-      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
-      \vdots & \ddots & \vdots \\
-      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
-    \end{array} \right)
-  \left( \begin{array}{c}
-      y_1 \\
-      \vdots \\
-      y_n
-    \end{array} \right)
-\end{align*}
+构造样本阵，对样本阵元进行标准化变换：
 
-$$
+### 因子分析法
 
-上面是公式
+因子分析法指从研究指标相关矩阵内部的依赖关系出发，把一些信息重叠、具有错综复杂关系的变量归结为少数几个不相关的综合因子的一种多元统计分析方法。
+
+#### 基本思想
+
+根据相关性大小把变量分组，使得同组内的变量之间相关性较高，不同组的变量不相关或相关性较低。每组变量代表一个基本结构，即公共因子。
+
+#### 步骤
+
+1. 对数据样本进行标准化处理
+2. 计算样本的相关矩阵R
+3. 求相关矩阵R的特征值和特征向量
+4. 根据系统要求的累积贡献率确定主因子的个数。
+5. 计算因子载荷矩阵A
+6. 确定因子模型
+7. 根据上述计算结果，对系统进行分析。
