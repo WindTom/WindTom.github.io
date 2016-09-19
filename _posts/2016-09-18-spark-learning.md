@@ -14,7 +14,7 @@ tags: [spark,hadoop]
 <div align="center">
 
 <image src="http://www.360sdn.com/uploadfile/2015/0330/20150330011728778.jpg">
-
+<p> 图1</p>
 </div>
 
 
