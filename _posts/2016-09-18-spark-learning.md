@@ -10,11 +10,11 @@ tags: [spark,hadoop]
 
 
 
+<div align="center">
 
-
-<image src="http://www.360sdn.com/uploadfile/2015/0330/20150330011728778.jpg">
-<p> 图1</p>
-
+<img src="http://www.360sdn.com/uploadfile/2015/0330/20150330011728778.jpg" >
+<p>图1</p>
+</div>
 
 因为有RDD的抽象概念，spark更适合于迭代运算比较多的ML和DM运算，提供了多种数据操作模型，但是由于RDD的特性，Spark不适用于异步细粒度更新状态的应用，比如Web服务的存储或或者是增量的Web爬虫和索引。
 
@@ -26,7 +26,7 @@ Amazon ec2模式需要运行在amazon ec2上，一般可以不关注。
 
 standalone模式自带完整服务，可单独部署到一个集群上，无需以来其他资源管理系统。
 
-spark on mesos模式是很多公司采用的模式，也是`官方推荐的模式`。目前spark运行在mesos上要比在YARN上更加灵活。目前在Spark on mesos环境中，用户可以选择两种调度模式：1）粗粒度模式（Coarse-grained Mode）2）细粒度模式（Fine-grained Mode）。
+spark on mesos模式是很多公司采用的模式，也是`官方推荐的模式`。目前spark运行在mesos上要比在YARN上更加灵活。目前在Spark on mesos环境中，用户可以选择两种调度模式：1）粗粒度模式（Coarse-grained Mode）；2）细粒度模式（Fine-grained Mode）。
 
 ```
 1)粗粒度模式
