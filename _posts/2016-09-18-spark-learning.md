@@ -8,9 +8,15 @@ tags: [spark,hadoop]
 * content
 {:toc}
 
+
+
+
 <div align="center">
+
 <image src="http://www.360sdn.com/uploadfile/2015/0330/20150330011728778.jpg">
+
 </div>
+
 
 因为有RDD的抽象概念，spark更适合于迭代运算比较多的ML和DM运算，提供了多种数据操作模型，但是由于RDD的特性，Spark不适用于异步细粒度更新状态的应用，比如Web服务的存储或或者是增量的Web爬虫和索引。
 
