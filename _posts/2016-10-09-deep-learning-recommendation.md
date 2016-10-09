@@ -8,6 +8,7 @@ tags: [deep learning,recommendation]
 * content
 {:toc}
 
+个性化推荐将是深度学习最重要的应用之一
 
 
 
