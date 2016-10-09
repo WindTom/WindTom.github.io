@@ -8,6 +8,11 @@ tags: [deep learning,recommendation]
 * content
 {:toc}
 
+
+
+
+
+
 original article from [here](https://www.quora.com/Has-there-been-any-work-on-using-deep-learning-for-recommendation-engines)
 
 正如[Suvash Sedhain](https://www.quora.com/profile/Suvash-Sedhain) 提到，深度学习最近被应用到了个性化推荐。他在[NIPs](http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2013_5004.pdf)提到的工作被用于Spotify的一个实验中（见[Recommending music on Spotify with deep learning](http://benanne.github.io/2014/08/05/spotify-cnns.html)）。最近Spotify上还有一个实验将Recurrent Neural Networks用于基于协同过滤的个性化推荐（[Recurrent Neural Networks for Collaborative Filtering](https://www.quora.com/Has-there-been-any-work-on-using-deep-learning-for-recommendation-engines)）。同样在音乐领域，谷歌发布了使用深度学习方法学习标签用于推荐的方法（[Page on ismir.net](http://www.ismir2011.ismir.net/papers/PS6-13.pdf)）
