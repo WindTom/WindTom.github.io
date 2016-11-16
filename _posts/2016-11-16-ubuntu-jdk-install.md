@@ -53,11 +53,11 @@ $ sudo update-alternatives - -install /usr/bin/java java /usr/lib/jvm/jdk1.8.0/b
 
 输入sun jdk前的数字就好了
 
-$ sudo update-alternatives - -install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0/bin/javac 300 
+$ sudo update-alternatives /--install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0/bin/javac 300 
 
-$ sudo update-alternatives - -config java 
+$ sudo update-alternatives /-/-config java 
 
-$ sudo update-alternatives - -config javac
+$ sudo update-alternatives /-/-config javac
 
 ##查看是否安装成功
 
