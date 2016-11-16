@@ -14,14 +14,16 @@ tags: [java,linux,ubuntu]
 
 
 
-##下载jdk
+## 下载jdk
 
 jdk-8u111-linux-x64.tar.gz [下载地址1](http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html)
 
-##解压缩
+## 解压缩
+
  tar -zxvf jdk-8u111-linux-x64.tar.gz
  将解压好的文件夹用最高权限复制到/usr/lib/jvm中
 sudo cp -r jdk1.8.0 /usr/lib/jvm
+
 ## 配置环境变量
 cd /etc
 sudo gedit profile
