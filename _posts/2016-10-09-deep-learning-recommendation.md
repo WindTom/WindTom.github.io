@@ -13,7 +13,7 @@ tags: [deep learning,recommendation]
 
 
 
-
+---
 original article from [here](https://www.quora.com/Has-there-been-any-work-on-using-deep-learning-for-recommendation-engines)
 
 正如[Suvash Sedhain](https://www.quora.com/profile/Suvash-Sedhain) 提到，深度学习最近被应用到了个性化推荐。他在[NIPs](http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2013_5004.pdf)提到的工作被用于Spotify的一个实验中（见[Recommending music on Spotify with deep learning](http://benanne.github.io/2014/08/05/spotify-cnns.html)）。最近Spotify上还有一个实验将Recurrent Neural Networks用于基于协同过滤的个性化推荐（[Recurrent Neural Networks for Collaborative Filtering](https://www.quora.com/Has-there-been-any-work-on-using-deep-learning-for-recommendation-engines)）。同样在音乐领域，谷歌发布了使用深度学习方法学习标签用于推荐的方法（[Page on ismir.net](http://www.ismir2011.ismir.net/papers/PS6-13.pdf)）
@@ -37,9 +37,7 @@ Ali Mamdouh Elkahky将[深度学习用于微软的新闻和Apps推荐](https://s
 
 ## 谷歌新开源--宽度&深度学习框架：结合记忆和归纳实现更优推荐
 
-人类的大脑能够通过记忆日常生活的种种事件形成规则，并归纳这些学习以应用到我们从未见过的事务上。当我们探索推荐机器只能的方法
-
-将深度神经网络（用于归纳）与宽线性模型（用于记忆）联合进行训练，对带有稀疏输入的一般大规模回归和分类问题（带有大量可能特征值的类别特征）很有用，比如推荐系统、搜索和排名问题。
+人类的大脑能够通过记忆日常生活的种种事件形成规则，并归纳这些学习以应用到我们从未见过的事务上。当我们探索推荐机器智能的方法将深度神经网络（用于归纳）与宽线性模型（用于记忆）联合进行训练，对带有稀疏输入的一般大规模回归和分类问题（带有大量可能特征值的类别特征）很有用，比如推荐系统、搜索和排名问题。
 
 对推荐系统而言，记忆形成和归纳两者都非常重要，使用产品间的特征转换，宽线性模型能有效记忆稀疏特征交互，同时深度神经网络能通过低维度嵌入推广到先前未见过的特征交互。宽度&深度学习框架结合了这两类模型的优势。在大型的商业应用商店Google Play推荐系统上对这一框架进行了投入产品的测试以及评估。在线测试结果显示宽度&深度学习模型相比于单一的宽度或者深度模型，在应用购买上有了极大的改进。
 
@@ -65,15 +63,15 @@ Ali Mamdouh Elkahky将[深度学习用于微软的新闻和Apps推荐](https://s
 `音乐`是deep learning适合发挥优势的领域之一，与Spotify相关的deep learning应用有两篇报导，一篇是"Recommending music on Spotify with deep learning" <sup>[7]</sup> 很详尽，另外一篇是把deep learning与经典的collaboritive filtering结合的尝试，"Recurrent Neural Networks for Collaborative Filtering"[8]。
 
 Google 也发表了一篇音乐相关的 deep learning 论文，"Temporal Pooling and Multiscale Learning for Automatic Annotation and Ranking of Music Audio" <sup>[9]</sup>。
-Netflix 的一位算法研究员作为作者之一的"Session-based Recommendations with Recurrent Neural Networks"[10]。
+Netflix 的一位算法研究员作为作者之一的"Session-based Recommendations with Recurrent Neural Networks" <sup>[10]</sup>。
 
 基于 deeplearning4j 的一个推荐引擎"The WellDressed Recommendation Engine"[11]，据说，使用了这个玩意儿的电商网站把 ad coverage 提升了200%。
 
-微软同学在 WWW2015 上的一篇文章，"A Multi-View Deep Learning Approach for Cross Domain User Modeling in Recommendation Systems"[12]，讲在新闻和应用推荐领域使用deep learning的一些心得。
+微软同学在 WWW2015 上的一篇文章，"A Multi-View Deep Learning Approach for Cross Domain User Modeling in Recommendation Systems" <sup>[12]</sup>，讲在新闻和应用推荐领域使用deep learning的一些心得。
 
-最后重磅推荐，Netflix 前推荐引擎总监 Xavier Amatriain 在 KDD2014 上的压轴分享，「The Recommender Problem Revisited」[13]，得认真啃一啃。
+最后重磅推荐，Netflix 前推荐引擎总监 Xavier Amatriain 在 KDD2014 上的压轴分享，"The Recommender Problem Revisited" <sup>[13]</sup>，得认真啃一啃。
 
-今年的 RecSys 会议，将会第一次专门针对 Deep Learning 与 Recommender Systems 设立一个专门的 workshop，将于今年9月15日在 Boston 举办，[14]这里是一些方向性的题目，有启发。
+今年的 RecSys 会议，将会第一次专门针对 Deep Learning 与 Recommender Systems 设立一个专门的 workshop，将于今年9月15日在 Boston 举办，<sup>[14]</sup>这里是一些方向性的题目，有启发。
 
 另外，就是 Amazon 刚刚宣布开源了 DSSTNE -- Deep Scalable Sparse Tensor Network Engine，DSSTNE 是 Amazon 用来`开发深度学习模型的一套框架`，Amazon 最新的推荐引擎就在使用 DSSTNE。我在知乎专栏里发表了一篇相关介绍`"关于Amazon开源的深度学习框架DSSTNE"`，看这一篇就够了！ - ResysChina - 知乎专栏」
 
