@@ -49,15 +49,15 @@ $ env
 
 ## 将系统默认的jdk修改过来
 
-$ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0/bin/java 300 
+$ sudo update-alternatives - -install /usr/bin/java java /usr/lib/jvm/jdk1.8.0/bin/java 300 
 
 输入sun jdk前的数字就好了
 
-$ sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0/bin/javac 300 
+$ sudo update-alternatives - -install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0/bin/javac 300 
 
-$ sudo update-alternatives --config java 
+$ sudo update-alternatives - -config java 
 
-$ sudo update-alternatives --config javac
+$ sudo update-alternatives - -config javac
 
 ##查看是否安装成功
 
