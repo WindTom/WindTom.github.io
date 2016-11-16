@@ -10,6 +10,10 @@ tags: [java,linux,ubuntu]
 
 本文参考资料： [1](http://www.cnblogs.com/bluestorm/archive/2012/05/10/2493592.html)
 
+
+
+
+
 ##下载jdk
 
 jdk-8u111-linux-x64.tar.gz [下载地址1](http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html)
