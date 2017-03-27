@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "数据挖掘——热点事件发现"
+title: "论文分析"
 description: ""
-category: 数据挖掘
-tags: [数据挖掘,热点事件]
+category: 论文分析
+tags: [存储,ext4]
 ---
 * content
 {:toc}
