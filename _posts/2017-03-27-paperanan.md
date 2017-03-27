@@ -16,7 +16,7 @@ tags: [存储,ext4]
 
 我们提出ext4-lazy方法，对linux的ext4文件系统进行微小改动，就能显著提高以上两种模式下的吞吐量。在两家厂商的四种不同drive-managed SMR磁盘上验证结果证明，ext4-lazy较ext4，在metadata-light file server标准上的性能能够提高1.7-5.4倍；在metadata-heavy标准上不管是drive-managed SMR磁盘还是传统磁盘，性能都快2-13倍。
 
-##1.介绍
+## 1.介绍
 
 世界上超过90%的数据是过去两年产生的。为跟上数据快速增长的步伐，同时为了增强与SSD的竞争力，硬盘厂商发力研究提高容量的技术，像Shingled magnetic recording、HAMR，和BIT-Patterned magnetic recording. HAMR和BPMR仍在研究阶段，SMR能够让硬盘制造商在现有fabrication方法上提高areal  density。不过，这是以增加复杂度为代价的，导致硬盘与CMR硬盘的行为不同。而且，既然SMR能够作为HAMR和BPMR的补充，在areal   desity上提供更大增长，未来可能所有的高容量硬盘都使用SMR。
 
@@ -39,15 +39,15 @@ tags: [存储,ext4]
 在接下来的章节中，我们将给出SMR的背景，指出为什么随机写在DM-SMR磁盘上性能差，为什么metadata writeback在ext4中导致更多随机写（第2节）。接下来，我们介绍ext4-lazy，给出设计和实现（3节）。最后评价实现（4节），介绍相关工作（5节），总结（6节）。源代码和其他资源请访问http://www.pdl.cmu.edu/Publications/
 downloads.shtml.
 
-##2 背景
+## 2 背景
 我们介绍SMR技术，它是如何工作的，然后描述ext4怎么在磁盘上存放数据，它如何使用kernel的layer完成journaling的工作的。
 
-###2.1 DM-SMR内部原理
+### 2.1 DM-SMR内部原理
 
-##3 ext4-lazy的设计和实现
+## 3 ext4-lazy的设计和实现
 首先从整体上介绍设计，而后详细实现
 
-###3.1 动机
+### 3.1 动机
 
 ext4-lazy的动机来自两个观察：
 （1）ext4的metadata writeback造成的随机写，导致DM-SMR磁盘巨大的清理负担
@@ -60,7 +60,7 @@ ext4-lazy的动机来自两个观察：
 
 为了测量hot metadata的比例，我们在ext4上模拟一个build server的I/O负载。实验运行128个并行的Compilebench实例，并将磁盘完成的所有写任务进行归类。在433G的写任务中，388G是写数据，34G是写journal，11G是写metadata。unique metadata blocks的总大小是3.5G，仅占0.8%的总写任务量，且90%的journal writes是overwrites。
 
-###3.2 设计
+### 3.2 设计
 在高层，ext4-lazy在ext4和jbd2中添加以下组件：
 Map：ext4-lazy用jmap跟踪metadata blocks在journal中的位置，也就是内存中有一个map,将一个metadata block的固定位置S与其在journal中的位置J联系起来。每次当有一个metadata被写入journal的时候（图2b），map都会更新。
 
@@ -70,7 +70,7 @@ Cleaner：ext4-lazy中的cleaner将journal中变成stale的位置处（同一met
 
 Map recontruction on mount：每次Mount,ext4-lazy从位于journal的tail和head指针中间的transactions中读取descriptor blocks，并通知jmap
 
-###3.3 实现
+### 3.3 实现
 在jbd2中，我们将jmap作为一个标准的linux red-black tree。jbd2发送一个事务后，更新事务中每个metadata block的jmap，并将这些block在内存中的拷贝标记为clean，以防止它们被writeback。我们通过更改读取metadata blocks的call sites，在ext4中添加间接查询metadata blocks的函数，函数在jmap中查询metadata block的位置。如listing 1。ext4的代码修改量在40行。
 
 indirection允许ext4-lazy后向兼容，逐渐将metadata blocks移动到journal。不过indirection的主要原因是在清理的过程中将冷metadata移动到其固定位置，在journal中保留hot metadata。
@@ -79,11 +79,11 @@ indirection允许ext4-lazy后向兼容，逐渐将metadata blocks移动到journa
 
 map reconstruction只改动了jbd2的一小部分恢复代码（recovery code）。ext4重设journal的途径是正常关闭；在mount上寻找非空journal是crash的标志，并引发recovery process。在ext4-lazy，journal的状态是jmap的永久镜像，因此ext4-lazy从不重设journal并一直“recover”。在我们的原型中，ext-lazy通过读取journal tail和head指针之间的事务的descriptor block（描述性块）来重建jmap。head和tail指针之间的空间约等于1GiB的时候，耗费时间5-6秒。
 
-##4 评估
+## 4 评估
 
 实验采用的设备为：四核i7-3820(sandy bridge)3.6Ghz CPU，16GRAM，系统为Ubuntu 14.04，内核Linux kernel 4.6。使用的磁盘见Table 1中所列。为降低多次启动带来的误差，我们unmount文件系统，启动的时候总是使用同一种文件系统状态，格式化ext4分区(partition)时关闭lazy initialization，将磁盘writeback缓存比例固定为50%（默认情况下，这个比例是通过writeback throughput动态计算而得）。每个实验都重复做至少5次，并给出均方差。
 
-###4.1 Journal 瓶颈
+### 4.1 Journal 瓶颈
 实验发现对于metadata-heavy workloads，ext4默认的128MiB journal是一个瓶颈。之所以提这件事是因为它影响我们选择baseline。Table 1中列出的CMR磁盘WD5000YS的瓶颈验证方法是使用Filebench的CreateFiles microbenchmark在超过6万个文件夹中创建10万个小文件。workload size约等于1GiB，且fits in memory。
 
 尽管ext4-lazy使用一个大journal，因为在ext4上启用一个大journal是命令行，我们选择10GiB journal的ext4作为baseline。本文剩下部分中将默认journal size为128M的ext4称为ext4-stock，10G journal的ext4为ext4-baseline。
