@@ -44,40 +44,67 @@ downloads.shtml.
 
 ### 2.1 DM-SMR内部原理
 
+
+如同SSD磁盘有Flash Translation Layer（FTL）一样，DM-SMR磁盘也有一个Shingle Translatin Layer(STL)。STL管理硬件中的数据，对外则提供block接口。
+> 备注：FTL是SSD上的一个软件层，是最为核心和重要的技术，也是竞争力的保证。
+
+目前，所有STL都提供一个甚至多个persistent cache，以接纳随机写，避免每次写时都出现RMW（read-modify-write）。因此，当一个写操作更新某个band的一部分时，STL将更新写入persistent cahce，同时该band变为dirty。STL负责在空闲时清理dirty band，清理的方法是将cache中的更新数据同band里没有改变的数据合并，然后写入band，然后释放cache里更新数据所占用的空间。
+
+根据使用的block mapping类型的不同，清理一个band的成本也不同。dynamic mapping方法里，STL读取band，在内存中将其更新，然后写入一个新的不同的band中，并修改映射。这导致一次读和一次写。static mapping则需要先将更新后的band写入到一个临时空间（scratch space），因为直接在原band上写会导致断电故障时数据丢失。这导致一次读和两次写。
+
+图4d展示Seagate ST8000AS0002 DM-SMR磁盘的逻辑结构。该磁盘大约有26万个band，每个band的大小在30MiB；sectors映射到固定band上；另外还有大约25GiB的persistent cache（对host不可见）。STL检测到顺序写后开始将它们顺序写入band，而不经过persistent cache。但是，当检测到随机写时，就将数据写入persitent cache，并将band置为dirty。清理一个band大概耗费1-2秒，极端情况下大概耗费45秒。
+
+不同STL的清理策略也不同。一些STL持续小量清理，另外一些空闲时清理。如果数据还没写完，但是cache被填满了，STL就会强制交错执行清理工作和写入工作。
+
+图1展示了两家厂商的DM-SMR磁盘性能。希捷磁盘空闲时清理，且是static mapping（一读两写），因此persistent cache没满时，他们的吞吐量非常高，但满了就超低。图中，不同型号的希捷磁盘吞吐量下降的时间点也不一样，这是因为不同型号磁盘的persistent cache也不一样。西数磁盘则持续地清理，且是dynamic mapping（一读一写），因此当persistent cache没满时吞吐量较希捷小，但cache满后又较希捷高。
+
+###2.2 ext4和日志（journaling）
+
+ext4文件系统从ext2进化而来，它受Fast File System(FFS)影响较大。同FFS一样，exit2将磁盘划分成柱面组，或者用ext2的叫法——block groups。为了进一步增强局部性，block groups内用来代表文件的metadata blocks(inode bitmap,block bitmap,inode table)也被保存在该组内且位于组的头部，如同图5a所示。group descriptor block在block group里的位置是固定的，因此通过它就可以找到metadata blocks。
+
+在ext2中，block groups的大小被限制在128MiB,4KiB位能够表示的最大数量。ext4进入了flexible block groups（flex_bgs）的概念，如图5b所示，flex-bgs包含一组block group，位于前16MiB的是整个flex-bgs的元数据。
+
+ext4保证journaling时metadata的一致性，但它并不自己实现journaling，而是使用称作journaling block device的通用kenel层。journaling block device运行在一个称作jbd2的kernel线程里。当发生文件系统的操作时，ext4从磁盘读取metadata blocks并在内存中更新，并开放给jbd2进行journaling。为了提高性能，jdb2将一段时间内发生的文件系统操作所导致的元数据更新作为一批（默认5秒一批），统一commit到一个transaction buffer，并原子性地将该transaction导入journal————一个带有头尾指针的transactions的circular log。当该buffer满时，或者接到同步写请求时，transaction可能被提前导入。
+
+值得注意的是，一个transaction除了包含metadata blocks，还包括descriptor blocks（记录metadata blocks在该transaction中的static position）。在一次commit后，jbd2将metadata blocks在内存中的拷贝置为dirty，以便writeback线程将其写入他们的static positions。如果一个in-memory metadata block在diry timer到期前发生更新，jdb2将该block作为新的transaction写入日志，并重设该block的timer，延迟writeback。
+
+在DM-SMR磁盘上，当metadata blocks被writeback时，他们将弄脏flex_bg上所对应的bands，如图5c。一个metadata与band并不对齐（可能在1个band上，也可能跨2个），因此metadata的写入可能弄脏0个、1个或2个band。
+
+
 ## 3 ext4-lazy的设计和实现
 首先从整体上介绍设计，而后详细实现
 
 ### 3.1 动机
 
 ext4-lazy的动机来自两个观察：
-（1）ext4的metadata writeback造成的随机写，导致DM-SMR磁盘巨大的清理负担
-（2）文件系统的metadata由一个blocks组成的小集合组成，且hot metadata（被频繁更新）是更小的一个集合。
-从后一个观察得出，在hot metadata大数倍的circluar log里管理hot matadata能将随机写转成纯序列化写，从而减少DM-SMR磁盘的清理负担。
+（1）ext4的metadata writeback造成的随机写，导致DM-SMR磁盘巨大的清理负担。
+（2）文件系统的metadata占一小部分blocks，且hot metadata（被频繁更新）占比更小。
+从后一个观察得出，在比hot metadata大数倍的circluar log里管理hot matadata能将随机写转成纯序列化写，从而减少DM-SMR磁盘的清理负担。
 
-我们首先给出支持第一个观察的数据统计，然后给出第二个观察的实验证据。
+我们首先给出支持第一个观察的计算数据，然后给出第二个观察的实验证据。
 
-一个8T的partition，大约有4000个flex_bg。每个flex_bg的前16Mib含有metadata region。如图5C所示。按band size 30MiB算，更新每个flex_bg平均会污染4000个band，也就是需要清理120G的band，产生360G的磁盘流量。一个设计磁盘1/16容量的worload，也就是500G的文件，会污染至少250个band，需要22.5G的清理工作。如果考虑到像extent tree blocks和directory blocks这样的floating metadata，清理工作会更加繁重。
+一个8T的partition，大约有4000个flex_bg。每个flex_bg的前16Mib是metadata。如图5C所示。按一个band 30MiB算，更新每个flex_bg平均会污染4000个band，也就是需要清理120G的band，产生360G的磁盘流量（一读两写的情况下）。一个涉及磁盘1/16容量的worload，也就是500G的文件，会弄脏至少250个band，需要22.5G的清理工作。如果考虑到像extent tree blocks和directory blocks这样的floating metadata，清理工作会更加繁重。
 
-为了测量hot metadata的比例，我们在ext4上模拟一个build server的I/O负载。实验运行128个并行的Compilebench实例，并将磁盘完成的所有写任务进行归类。在433G的写任务中，388G是写数据，34G是写journal，11G是写metadata。unique metadata blocks的总大小是3.5G，仅占0.8%的总写任务量，且90%的journal writes是overwrites。
+为了测量hot metadata的比例，我们在ext4上模拟一个build server的I/O负载。实验运行128个并行的Compilebench实例，并将磁盘完成的所有写任务进行归类。在433G的写任务中，388G是写数据，34G是写journal，11G是写metadata。unique metadata blocks的总大小是3.5G，仅占0.8%的总写任务量，且90%的journal writes是覆盖写。
 
 ### 3.2 设计
 在高层，ext4-lazy在ext4和jbd2中添加以下组件：
-Map：ext4-lazy用jmap跟踪metadata blocks在journal中的位置，也就是内存中有一个map,将一个metadata block的固定位置S与其在journal中的位置J联系起来。每次当有一个metadata被写入journal的时候（图2b），map都会更新。
+Map：ext4-lazy用jmap跟踪metadata blocks在journal中的位置，也就是内存中有一个map,将一个metadata block的static位置S与其在journal中的位置J联系起来。每次当有一个metadata被写入journal的时候（图2b），map都会更新。
 
-Indirection：在ext4-lazy，所有对metadata blocks的访问都会经过jmap。如果最近版本的block在Journal里，jmap会有一个entry指向它；如果发现没有entry，那么位于固态位置上的就是最新的block。
+Indirection：在ext4-lazy，所有对metadata blocks的访问都会经过jmap。如果最新版本的block在Journal里，jmap会有一个entry指向它；如果发现没有entry，那么位于static位置上的就是最新的block。
 
-Cleaner：ext4-lazy中的cleaner将journal中变成stale的位置处（同一metadata block写入了新的拷贝，因此该位置处的数据过时）的空间收回。
+Cleaner：ext4-lazy中的cleaner释放变成stale的journal的空间（同一metadata block写入了新的拷贝，因此该位置处的数据过时）
 
-Map recontruction on mount：每次Mount,ext4-lazy从位于journal的tail和head指针中间的transactions中读取descriptor blocks，并通知jmap
+Map recontruction on mount：每次Mount,ext4-lazy从位于journal的tail和head指针中间的transactions中读取descriptor blocks，并更新jmap。
 
 ### 3.3 实现
-在jbd2中，我们将jmap作为一个标准的linux red-black tree。jbd2发送一个事务后，更新事务中每个metadata block的jmap，并将这些block在内存中的拷贝标记为clean，以防止它们被writeback。我们通过更改读取metadata blocks的call sites，在ext4中添加间接查询metadata blocks的函数，函数在jmap中查询metadata block的位置。如listing 1。ext4的代码修改量在40行。
+我们在jbd2中，用红黑树实现jmap。当jbd2 commit一个事务后，它更新jmap（更改本次事务所涉及的metadata blcoks的map），并将这些block在内存中的拷贝标记为clean，以防止它们被writeback。我们通过更改读取metadata blocks的call sites，在ext4中添加indirection查询metadata blocks的函数（jmap中查询metadata block位置的函数），如listing 1。ext4的代码修改量在40行。
 
-indirection允许ext4-lazy后向兼容，逐渐将metadata blocks移动到journal。不过indirection的主要原因是在清理的过程中将冷metadata移动到其固定位置，在journal中保留hot metadata。
+indirection允许ext4-lazy后向兼容，逐渐将metadata blocks移动到journal。不过indirection的主要原因是在清理的过程中将冷metadata移动到其static位置，在journal中保留hot metadata。
 
-我们在jdb2中实现cleaner只用了400行C代码，利用现有功能。尤其是，cleaner只从journal的tail中读取live metadata blocks，并通过ext4的相同接口将它们加入到事务buffer。对于每个事务，它保留一个doubly-linked List链接含有该事务的live blocks的jmap entries。更新一个jmap entry就作废一个block并将其从对应的List中去除。清理事务时，cleaner在恒定时间内通过该事务的list找到live blocks，读取并加载到transaction buffer。这个cleaner的美丽之处在于它不会中断文件系统的正常运行，如同并行的操作一样。目前我们使用了一个简单的清理策略，将来可能开发更加优秀的策略（比如冷热分离）。
+我们利用现有功能在jdb2中实现cleaner只用了400行C代码。尤其是，cleaner只从journal的tail中读取live metadata blocks，并通过ext4使用的接口将它们加入到transaction buffer。对于每个transaction，它保留一个doubly-linked List，指向jmap中live blocks 。更新一个jmap entry就作废一个block并将其从对应的List中去除。清理事务时，cleaner在恒定时间内通过该事务的list找到live blocks，读取并加载到transaction buffer。这个cleaner的美丽之处在于它不会中断文件系统的正常运行，如同并行的操作一样。目前我们使用了一个简单的清理策略，将来可能开发更加优秀的策略（比如冷热分离）。
 
-map reconstruction只改动了jbd2的一小部分恢复代码（recovery code）。ext4重设journal的途径是正常关闭；在mount上寻找非空journal是crash的标志，并引发recovery process。在ext4-lazy，journal的状态是jmap的永久镜像，因此ext4-lazy从不重设journal并一直“recover”。在我们的原型中，ext-lazy通过读取journal tail和head指针之间的事务的descriptor block（描述性块）来重建jmap。head和tail指针之间的空间约等于1GiB的时候，耗费时间5-6秒。
+map reconstruction只改动了jbd2的一小部分恢复代码（recovery code）。stock ext4在关机时重置。在mount上发现非空journal代表机器crash了，并触发recovery process。在ext4-lazy，journal的状态是jmap的永久镜像，因此ext4-lazy从不重置journal并一直“recover”。在我们的原型中，ext-lazy通过读取journal tail和head指针之间的事务的descriptor block（描述性块）来重建jmap。head和tail指针之间的空间约等于1GiB的时候，耗费时间5-6秒。
 
 ## 4 评估
 
