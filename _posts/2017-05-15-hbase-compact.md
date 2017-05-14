@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "HBase Compaction"
-description: ""
+description: "hbase"
 category: 
-tags: [,]
+tags: [hbase,compaction]
 ---
 * content
 {:toc}
@@ -12,6 +12,10 @@ tags: [,]
 # 综述
 
 hbase的compaction分minor compaction和major compaction。那么问题是如果设置中关闭了major compaction，还会有minor compaction吗？会有的
+
+
+
+
 
 major compaction可以选择自动关闭。同时保留手动触发。
 
