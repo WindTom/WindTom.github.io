@@ -238,9 +238,8 @@ private long estimateConsume(final OperationType type, int numReqs, long avgSize
 ```
 我们看到quotastate和limiter之间的包含关系可以总结为下图，虽然这样表示可能不标准，但能够说明自上而下的包含关系
 
-<div align="center">
 <img src="https://github.com/WindTom/imagestom/blob/master/quota-throttling.png?raw=true">
-</div>
+
 
 至此，各个操作的Quota检查就算完成了。等等，不是说还要调整真正的读写消费量吗？现在是时候看究竟是谁调用的RegionServerQuotaManager的checkQuota（）方法了。文章开头提到，RSRPCServices的get,mutate,scan和multi方法会调用checkQuota方法。拿get方法举例：
 
