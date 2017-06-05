@@ -13,19 +13,32 @@ tags: [hbase,compaction]
 
 hbase的compaction分minor compaction和major compaction。那么问题是如果设置中关闭了major compaction，还会有minor compaction吗？答案是会有的。
 
+## compaction触发时机
+
+* region server定期检查，一般7天。compaction请求被提交给compactSplitThread
+* client compaction请求，被提交给compactSplitThread
+* memstore flush的时候，会判断是否需要compact
 
 
 
 
+## major compaction
 major compaction可以选择自动关闭。同时保留手动触发。
 
-> **hbase.hregion.majorcompaction**
-> 
-> Time between major compactions, expressed in milliseconds. Set to 0 to disable time-based automatic major compactions. User-requested and size-based major compactions will still run. This value is multiplied by hbase.hregion.majorcompaction.jitter to cause compaction to start at a somewhat-random time during a given window of time
+将hbase.hregion.majorcompaction默认7天执行一次major compaction。将其设为0可关闭major compaction，但是这并不表示从此不会发生major compaction了。在下述情况下,major compaction仍会发生：
+
+* hbase shell命令 major_compact进行触发
+* compact when file <= sum(smaller_files) * 'hbase.hstore.compaction.ratio'。这种情况是指选中的文件数量等于store中的文件数量时，会由minor compact升级为major_compact。
+* major compact时间间隔到期：after (now - min(StoreFile.timestamp)) >"hbase.hregion.majorcompaction" + rand() *hbase.hregion.majorcompaction.jitter"
+
+至于split，并不是设置了hbase.hregion.max.filesize（默认10G）为很大就保证不split了，需要有以下的算法，参见：
+
+IncreasingToUpperBoundRegionSplitPolicy是0.94.0默认region split策略。这里的split有一个判断条件，先计算这tableRegionsCount（regionserver上的这个table的online的region个数）， 
+然后循环计算此region的所有store是否太大，这是通过getSizeToCheck方法计算出一个size,若当前的store总大小大于这个值，则表示此region需要split. getSizeToCheck的计算方法首先判断tableRegionsCount是否等于0，若是则返回hbase.hregion.max.filesize ，若不是，则计算Math.min(getDesiredMaxFileSize(), this.flushSize * (tableRegionsCount * tableRegionsCount)。
 
 # major compaction发生的时间
 
-1. 系统默认每隔24小时执行一次major compaction
+1. 系统默认每隔7天执行一次major compaction
 2. 用户手动触发。
 
 # compaction policy
