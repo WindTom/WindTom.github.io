@@ -160,8 +160,8 @@ multi（multiple actions on a table: get, mutate, and/or execCoprocessor）操�
       if (limiter.isBypass()) continue; //异常情况，先不管它
 
       limiter.checkQuota(writeConsumed, readConsumed); // 看看大小是不是超过了这个limiter的限制。这里limiter只有NoopQuotaLimiter和TimeBasedLimiter
-      readAvailable = Math.min(readAvailable, limiter.getReadAvailable());
-      writeAvailable = Math.min(writeAvailable, limiter.getWriteAvailable());
+      readAvailable = Math.min(readAvailable, limiter.getReadAvailable()); //当前读存量有多少
+      writeAvailable = Math.min(writeAvailable, limiter.getWriteAvailable()); //当前写存量有多少
     }
 
     for (final QuotaLimiter limiter : limiters) {
@@ -180,7 +180,7 @@ private long estimateConsume(final OperationType type, int numReqs, long avgSize
   }
 ```
 
-回到DefaultOperationQuota的checkQuota方法，最重要的是'limiter.checkQuota(writeConsumed, readConsumed)'这段代码。进入TimeBasedLimiter的checkQuota（）方法：
+回到DefaultOperationQuota的checkQuota方法，最重要的是`limiter.checkQuota(writeConsumed, readConsumed)`这段代码。进入TimeBasedLimiter的checkQuota（）方法：
 
 ```java
 @Override
@@ -213,40 +213,167 @@ private long estimateConsume(final OperationType type, int numReqs, long avgSize
   }
 ```
 
-注意到，这个函数会把所有的limiter都检查一遍，但凡有一个Limiter不满足条件，就抛出异常。
+注意到，这个函数会把所有的limiter都检查一遍，但凡有一个Limiter不满足条件，就抛出异常。如果所有的判断条件都通过，下面就走到了`limiter.grabQuota(writeConsumed, readConsumed)`这一步。这个方法的详细代码如下：
+```java
+  /* Removes the specified write and read amount from the quota. 
+   * At this point the write and read amount will be an estimate, that will be later adjusted with a consumeWrite()/consumeRead() call.
+   * 意思就是说扣除掉估算的写大小和读大小，但是这是估算的大小，具体大小稍后会通过调用consumeWrite()和consumeRead()进行调整
+   */
+  @Override
+  public void grabQuota(long writeSize, long readSize) {
+    assert writeSize != 0 || readSize != 0;
 
+    reqsLimiter.consume(1);
+    reqSizeLimiter.consume(writeSize + readSize);
 
-
-总结，我们看到quotastate和limiter之间的包含关系可以总结为下图，虽然这样表示可能不标准，但能够说明自上而下的包含关系
+    if (writeSize > 0) {
+      writeReqsLimiter.consume(1);
+      writeSizeLimiter.consume(writeSize);
+    }
+    if (readSize > 0) {
+      readReqsLimiter.consume(1);
+      readSizeLimiter.consume(readSize);
+    }
+  }
+```
+我们看到quotastate和limiter之间的包含关系可以总结为下图，虽然这样表示可能不标准，但能够说明自上而下的包含关系
 
 <div align="center">
 <img src="https://github.com/WindTom/imagestom/blob/master/quota-throttling.png?raw=true">
 </div>
 
+至此，各个操作的Quota检查就算完成了。等等，不是说还要调整真正的读写消费量吗？现在是时候看究竟是谁调用的RegionServerQuotaManager的checkQuota（）方法了。文章开头提到，RSRPCServices的get,mutate,scan和multi方法会调用checkQuota方法。拿get方法举例：
+
+```java
+  /**
+   * Get data from a table.
+   *
+   * @param controller the RPC controller
+   * @param request the get request
+   * @throws ServiceException
+   */
+  @Override
+  public GetResponse get(final RpcController controller,
+      final GetRequest request) throws ServiceException {
+    long before = EnvironmentEdgeManager.currentTime();
+    OperationQuota quota = null;  // 创建一个Quota对象
+    try {
+      checkOpen();
+      requestCount.increment();
+      rpcGetRequestCount.increment();
+      Region region = getRegion(request.getRegion());
+
+      GetResponse.Builder builder = GetResponse.newBuilder();
+      ClientProtos.Get get = request.getGet();
+      Boolean existence = null;
+      Result r = null;
+      quota = getQuotaManager().checkQuota(region, OperationQuota.OperationType.GET);  // 执行Quota检查
+
+      if (get.hasClosestRowBefore() && get.getClosestRowBefore()) {
+        if (get.getColumnCount() != 1) {
+          throw new DoNotRetryIOException(
+            "get ClosestRowBefore supports one and only one family now, not "
+              + get.getColumnCount() + " families");
+        }
+        byte[] row = get.getRow().toByteArray();
+        byte[] family = get.getColumn(0).getFamily().toByteArray();
+        r = region.getClosestRowBefore(row, family);
+      } else {
+        Get clientGet = ProtobufUtil.toGet(get);
+        if (get.getExistenceOnly() && region.getCoprocessorHost() != null) {
+          existence = region.getCoprocessorHost().preExists(clientGet);
+        }
+        if (existence == null) {
+          r = region.get(clientGet);
+          if (get.getExistenceOnly()) {
+            boolean exists = r.getExists();
+            if (region.getCoprocessorHost() != null) {
+              exists = region.getCoprocessorHost().postExists(clientGet, exists);
+            }
+            existence = exists;
+          }
+        }
+      }
+      if (existence != null){
+        ClientProtos.Result pbr =
+            ProtobufUtil.toResult(existence, region.getRegionInfo().getReplicaId() != 0);
+        builder.setResult(pbr);
+      } else  if (r != null) {
+        ClientProtos.Result pbr;
+        RpcCallContext call = RpcServer.getCurrentCall();
+        if (isClientCellBlockSupport(call) && controller instanceof PayloadCarryingRpcController
+            && VersionInfoUtil.hasMinimumVersion(call.getClientVersionInfo(), 1, 3)) {
+          pbr = ProtobufUtil.toResultNoData(r);
+          ((PayloadCarryingRpcController) controller)
+              .setCellScanner(CellUtil.createCellScanner(r.rawCells()));
+          addSize(call, r, null);
+        } else {
+          pbr = ProtobufUtil.toResult(r);
+        }
+        builder.setResult(pbr);
+      }
+      if (r != null) {
+        quota.addGetResult(r); // quota
+      }
+      return builder.build();
+    } catch (IOException ie) {
+      throw new ServiceException(ie);
+    } finally {
+      if (regionServer.metricsRegionServer != null) {
+        regionServer.metricsRegionServer.updateGet(
+          EnvironmentEdgeManager.currentTime() - before);
+      }
+      if (quota != null) {
+        quota.close();  //quota
+      }
+    }
+  }
+```
+
+这段代码很长，我们只看与Quota相关的部分。checkQuota部分不必再看，奇怪的是出现两句代码`quota.addGetResult(r)`和`quota.close()`，它们是做什么用的呢？先看`quota.addGetResult(r)`所调用的方法：
+```java 
+  @Override
+  public void addGetResult(final Result result) {
+    operationSize[OperationType.GET.ordinal()] += QuotaUtil.calculateResultSize(result);
+  }
+```
+从代码里不难看出，这是在计算get操作所返回的结果的真正大小，也就是真正的消费量。
+
+直接看`quota.close()`所调用的方法：
+```java
+  @Override
+  public void close() {
+    // Adjust the quota consumed for the specified operation
+    long writeDiff = operationSize[OperationType.MUTATE.ordinal()] - writeConsumed;
+    long readDiff = operationSize[OperationType.GET.ordinal()] +
+        operationSize[OperationType.SCAN.ordinal()] - readConsumed;
+
+    for (final QuotaLimiter limiter: limiters) {
+      if (writeDiff != 0) limiter.consumeWrite(writeDiff);
+      if (readDiff != 0) limiter.consumeRead(readDiff);
+    }
+  }
+```
+到这里就非常清楚了，最后进行的步骤就是把真正消费量和估计消费量之间的差额给补齐，多退少补。
 
 
 # 附录
 
 ## 附录1：UserQuotaState
 
+QuotaState(class)：In-Memory state of table or namespace quotas
+UserQuotaState(继承QuotaState)：In-Memory state of the user quotas
+
 ## 附录2：QuotaLimiter
+
+TimeBasedLimiter和NoopQuotaLimiter（空架子，什么都不做）实现了QuotaLimiter接口。
 
 ## 附录3：RateLimiter
 
+FixedIntervalRateLimiter和AverageIntervalRateLimiter继承了RateLimiter(abstract class)。具体使用FixedIntervalRateLimiter还是AverageIntervalRateLimiter，看HBase的配置hbase.quota.rate.limiter，默认是AverageIntervalRateLimiter
+
 NoopQuotaLimiter：当user/table没有关联limiter的时候使用。
-QuotaLimiter：
 
 
-<div align="center"><table style="text-align: center; width: 100%;" border="1" cellpadding="1" cellspacing="1">
 
-<tr>
-<td><img src="https://github.com/WindTom/imagestom/blob/master/quota-throttling.png?raw=true"></td>
-<td><img src=""></td>
-</tr>
 
-<tr>
-<td><p><small><b> </b></small></p></td>
-<td><p><small><b> </b></small></p></td>
-</tr>
-
-<br><br></table></div>
