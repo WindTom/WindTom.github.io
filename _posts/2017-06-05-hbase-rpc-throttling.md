@@ -2,7 +2,7 @@
 layout: post
 title: "HBase RPC throttling 源码分析"
 description: ""
-category: HBase
+category: hbase
 tags: [hbase,quotas,rpc]
 ---
 * content
