@@ -48,3 +48,21 @@ tags: [hand gesture,recognition]
 </tr>
 
 <br><br></table></div>
+
+
+
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'hand-getsture'
+  owner: 'windtom',
+  repo: 'imagestom',
+  oauth: {
+    client_id: 'cd7a165e59efb20d5814',
+    client_secret: '64c1adf3344bc40b32a9554c6f76f0c2f7f81373',
+  },
+})
+gitment.render('container')
+</script>
