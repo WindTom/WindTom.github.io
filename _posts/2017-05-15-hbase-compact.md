@@ -9,7 +9,7 @@ tags: [hbase,compaction]
 {:toc}
 
 
-# 综述
+## 综述
 
 hbase的compaction分minor compaction和major compaction。那么问题是如果设置中关闭了major compaction，还会有minor compaction吗？答案是会有的。
 

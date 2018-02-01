@@ -44,3 +44,19 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {% endif %}
+
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '页面 ID', // 可选。默认为 location.href
+  owner: 'windtom',
+  repo: 'imagestom',
+  oauth: {
+    client_id: 'cd7a165e59efb20d5814',
+    client_secret: '64c1adf3344bc40b32a9554c6f76f0c2f7f81373',
+  },
+})
+gitment.render('container')
+</script>
